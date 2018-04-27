@@ -33,7 +33,7 @@ setup(name='radarly-py',
       ],
       include_package_data=True,
       keywords='radarly linkfluence api',
-      license='MIT',
+      license='Apache-2.0',
       classifiers=[
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.4',

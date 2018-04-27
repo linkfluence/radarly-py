@@ -4,7 +4,7 @@
 
 :Author: Linkfluence SAS
 :Version: 1.0.0
-:Licence: MIT
+:Licence: Apache-2.0
 
 .. _official documentation: https://api.linkfluence.com
 
@@ -59,5 +59,5 @@ __title__ = 'radarly'
 __version__ = '1.0.0'
 __author__ = 'Linkfluence SAS'
 __url__ = 'https://api.linkfluence.com'
-__licence__ = 'MIT'
+__licence__ = 'Apache-2.0'
 __copyright__ = 'Copyright 2018 Linkfluence SAS'
