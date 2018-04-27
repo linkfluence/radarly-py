@@ -1,0 +1,5 @@
+POST /oauth2/token HTTP/1.1
+Host: oauth.linkfluence.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&refresh_token=xxx

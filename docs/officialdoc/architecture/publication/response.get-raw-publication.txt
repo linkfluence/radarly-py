@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+      "title":"Igit poétise ses chansons sur scène",
+      "text":"<p>Le chanteur se produit seul sur scène actuellement avec son premier album Jouons. Une tournée qui s’est arrêtée en Suisse, à Genève, pour un retour attendu de l’artiste.</p><p>Igit a publié le 31 mars dernier son premier album Jouons qu’il présente depuis quelques semaines sur scène et cette date suisse, au Chat Noir à Genève, le 30 avril. Si le disque est un bon moment de bonheur avec la voix suave de l’artiste et ses textes délicats, sur scène ce n’est ni plus ni moins qu’un moment de poésie, d’humour et d’amour.</p><p>Seul sur scène accompagné de son fidèle petit piano rouge, de sa guitare et de quelques objets à la fois décoratifs et utiles, il propose un instant tendre et généreux. Ses chansons prennent vie sous la forme d’une histoire captant l’attention du public. Une nouvelle expérience que d’offrir une soirée intimiste entre un public fidèle et un autre curieux mais dont tout le monde ressort conquis de ce conte musical chanté, parlé et illustré. L’interprète de Joie fait d’autant plus plaisir aux spectateurs qu’il les fait participer notamment lors d’un rappel inédit pour un artiste et que seul Igit, avec sa générosité peut encore offrir au public.</p><p>Courez voir Igit sur scène, cet « homme bon », pour une soirée de grâce et de poésie dont la tournée passe encore dans plusieurs villes de France et de Belgique.</p><p>Advertisements</p>"
+}

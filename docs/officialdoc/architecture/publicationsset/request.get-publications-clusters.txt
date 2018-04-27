@@ -1,0 +1,48 @@
+POST /1.0/projects/3/stories.json HTTP/1.1
+Host: radarly.linkfluence.com
+Content-Type: application/json
+Authorization: Bearer XXX
+
+{
+  "sortBy": "radar.reach",
+  "sortOrder": "desc",
+  "start": 0,
+  "limit": 20,
+  "metrics": [
+    "doc",
+    "impression",
+    "reach"
+  ],
+  "flag": {
+    "rt": true
+  },
+  "focuses": [
+    {
+      "id": 10,
+      "include": true
+    },
+    {
+      "id": 6,
+      "include": true
+    },
+    {
+      "id": 53669,
+      "include": true
+    },
+    {
+      "id": 14,
+      "include": true
+    },
+    {
+      "id": 93062,
+      "include": true
+    },
+    {
+      "id": 93066,
+      "include": true
+    }
+  ],
+  "from": "2017-05-25T00:00:00+02:00",
+  "to": "2017-06-23T23:59:59+02:00",
+  "interval": "day"
+}

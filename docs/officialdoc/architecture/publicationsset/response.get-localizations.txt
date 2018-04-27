@@ -1,0 +1,26 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+  "took":160,
+  "geo-digging":
+    [
+      {
+        "id":72057594040940810,
+        "idStr":"72057594040940810",
+        "isoCode":"FR-J",
+        "counts":{"doc":30},
+        "info":
+          {
+            "name":"Île-de-France",
+            "lang":"en",
+            "lat":48.7,
+            "lng":2.5
+          }
+        },
+    ]
+}

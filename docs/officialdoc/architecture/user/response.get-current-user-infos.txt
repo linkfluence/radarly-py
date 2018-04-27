@@ -1,0 +1,96 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 1042
+
+{
+    "id":12,
+    "name":"Camille Maussang",
+    "email":"camille.maussang@linkfluence.com",
+    "theme":"dark",
+    "locale":"en_GB",
+    "timezone":"Europe/Paris",
+    "connected":1432111328353,
+    "isPending":false,
+    "isDisabled":false,
+    "isRoot":true,
+    "isInternal":true,
+    "isManager":false,
+    "level":"application",
+    "canCreateProject":false,
+    "connectionCount":34,
+    "updated":"2015-05-19T16:34:42.777Z",
+    "created":"2015-03-31T20:57:02.171Z",
+    "pictureId":15,
+    "currentProjectId":3,
+    "accountId":1,
+    "projects":[
+        {
+            "id":3,
+            "accountId":1,
+            "label":"linkfluence",
+            "docsCount":3502,
+            "totalIndexedDocsCount":3506,
+            "docsVersion":179,
+            "outOfReachCount":15,
+            "pictureId":8,
+            "clientReference":"30008",
+            "volState":0,
+            "projectManagerId":5,
+            "researchManagerId":59,
+            "socialWallText":"",
+            "mm3Id":"",
+            "created":"2015-03-31T09:07:01.399Z",
+            "updated":"2015-03-31T21:55:16.959Z",
+            "flags": {
+                "isGnipActivated": false,
+                "isSinaweiboActivated": false,
+                "isBoardreaderActivated": false,
+                "isSocialgistReviewActivated": false,
+                "isCharged": false,
+                "isTest": false,
+                "isResearch": false,
+                "isActive": true,
+                "isAccessible": true,
+                "isSocialWallActivated": false,
+                "isCom": false,
+                "isMigrated": false,
+                "hasDedicatedIndex": true,
+                "isTranslationActivated": true
+            },
+            "limits": {
+                "maxVol": 100000000000,
+                "maxTopics": 15,
+                "maxFocus": 10,
+                "maxSearch": 500,
+                "maxSocialAccounts": 10,
+                "maxEntities": 9,
+                "maxSocialAccountByPlaform": 1,
+                "maxLiveStreams": 10,
+                "maxCorpus": 50,
+                "maxSourceInCorpus": 2000,
+                "maxTranslationBudget": 0,
+                "start": "2017-01-31T23:00:00.000Z",
+                "stop": "2017-12-31T22:59:59.999Z",
+                "pack": "Pack 4"
+            },
+            "sinaweiboOptions": {
+                "push": true,
+                "spam": false,
+                "duplicates": false
+            },
+            "role": "read",
+            "dashboardIds": []
+        }
+    ],
+    "engagement":{
+        "twitter":{
+            "credentials":["1234567","1234567890","12345678"]
+        },
+        "facebook":{
+            "pages":["123456789012345","12345678901"]
+        }
+    }
+}

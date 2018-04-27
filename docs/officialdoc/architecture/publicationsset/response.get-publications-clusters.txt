@@ -1,0 +1,32 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+      "took":390,
+      "hits":[
+        {
+          "story":"f14f5736-52ed-408a-87e2-13a021e0fe46",
+          "size":4,
+          "hit":
+          {
+            "permalink":"url",
+            "uid":"r3_prod_2-872901822922489856",
+            "text":"En attendant la suite de vos programmes sur",
+            "lang":"fr",
+            "date":"2017-06-08T19:43:06.000Z",
+            "keyword":[],
+            "focuses":[]
+          },
+          "stats":
+            {
+              "tones":[{"term":"neutral","counts":{"doc":4,"impression":21688,"reach":1735}}],
+              "platforms":[{"term":"twitter","counts":{"doc":4,"impression":21688,"reach":1735}}],
+              "days":[{"date":"2017-06-08T00:00:00.000Z","counts":{"doc":1,"impression":5441,"reach":435}}]
+            }
+          },
+        ]
+}

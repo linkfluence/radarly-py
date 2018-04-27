@@ -1,0 +1,96 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+   "took" : 2,
+   "total" : 2332,
+   "hits" : [
+      {
+         "text" : "Hungry? Get free cupcakes and nice Social Media Monitoring Solutions on H6G031 #linkfluence
+            #dmexco #Dmexco2015 http://t.co/EcQhNltkSq",
+         "sscore" : 0,
+         "idStr" : "644416829281189889",
+         "inReplyToStatusIdStr" : "-1",
+         "lang" : "en",
+         "externalUrl" : "http://t.co/EcQhNltkSq",
+         "keyword" : [
+            "linkfluence",
+            "dmexco",
+            "dmexco2015"
+         ],
+         "inReplyToStatusId" : -1,
+         "uid" : "r3_prod_3-644416829281189889",
+         "rawScore" : 0,
+         "geo" : {
+            "inferred" : {
+               "admin1" : "null",
+               "cid" : "null",
+               "country" : "XX",
+               "location" : "null"
+            },
+            "given" : {
+               "location" : "null",
+               "admin1" : "null",
+               "cid" : "null",
+               "country" : "XX"
+            }
+         },
+         "tone" : "neutral",
+         "id" : 644416829281189889,
+         "retweet" : "null",
+         "isRT" : false,
+         "date" : "2015-09-17T07:45:19.000Z",
+         "hashtag" : [
+            "linkfluence",
+            "dmexco",
+            "Dmexco2015"
+         ],
+         "score" : {
+            "favourite" : "null",
+            "rt" : 1,
+            "reply" : "null"
+         },
+         "user" : {
+            "geo" : {
+               "location" : "null",
+               "country" : "XX",
+               "cid" : "null",
+               "admin1" : "null"
+            },
+            "profileImg" : "http://pbs.twimg.com/profile_images/590057333029478400/sx5Lfvyk_normal.png",
+            "followers" : 456,
+            "gender" : "null",
+            "screenName" : "linkfluenceDE",
+            "name" : "linkfluenceDE",
+            "id" : 1376110370
+         },
+         "focuses" : [],
+         "origin" : {
+            "source" : "twitter",
+            "platform" : "twitter",
+            "detailed" : "stream"
+         },
+         "mention" : [],
+         "media" : {
+            "presentation" : [],
+            "image" : [
+               "http://pbs.twimg.com/media/CPFtr1wWwAEgano.jpg"
+            ],
+            "video" : "null"
+         },
+         "radar" : {
+            "updated" : "2015-09-17T07:45:20.000Z",
+            "tag" : "null",
+            "created" : "2015-09-17T07:45:20.000Z",
+            "trash" : false,
+            "favorite" : false
+         },
+         "permalink" : "https://twitter.com/linkfluenceDE/status/644416829281189889"
+      },
+   ],
+   "stats" : {}
+}

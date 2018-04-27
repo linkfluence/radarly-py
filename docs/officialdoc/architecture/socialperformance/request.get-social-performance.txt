@@ -1,0 +1,3 @@
+GET /1.0/projects/3/performance.json?platform=twitter&amp;from=2015-12-14T00:00:00%2B01:00&amp;to=2015-12-17T00:00:00%2B02:00&amp;tz=Europe%2FParis HTTP/1.1
+Host: radarly.linkfluence.com
+Authorization: Bearer XXX

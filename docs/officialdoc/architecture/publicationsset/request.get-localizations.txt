@@ -1,0 +1,36 @@
+POST /1.0/projects/3/insights/geo/region.json?locale=en_GB HTTP/1.1
+Host: radarly.linkfluence.com
+Content-Type: application/json
+Authorization: Bearer XXX
+
+{
+  "flag": {
+    "rt": true
+  },
+  "query": "",
+  "focuses": [
+    {
+      "id": 6130,
+      "include": true
+    },
+    {
+      "id": 6137,
+      "include": true
+    },
+    {
+      "id": 6135,
+      "include": true
+    },
+    {
+      "id": 6139,
+      "include": true
+    },
+    {
+      "id": 6144,
+      "include": true
+    }
+  ],
+  "from": "2015-03-01T00:00:00+01:00",
+  "to": "2015-10-06T00:00:00+02:00",
+  "tz": "Europe/Paris"
+}

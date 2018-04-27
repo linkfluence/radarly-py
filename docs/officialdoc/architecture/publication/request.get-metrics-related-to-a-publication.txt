@@ -1,0 +1,3 @@
+GET /1.0/projects/3/documents/raw-metrics.json?platform=facebook&uid=r3_prod_2-10155933900809796 HTTP/1.1
+Host: radarly.linkfluence.com
+Authorization: Bearer XXX

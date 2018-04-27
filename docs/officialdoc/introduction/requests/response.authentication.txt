@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+    "access_token":"XXXXXX",
+    "refresh_token": "XXXXXXX",
+    "scope":"listening historical-data",
+    "token_type":"Bearer"
+}

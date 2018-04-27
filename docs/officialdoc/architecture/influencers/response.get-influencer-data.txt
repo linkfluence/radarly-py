@@ -1,0 +1,47 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+    "user":{
+        "uid":"r3_prod_4-1344951",
+        "name":"WIRED",
+        "email":[],
+        "telephone":null,
+        "comment":null,
+        "socialAccount":{
+            "twitter":null,
+            "facebook":null,
+            "instagram":null,
+            "website":"WIRED.com",
+            "o-website":[]
+        },
+        "screenName":"WIRED",
+        "permalink":"https://twitter.com/WIRED",
+        "id":1344951,
+        "description":"WIRED is where tomorrow is realized.",
+        "gender":null,
+        "profileImg":"http://pbs.twimg.com/profile_images/615598832726970372/jsK-gBSt_normal.png",
+        "geo":{
+            "country":"US",
+            "location":{
+                "lon":-73.992602,
+                "lat":40.742185
+            },
+            "cid":"72057594043056517",
+            "admin1":"72057594043056574"
+        },
+        "followers":5142613,
+        "tags":[]
+    },
+    "metrics":{
+        "listed-count":82320,
+        "followings-count":240,
+        "statuses-count":50896,
+        "followers-count":5177334,
+        "favourites-count":1663
+    }
+}

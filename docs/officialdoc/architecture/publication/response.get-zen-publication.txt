@@ -1,0 +1,90 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+   "zen" : "<div><h1 class=\"zen-title\">\nPrès de trois Français sur quatre prêts à acheter des
+    médicaments sur Internet\n\n</h1><div class=\"zen-content\"><td id=\"mainCell\">
+    \t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\n\t\t<div id=\"header_author_up\">\n\t\t                <div id=\"
+    authorNameFunction\">\n\n                                            <h2>Par <a class=\"footnote\" href
+    =\"http://marketingclient.lesechos.fr/auteurs/Jean-Daniel-Levy-a-300_s_d0366f5ffb2587df3bdde6acb57d4c26.
+    html\">Jean-Daniel Lévy</a></h2>                                    </div>\n                <div class=\
+    "userFunction\">, directeur du département Politique &amp; Opinion, Harris Interactive</div>        
+    \t\t        \n\t</div>\n\n<br><br>*<b>Méthodologie</b><br><i>Enquête réalisée en ligne du 3 au 5
+    février 2015. Echantillon de 1 \n040 personnes représentatives des Français âgés de 18 ans et plus.
+    \nMéthode des quotas et redressement appliquée aux variables suivantes : \nsexe, âge, catégorie
+    socioprofessionnelle et région\n d&#39;habitation de l&#39;interviewé(e). </i><br><br>Copyright photo :
+    <a title=\"Accéder à la galerie de Don Hankins\" data-track=\"attributionNameClick\" data-rapid_p=\"27\"
+     href=\"https://www.flickr.com/photos/23905174@N00/\">Don Hankins</a>\n\t\n\t\n\t \n<br>\n\n\t\t<div
+     class=\"keyWordDown\">\n\t\t\t<span class=\"footnote\">Mots clefs :</span> <h2 class=\"themaKeyword
+     themaKeyword_56\"><a href=\"http://marketingclient.lesechos.fr/sante/\">santé</a>,</h2> <h4><a class=\"
+     footnote\" href=\"http://marketingclient.lesechos.fr/?sant%E9+2.0\">santé 2.0</a></h4>, <h4><a class=\"
+     footnote\" href=\"http://marketingclient.lesechos.fr/?m-sant%E9\">m-santé</a></h4>, <h4><a class=\"
+     footnote\" href=\"http://marketingclient.lesechos.fr/?sant%E9+connect%E9e\">santé connectée</a></h4>, <
+     h4><a class=\"footnote\" href=\"http://marketingclient.lesechos.fr/?pharmaceutique\">pharmaceutique</a>
+     </h4>, <h4><a class=\"footnote\" href=\"http://marketingclient.lesechos.fr/?pharmacie\">pharmacie</a></
+     h4>, <h4><a class=\"footnote\" href=\"http://marketingclient.lesechos.fr/?sant%E9\">santé</a></h4>\t</
+     div>\n\t\n\n\n\t<div id=\"componentMoreContributions\">\n\t\t\n\n\t\t<div id=\"flowRow\">
+     \n\t\t\t\t\t\t\t<div class=\"contribution largeBorder\">\n\t\t\t\t\t\t\t\t\t\t\t<a title=\"Social Big
+     Data : la santé en pointe\" class=\"pictureContainer\" href=\"http://marketingclient.lesechos.fr/sante/
+     social-big-data-la-sante-en-pointe_a-56-134.html\">\n\t\t\t\t\t\t\t<img title=\"Social Big Data : la
+     santé en pointe\" alt=\"Social Big Data : la santé en pointe\" src=\"http://marketingclient.lesechos.fr
+     /partners/arvato/cacheDirectory/HTMLcontributions/img/134_FLOW_LARGE.jpeg\">
+     \n\t\t\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<h3><a title=\"Social Big Data : la santé en
+     pointe\" class=\"title\" href=\"http://marketingclient.lesechos.fr/sante/social-big-data-la-sante-en-
+     pointe_a-56-134.html\">Social Big Data : la santé en pointe</a></h3>\n\t\t\t\t\t\t\t\t\t\t\t<div class
+     =\"abstractContainer\">\n\t\t\t\t\t\t\t<p class=\"abstract\">Les laboratoires pharmaceutiques ont
+     depuis longtemps compris l&#39;intérêt de la captation et de l&#39;analyse des données issues des
+     médias sociaux. Elles leur permettent...</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"
+     authorTextContainer\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>Par </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a
+      title=\"Guilhem Fouetillou\" class=\"authorName\" href=\"http://marketingclient.lesechos.fr/auteurs/
+      Guilhem-Fouetillou-a-293_s_912bb026ec13c325886248d3c7dd9cef.html\">Guilhem Fouetillou</a>
+      \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"authorFunction\">, co-fondateur et directeur stratégies
+      et innovation <hl class=\"focus-18\">Linkfluence</hl></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</p>
+      \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"contribution largeBorder\">
+      \n\t\t\t\t\t\t\t\t\t\t\t<div class=\"textContainer\">\n\t\t\t\t\t\t\t\t\t\t<h3><a title=\"Hy-Result :
+      l'hypertension artérielle à l'heure de la santé connectée\" class=\"title\" href=\"http://
+      marketingclient.lesechos.fr/sante/hy-result-l-hypertension-arterielle-a-l-heure-de-la-sante-
+      connectee_a-56-27.html\">Hy-Result : l&#39;hypertension artérielle à l&#39;heure de la santé connectée
+      </a></h3>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"abstractContainer\">\n\t\t\t\t\t\t\t<p class=\"abstract\
+      ">Afin d&#39;optimiser le lien entre les patients, leurs médecins et le centre, les équipes
+      soignantes de l&#39;unité d&#39;hypertension artérielle de l&#39;hôpital européen Georges...</p>
+      \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"authorTextContainer\">
+      \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>Par </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a title=\"Nicolas
+      Postel-Vinay\" class=\"authorName\" href=\"http://marketingclient.lesechos.fr/auteurs/Nicolas-Postel-
+      Vinay-a-278_s_892e498cd0da43acdbf1ba7e388ddac1.html\">Nicolas Postel-Vinay</a>
+      \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"authorFunction\">, docteur à l&#39;hôpital Européen
+      Georges Pompidou</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>
+      \n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"contribution largeBorder\">
+      \n\t\t\t\t\t\t\t\t\t\t\t<div class=\"textContainer\">\n\t\t\t\t\t\t\t\t\t\t<h3><a title=\"Le mobile
+      est-il l'avenir de la santé ?\" class=\"title\" href=\"http://marketingclient.lesechos.fr/sante/le-
+      mobile-est-il-l-avenir-de-la-sante-_a-56-6.html\">Le mobile est-il l&#39;avenir de la santé ?</a></h3>
+      \n\t\t\t\t\t\t\t\t\t\t\t<div class=\"abstractContainer\">\n\t\t\t\t\t\t\t<p class=\"abstract\">Le
+      déploiement de la technologie mobile dans le domaine de la santé permettra non seulement d&#39;
+      économiser sur les dépenses de santé, mais aussi la mise en place de...</p>\n\t\t\t\t\t\t</div>
+      \n\t\t\t\t\t\t\t\t\t\t\t<p class=\"authorTextContainer\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>Par </
+      span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a title=\"Elisabeth Hachmanian\" class=\"authorName\" href=\"
+      http://marketingclient.lesechos.fr/auteurs/Elisabeth-Hachmanian-
+      a-259_s_63effecd86aa76742d46dbed587e1aa5.html\">Elisabeth Hachmanian</a>
+      \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"authorFunction\">, associée PwC  santé et protection
+      sociale</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>
+      \n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"contribution largeBorder\">
+      \n\t\t\t\t\t\t\t\t\t\t\t<div class=\"textContainer\">\n\t\t\t\t\t\t\t\t\t\t<h3><a title=\"Comment la
+      Santé s'invite sur les médias sociaux\" class=\"title\" href=\"http://marketingclient.lesechos.fr/
+      sante/comment-la-sante-s-invite-sur-les-medias-sociaux_a-56-7.html\">Comment la Santé s&#39;invite
+      sur les médias sociaux</a></h3>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"abstractContainer\">
+      \n\t\t\t\t\t\t\t<p class=\"abstract\">Le développement du secteur médical sur Internet et les
+      réseaux sociaux est porteur d&#39;espoir pour les patients comme pour les professionnels. Il reste
+      cependant...</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"authorTextContainer\">
+      \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span>Par </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a title=\"Denise
+      Silber\" class=\"authorName\" href=\"http://marketingclient.lesechos.fr/auteurs/Denise-Silber-
+      a-260_s_0ff2527e813c5f051e4b2bb2b8d78771.html\">Denise Silber</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<
+      span class=\"authorFunction\">, présidente de l&#39;agence conseil Basil Strategies</span>
+      \n\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div
+      >\n\t\t\t\t\t</div>\n\t</div>\n\n\t\t\n<div class=\"titrePage1 bg_titreComment \"><table><tbody><tr><
+      td></td><td id=\"titleRight\"><span class=\"contentTitrePage\"><a href=\"\" name=\"COMMENTS\"> </a> 
+      </span></td></tr></tbody></table></div>\n\n\t\t\t\t\n\t\t\n\t\n\n    </td></div></div>"
+}

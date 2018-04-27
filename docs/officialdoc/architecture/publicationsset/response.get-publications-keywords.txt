@@ -1,0 +1,16 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+    "method": "exact",
+    "cloud": {
+        "hashtags": {
+            "myhashtag": {"doc": 319},
+            "fridaygif": {"doc": 308}
+        },
+    }
+}

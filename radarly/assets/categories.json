@@ -1,0 +1,106 @@
+{
+  "business": [
+    "luxury",
+    "market",
+    "transport",
+    "your-money"
+  ],
+  "ecology": [
+    "biodiversity",
+    "climatic",
+    "energy",
+    "farming",
+    "natural-disaster",
+    "pollution-recycling"
+  ],
+  "entertainment": [
+    "arts",
+    "books",
+    "comics",
+    "history",
+    "movies",
+    "music",
+    "theater-dance",
+    "tv-radio",
+    "video-games"
+  ],
+  "lifestyle": [
+    "auto-moto",
+    "beauty",
+    "family",
+    "fashion",
+    "food",
+    "home-garden",
+    "people",
+    "professional-life",
+    "seduction",
+    "travel",
+    "wedding",
+    "wellness"
+  ],
+  "media": [
+    "buzz",
+    "communication",
+    "medias"
+  ],
+  "politics": [
+    "africa",
+    "americas",
+    "asia-pacific",
+    "europe",
+    "france",
+    "middle-east",
+    "usa"
+  ],
+  "society": [
+    "education",
+    "employment",
+    "health",
+    "justice",
+    "security",
+    "social"
+  ],
+  "sports": [
+    "american-football",
+    "athletics",
+    "badminton",
+    "basketball",
+    "biathlon",
+    "bobsleigh",
+    "bodyboard",
+    "boxing",
+    "crosscountry-skating",
+    "curling",
+    "cycling",
+    "equestrian",
+    "figure-skating",
+    "football",
+    "formula1",
+    "golf",
+    "handball",
+    "ice-hockey",
+    "kitesurf",
+    "motorsport",
+    "rugby",
+    "sailing",
+    "skateboard",
+    "ski-jumping",
+    "snowboard",
+    "squash",
+    "surf",
+    "swimming",
+    "table-tennis",
+    "taekwondo",
+    "tennis",
+    "volleyball",
+    "windsurf",
+    "winter-sport",
+    "wrestling"
+  ],
+  "technology": [
+    "computer",
+    "mobile-device",
+    "science",
+    "startup-digital"
+  ]
+}

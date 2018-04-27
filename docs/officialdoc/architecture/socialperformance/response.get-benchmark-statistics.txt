@@ -1,0 +1,38 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+	"twitter": [{
+			"uid": "264582556",
+			"stats": [{
+				"date": "2015-12-15T23:00:00.000Z",
+				"scores": {
+					"my-lost-followers": 0,
+					"my-followings": 176,
+					"my-new-followers": 0,
+					"my-new-statuses": 0,
+					"my-statuses": 2849,
+					"my-favourites": 3181,
+					"my-lost-followings": 0,
+					"my-new-followings": 0,
+					"my-listed": 118,
+					"my-followers": 5310
+				}
+			}]
+		},
+		{}
+	],
+	"facebook": [{
+		"uid": "41287444795",
+		"stats": []
+	}],
+	"instagram": [{
+		"uid": "1292762063",
+		"stats": []
+	}],
+	"youtube": []
+}

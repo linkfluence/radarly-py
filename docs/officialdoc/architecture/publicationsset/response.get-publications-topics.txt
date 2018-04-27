@@ -1,0 +1,31 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+  "took":264,
+  "total":11412,
+  "topics":
+    [
+      {
+        "category":
+          {
+            "term":"sport.football",
+            "counts":{"doc":380}
+          },
+        "entity":
+          [
+            {
+              "label":"Neymar",
+              "id":"Q142794",
+              "counts":{"doc":342},
+              "bgCount":2855,
+              "score":0.0002738263854985898
+            },
+          ]
+        },
+    ]
+}

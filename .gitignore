@@ -1,0 +1,27 @@
+# Editor and Linter files
+.vscode/
+.mypy_cache/
+.pylintrc
+
+# System files
+docs/.DS_Store
+.DS_Store
+
+
+# Development files
+temp/
+script.py
+
+
+# Jupyter Notebooks
+notebooks/*
+.ipynb_checkpoints/
+
+
+# Build files
+__pycache__/
+*.pyc
+radarly_py.egg-info/
+dist/
+build/
+docs/_build

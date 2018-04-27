@@ -1,0 +1,62 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+    "took":109,
+    "users":[
+        {
+            "user":{
+                "uid":"r3_prod_3-64154786",
+                "name":"Laurent Chance",
+                "email":[],
+                "telephone":"",
+                "comment":"",
+                "socialAccount":{
+                    "twitter":"",
+                    "facebook":"",
+                    "instagram":"",
+                    "website":"laurentchance.wordpress.com",
+                    "o-website":[]
+                },
+                "screenName":"Laurent_Chance",
+                "permalink":"https://twitter.com/Laurent_Chance",
+                "id":64154786,
+                "description":"#LeBonMarché #Digital  #Politique #Presse #Médias #Musique",
+                "gender":"M",
+                "profileImg":"http://pbs.twimg.com/profile_images/619553766291976192/dGGA6zQZ_normal.jpg",
+                "geo":{
+                    "country":"FR",
+                    "location":{
+                        "lon":2.3488,
+                        "lat":48.85341
+                    },
+                    "cid":"72057594040916443",
+                    "admin1":"72057594040940810"
+                },
+                "followers":1585,
+                "tags":[]
+            },
+            "count":3,
+            "impressions": 4502,
+            "reach": 902,
+            "stats":{
+                "lang":[
+                    {
+                        "term":"fr",
+                        "count":3
+                    }
+                ],
+                "tone":[
+                    {
+                        "term":"neutral",
+                        "count":3
+                    }
+                ]
+            }
+        },
+    ]
+}

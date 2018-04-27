@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+      "metrics": {
+          "likes":93,
+          "comments":7,
+          "shares":4,
+          "like_reactions":93,
+          "love_reactions":17,
+          "wow_reactions":1,
+          "haha_reactions":2,
+          "sad_reactions":0,
+          "angry_reactions":0
+    }

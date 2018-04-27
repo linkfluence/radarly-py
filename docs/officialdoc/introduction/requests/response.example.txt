@@ -1,0 +1,480 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+   "docsCount" : 3502,
+   "quotationList" : null,
+   "focuses" : [
+      {
+         "color" : "#1FBA7C",
+         "id" : 18,
+         "pictureId" : null,
+         "description" : null,
+         "filterId" : 22,
+         "activated" : true,
+         "label" : "Linkfluence",
+         "parents" : [],
+         "isSource" : true,
+         "created" : "2015-03-31T09:07:29.454Z",
+         "filter" : {
+            "corpora" : [],
+            "countries" : [],
+            "userTags" : [],
+            "tones" : [],
+            "query" : "linkfluence",
+            "shortQuery" : null,
+            "media" : [],
+            "id" : 22,
+            "languages" : [],
+            "flag" : {
+               "withRT" : null
+            },
+            "focuses" : [],
+            "platforms" : [],
+            "genders" : [],
+            "keywords" : []
+         },
+         "updated" : "2015-03-31T09:07:29.454Z"
+      },
+      {
+         "created" : "2015-05-20T15:00:13.887Z",
+         "filter" : {
+            "corpora" : [],
+            "userTags" : [],
+            "countries" : [],
+            "tones" : [],
+            "media" : [],
+            "shortQuery" : null,
+            "query" : "\"guilhem fouetillou\"",
+            "id" : 4416,
+            "focuses" : [],
+            "platforms" : [],
+            "flag" : {
+               "withRT" : null
+            },
+            "languages" : [],
+            "keywords" : [],
+            "genders" : []
+         },
+         "label" : "Guilhem Fouetillou",
+         "parents" : [
+            18
+         ],
+         "isSource" : false,
+         "updated" : "2015-05-20T15:00:13.887Z",
+         "id" : 2630,
+         "pictureId" : null,
+         "color" : "#5696c1",
+         "filterId" : 4416,
+         "description" : null,
+         "activated" : true
+      }
+   ],
+   "created" : "2015-03-31T09:07:01.399Z",
+   "tags" : {
+      "user" : [
+         {
+            "label" : "staff",
+            "id" : 42,
+            "created" : "2015-04-29T11:14:41.981Z"
+         },
+         {
+            "id" : 43,
+            "created" : "2015-04-29T11:15:10.793Z",
+            "label" : "Linkfluence assets"
+         },
+         {
+            "label" : "Clients",
+            "id" : 45,
+            "created" : "2015-04-29T14:09:42.491Z"
+         },
+         {
+            "id" : 46,
+            "created" : "2015-04-29T14:10:31.511Z",
+            "label" : "media"
+         },
+         {
+            "label" : "Industry influencers",
+            "created" : "2015-04-29T14:13:31.071Z",
+            "id" : 47
+         },
+         {
+            "id" : 48,
+            "created" : "2015-04-29T14:15:03.778Z",
+            "label" : "MarComms"
+         },
+         {
+            "label" : "Co-petitors",
+            "created" : "2015-04-30T12:41:22.911Z",
+            "id" : 62
+         },
+         {
+            "id" : 63,
+            "created" : "2015-04-30T12:42:47.011Z",
+            "label" : "Events"
+         },
+         {
+            "label" : "Jobs",
+            "id" : 76,
+            "created" : "2015-05-08T08:16:11.196Z"
+         }
+      ]
+   },
+   "milestones" : [],
+   "start" : "2015-02-28T23:00:00.000Z",
+   "corpora" : [],
+   "dashboards" : [
+      {
+         "description" : "",
+         "pictureId" : null,
+         "socialAccounts" : {
+            "facebook" : [
+               "181504478075"
+            ],
+            "youtube" : [],
+            "twitter" : [
+               "15842878"
+            ],
+            "instagram" : []
+         },
+         "id" : 5,
+         "benchmarkEntities" : [
+            22,
+            23,
+            24,
+            25,
+            43
+         ],
+         "color" : "#4A94BF",
+         "updated" : "2015-04-07T13:52:20.108Z",
+         "focuses" : [
+            {
+               "offset" : 0,
+               "id" : 18
+            }
+         ],
+         "created" : "2015-03-31T17:54:05.519Z",
+         "label" : "Linkfluence"
+      }
+   ],
+   "isCharged" : false,
+   "socialAccounts" : {
+      "facebook" : [
+         {
+            "desc" : null,
+            "created" : "2015-04-02T16:52:07.839Z",
+            "name" : "Synthesio",
+            "keywords" : null,
+            "about" : "Leading Global Social Intelligence Platform   www.synthesio.com",
+            "username" : "Synthesio",
+            "updated" : "2015-04-02T16:52:07.839Z",
+            "relationType" : "benchmark",
+            "id" : "169446945261",
+            "pageImageUrl" : null,
+            "type" : "Product/service",
+            "url" : "https://www.facebook.com/Synthesio"
+         },
+         {
+            "id" : "175011370072",
+            "relationType" : "benchmark",
+            "type" : "Internet/software",
+            "pageImageUrl" : null,
+            "url" : "https://www.facebook.com/Brandwatch",
+            "name" : "Brandwatch",
+            "desc" : null,
+            "created" : "2015-04-02T16:52:32.436Z",
+            "username" : "Brandwatch",
+            "about" : "Brandwatch is an amazing web-based tool to help you truly understand and harness the titanic power of online conversation www.brandwatch.com",
+            "keywords" : null,
+            "updated" : "2015-04-02T16:52:32.436Z"
+         },
+         {
+            "desc" : "Talkwalker is one of the world’s leading social data intelligence companies....",
+            "created" : "2015-04-02T16:55:01.245Z",
+            "name" : "Talkwalker",
+            "keywords" : null,
+            "about" : "Talkwalker is a social data intelligence platform that enhances decision-making through listening & analytics. Twitter Certified Product since 2014.",
+            "username" : "talkwalker",
+            "updated" : "2015-04-02T16:55:01.245Z",
+            "relationType" : "benchmark",
+            "id" : "286249164765424",
+            "pageImageUrl" : null,
+            "type" : "Internet/software",
+            "url" : "https://www.facebook.com/talkwalker"
+         },
+         {
+            "url" : "https://www.facebook.com/linkfluence",
+            "pageImageUrl" : null,
+            "type" : "Community",
+            "relationType" : "me",
+            "id" : "181504478075",
+            "updated" : "2015-03-31T17:53:11.106Z",
+            "about" : "linkfluence : solutions de social media monitoring,analytics & engagement pour marques et agences",
+            "keywords" : null,
+            "username" : "linkfluence",
+            "desc" : null,
+            "created" : "2015-04-28T15:06:48.889Z",
+            "name" : "linkfluence"
+         }
+      ],
+      "dailymotion" : [],
+      "gplus" : [],
+      "ganalytics" : [],
+      "twitter" : [
+         {
+            "profileImageUrl" : "http://pbs.twimg.com/profile_images/538856313770364928/L5k68gHj.png",
+            "description" : "Insights and updates from the world's best social intelligence platform.",
+            "url" : "http://t.co/bbRU2eFwzp",
+            "relationType" : "benchmark",
+            "timeZone" : "London",
+            "protected" : false,
+            "name" : "Brandwatch",
+            "created" : "2015-04-02T16:55:33.310Z",
+            "verified" : true,
+            "screenName" : "Brandwatch",
+            "geoEnabled" : false,
+            "id" : "86107125",
+            "lang" : "en",
+            "createdOnPlatform" : "2009-10-29T16:36:53.000Z",
+            "updated" : "2015-05-06T15:45:03.987Z",
+            "location" : "USA / UK / Germany"
+         },
+         {
+            "relationType" : "benchmark",
+            "profileImageUrl" : "http://pbs.twimg.com/profile_images/378800000710620609/21023812a70a390d75a9fa80184cacb3.jpeg",
+            "url" : "http://t.co/eHLaeliWQb",
+            "description" : "#Social Data #Intelligence platform for optimal decision-making through listening and analytics.",
+            "protected" : false,
+            "name" : "Talkwalker",
+            "created" : "2015-04-02T16:55:58.644Z",
+            "timeZone" : "Berlin",
+            "screenName" : "Talkwalker",
+            "geoEnabled" : true,
+            "id" : "435009374",
+            "verified" : true,
+            "location" : "Worldwide",
+            "lang" : "en",
+            "updated" : "2015-05-06T15:47:40.318Z",
+            "createdOnPlatform" : "2011-12-12T15:36:26.000Z"
+         },
+         {
+            "relationType" : "benchmark",
+            "profileImageUrl" : "http://pbs.twimg.com/profile_images/473544733919178752/_OH18FKL.png",
+            "description" : "Synthesio is a Social Intelligence platform...",
+            "url" : "http://t.co/jq2utyWLvz",
+            "protected" : false,
+            "name" : "Synthesio",
+            "created" : "2015-04-02T16:56:07.370Z",
+            "timeZone" : "Eastern Time (US & Canada)",
+            "screenName" : "Synthesio",
+            "geoEnabled" : false,
+            "id" : "471870263",
+            "verified" : false,
+            "location" : "Global",
+            "lang" : "en",
+            "createdOnPlatform" : "2012-01-23T10:28:56.000Z",
+            "updated" : "2015-05-06T15:47:09.729Z"
+         },
+         {
+            "createdOnPlatform" : "2012-09-17T18:05:02.000Z",
+            "updated" : "2015-04-07T13:51:07.205Z",
+            "lang" : "en",
+            "location" : "",
+            "verified" : false,
+            "id" : "829530660",
+            "screenName" : "radian6",
+            "geoEnabled" : false,
+            "timeZone" : "Eastern Time (US & Canada)",
+            "name" : "Radian6",
+            "created" : "2015-04-07T13:51:07.205Z",
+            "protected" : true,
+            "profileImageUrl" : "http://pbs.twimg.com/profile_images/2620661611/fs9y9y8nfgyggghlnseq.jpeg",
+            "description" : "Radian6 is now Salesforce Marketing Cloud. Please follow us at @MarketingCloud",
+            "url" : "http://t.co/Rh5P5flotf",
+            "relationType" : "benchmark"
+         },
+         {
+            "geoEnabled" : true,
+            "screenName" : "linkfluence",
+            "id" : "15842878",
+            "verified" : false,
+            "location" : "Europe",
+            "lang" : "en",
+            "createdOnPlatform" : "2008-08-13T21:44:43.000Z",
+            "updated" : "2015-05-06T16:06:03.450Z",
+            "relationType" : "me",
+            "description" : "International social media monitoring, engagement & research solutions for brands and agencies France/Germany/UK. Also tweets on @LinkfluenceUK & @linkfluenceDE",
+            "url" : "http://t.co/v36UfWWY",
+            "profileImageUrl" : "http://pbs.twimg.com/profile_images/80104388/0901_logo_linkfluence_icone-seule.png",
+            "protected" : false,
+            "created" : "2015-04-02T16:54:27.732Z",
+            "name" : "linkfluence",
+            "timeZone" : "Paris"
+         },
+         {
+            "protected" : false,
+            "name" : "Linkfluence UK",
+            "created" : "2015-04-08T16:09:52.933Z",
+            "timeZone" : "London",
+            "relationType" : "benchmark",
+            "profileImageUrl" : "http://pbs.twimg.com/profile_images/558217037751660544/5Hn4EDKe.png",
+            "url" : "http://t.co/USvJfB3Q2J",
+            "description" : "International social media monitoring, engagement & research solutions for brands and agencies France/Germany/UK",
+            "location" : "Europe",
+            "lang" : "en-gb",
+            "createdOnPlatform" : "2015-01-22T10:55:31.000Z",
+            "updated" : "2015-05-06T15:36:05.140Z",
+            "screenName" : "linkfluenceUK",
+            "geoEnabled" : false,
+            "id" : "2991814547",
+            "verified" : false
+         }
+      ],
+      "instagram" : [],
+      "linkedin" : [],
+      "youtube" : []
+   },
+   "isTest" : false,
+   "benchmarkEntities" : [
+      {
+         "label" : "Talkwalker",
+         "created" : "2015-04-02T16:56:21.134Z",
+         "projectId" : 3,
+         "youtubeChannels" : [],
+         "updated" : "2015-04-02T16:56:21.134Z",
+         "twitterAccounts" : [
+            435009374
+         ],
+         "facebookPages" : [
+            286249164765424
+         ],
+         "instagramAccounts" : [],
+         "pictureId" : null,
+         "id" : 25,
+         "description" : null
+      },
+      {
+         "youtubeChannels" : [],
+         "updated" : "2015-04-02T16:56:26.723Z",
+         "twitterAccounts" : [
+            471870263
+         ],
+         "label" : "Synthesio",
+         "projectId" : 3,
+         "created" : "2015-04-02T16:53:04.318Z",
+         "description" : null,
+         "facebookPages" : [
+            169446945261
+         ],
+         "instagramAccounts" : [],
+         "pictureId" : null,
+         "id" : 24
+      },
+      {
+         "facebookPages" : [
+            175011370072
+         ],
+         "id" : 23,
+         "pictureId" : null,
+         "instagramAccounts" : [],
+         "description" : null,
+         "label" : "Brandwatch",
+         "created" : "2015-04-02T16:52:55.061Z",
+         "projectId" : 3,
+         "youtubeChannels" : [],
+         "twitterAccounts" : [
+            86107125
+         ],
+         "updated" : "2015-04-02T16:56:32.310Z"
+      },
+      {
+         "created" : "2015-04-02T16:52:43.928Z",
+         "projectId" : 3,
+         "label" : "Linkfluence",
+         "twitterAccounts" : [
+            15842878
+         ],
+         "updated" : "2015-04-02T16:56:36.344Z",
+         "youtubeChannels" : [],
+         "id" : 22,
+         "pictureId" : null,
+         "instagramAccounts" : [],
+         "facebookPages" : [
+            181504478075
+         ],
+         "description" : null
+      },
+      {
+         "description" : null,
+         "id" : 43,
+         "pictureId" : null,
+         "instagramAccounts" : [],
+         "facebookPages" : [],
+         "twitterAccounts" : [
+            829530660
+         ],
+         "updated" : "2015-04-07T13:51:56.303Z",
+         "youtubeChannels" : [],
+         "created" : "2015-04-07T13:51:56.303Z",
+         "projectId" : 3,
+         "label" : "Radian6"
+      }
+   ],
+   "updated" : "2015-03-31T21:55:16.959Z",
+   "credentials" : {
+      "instagram" : [
+         {
+            "created" : "2015-03-31T09:08:32.181Z",
+            "userName" : "igitmusic",
+            "id" : "1292762063",
+            "error" : false,
+            "fullName" : "IGIT",
+            "updated" : "2015-03-31T09:08:32.181Z",
+            "profilePicture" : "https://igcdn-photos-f-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-19/10946557_1378932539086461_233869415_a.jpg"
+         }
+      ],
+      "twitter" : [
+         {
+            "error" : false,
+            "screenName" : "linkfluence",
+            "name" : "linkfluence",
+            "id" : "15842878",
+            "created" : "2015-04-02T16:54:27.717Z",
+            "updated" : "2015-05-04T14:52:09.792Z"
+         }
+      ],
+      "linkedin" : [],
+      "facebook" : [
+         {
+            "url" : "https://www.facebook.com/app_scoped_user_id/1033684983326631/",
+            "profileImageUrl" : "https://graph.facebook.com/1033684983326631/picture",
+            "gender" : "male",
+            "id" : "1033684983326631",
+            "error" : false,
+            "updated" : "2015-03-31T17:52:40.058Z",
+            "created" : "2015-03-31T17:52:40.058Z",
+            "name" : "Antonin Rohmer"
+         }
+      ],
+      "dailymotion" : [],
+      "google" : []
+   },
+   "stop" : "2015-11-19T23:00:00.000Z",
+   "projectManagerId" : 5,
+   "maxVol" : 10000,
+   "isResearch" : false,
+   "isActive" : true,
+   "label" : "linkfluence",
+   "researchManagerId" : null,
+   "isGnipActivated" : false,
+   "pack" : "Pack 1",
+   "id" : 3,
+   "pictureId" : 8,
+   "isBoardreaderActivated" : false,
+   "accountId" : 1,
+   "maxTopics" : 3
+}

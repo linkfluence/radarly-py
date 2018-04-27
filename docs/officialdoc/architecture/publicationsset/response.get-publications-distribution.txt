@@ -1,0 +1,22 @@
+HTTP/1.1 201 OK
+Pragma: no-cache
+Cache-Control: no-cache
+Date: Mon, 26 Feb 2018 09:28:38 GMT
+Content-Type: application/json
+Content-Length: 862
+
+{
+  "took":156,
+  "total":50281,
+  "distribution":[
+       {"date":"2015-11-29T23:00:00.000Z","counts":{"doc":0,"impression":0,"reach":0}},
+       {"date":"2015-11-30T23:00:00.000Z","counts":{"doc":3,"impression":4767,"reach":381}},
+       {"date":"2015-12-01T23:00:00.000Z","counts":{"doc":22,"impression":34490,"reach":2758}},
+       {"date":"2015-12-02T23:00:00.000Z","counts":{"doc":8,"impression":3480,"reach":278}},
+       {"date":"2015-12-03T23:00:00.000Z","counts":{"doc":8,"impression":2972,"reach":237}},
+       {"date":"2015-12-04T23:00:00.000Z","counts":{"doc":4,"impression":1181,"reach":94}},
+       {"date":"2015-12-05T23:00:00.000Z","counts":{"doc":9,"impression":3405,"reach":272}},
+       {"date":"2015-12-06T23:00:00.000Z","counts":{"doc":1,"impression":492,"reach":39}},
+      {"date":"2015-12-07T23:00:00.000Z","counts":{"doc":10,"impression":3828,"reach":306}}
+  ]
+}

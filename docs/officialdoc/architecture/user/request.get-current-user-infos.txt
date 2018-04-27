@@ -1,0 +1,3 @@
+GET /1.0/users.json HTTP/1.1
+Host: radarly.linkfluence.com
+Authorization: Bearer XXX
