@@ -2,6 +2,10 @@
 radarly-py
 ==========
 
+.. image:: https://img.shields.io/pypi/pyversions/radarly-py.svg
+    :alt: PyPI - Python Version
+    :target: https://pypi.org/project/radarly-py/
+
 :Author: Linkfluence SAS
 :Version: 1.0.0
 
