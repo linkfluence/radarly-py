@@ -6,7 +6,7 @@ from .model import SourceModel
 
 
 class Tag(SourceModel):
-    """Dict-like object storing informations about custom and user tags.
+    """Dict-like object storing information about custom and user tags.
 
     Args:
         id (int): unique identifier of the tag

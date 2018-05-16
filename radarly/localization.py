@@ -4,13 +4,15 @@ town. The ``localization`` modules defines all objects in order to interact
 with such results.
 """
 
+import copy
+
 from .api import RadarlyApi
 from .utils.misc import to_snake_case
 from .utils.router import Router
 
 
 class Localization(list):
-    """List-like object used to store informations about the geographical
+    """List-like object used to store data about the geographical
     distribution. Each item of the distribution is a dictionary of statistics
     about a specific localization. This object is compatible with ``pandas``,
     so you convert it to a DataFrame:
@@ -54,10 +56,11 @@ class Localization(list):
         Returns:
             Localization: list of stats by geographical point
         """
+        search_parameter = copy.deepcopy(search_parameter)
         api = api or RadarlyApi.get_default_api()
         url = Router.localization['fetch'].format(
             project_id=project_id,
-            region_type=search_parameter.pop('region_type', 'region')
+            region_type=search_parameter.pop('geo_type', 'region')
         )
         params = [
             ('locale', search_parameter.pop('locale', 'en_GB'))

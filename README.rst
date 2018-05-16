@@ -6,20 +6,23 @@ radarly-py
     :alt: PyPI - Python Version
     :target: https://pypi.org/project/radarly-py/
 
-:Author: Linkfluence SAS
-:Version: 1.0.0
+:Author: Linkfluence
+:Version: 1.0.1
 
 .. _documentation: https://api.linkfluence.com/
 
-This package is a Python's client in order to use Radarly's API. Thanks to this client, you can fetch most of the endpoints described in the `documentation`_ of Radarly's API.
+This package is a Python's client in order to use Radarly's API. Thanks to
+this client, you can fetch most of the endpoints described in the
+`documentation`_.
 
 
 Installation
 ^^^^^^^^^^^^
-You can use ``pip`` to install this package. The commmand ``pip install radarly-py`` will install the package and all its dependencies.
+You can use ``pip`` to install this package. The commmand
+``pip install radarly-py`` will install the package and all its dependencies.
 
-.. note:: ``pandas`` is not a dependency of ``radarly-py`` but it is strongly advise to use to explore all objects
-storing quantitative datas.
+.. note:: ``pandas`` is not a dependency of ``radarly-py`` but it is strongly
+    advise to use to explore all objects storing quantitative datas.
 
 
 Quickstart
@@ -31,9 +34,11 @@ First thing first you must initialize an API.
 >>> RadarlyApi.init(**credentials)
 <RadarlyAPI.client_id=XXXXXXX>
 
-Then you can explore the Radarly's API with the different objects defined by the client.
+Then you can explore the Radarly's API with the different objects defined by
+the client.
 
-For example, you can explore all informations about you (your projects, your settings...).
+For example, you can explore all information about you (your projects,
+your settings...).
 
 >>> from radarly.user import User
 >>> me = User.find(uid='me')
@@ -111,7 +116,10 @@ Project (Project)
 [154262, 154263, 154374, 5, 140519]
 
 
-You can now get some publications stored in this project. For example, we will retrieve five publications of the project, published in 2017 and matching the query with the id 137622 (see ``project['focuses']`` to explore the queries of your project).
+You can now get some publications stored in this project. For example, we will
+retrieve five publications of the project, published in 2017 and matching the
+query with the id 137622 (see ``project['focuses']`` to explore the queries
+of your project).
 
 >>> from radarly.parameters import SearchPublicationParameter()
 >>> from datetime import datetime
@@ -129,4 +137,6 @@ You can now get some publications stored in this project. For example, we will r
  <Publication.uid='r3_prod_2-10...6268433470350'>]
 
 
-This client gives you many possibilities to explore and navigate in our API. Plese read the official `documentation`_ of the API and the client to check all you can do.
+This client gives you many possibilities to explore and navigate in
+our API. Plese read the official `documentation`_ of the API and the
+client to check all you can do.

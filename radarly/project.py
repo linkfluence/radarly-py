@@ -1,11 +1,11 @@
 """
-.. _API call: /officialdoc/architecture/project.html#get-project-infos
+.. _API call: https://api.linkfluence.com/officialdoc/architecture/project.html#get-project-infos
 
 As in Radarly, the ``Project`` object contains all the needed data
 in order to start exploring a project. The ``Project`` object is made
-dynamically using the response get from the `API call`_ to get all
-informations about a project. Several methods have been defined in order
-to get informations and make some computations inside your project.
+dynamically using the response get from the `API call`_ to get
+information about a project. Several methods have been defined in order
+to get information and make some computations inside your project.
 """
 
 from .api import RadarlyApi
@@ -16,7 +16,7 @@ from .dashboard import Dashboard
 from .distribution import Distribution
 from .focus import Focus
 from .geogrid import GeoGrid
-from .influencer import Influencer, InfluencersGenerator
+from .influencer import Influencer
 from .localization import Localization
 from .model import SourceModel
 from .pivottable import PivotTable
@@ -32,8 +32,8 @@ from .utils._internal import id_to_value, instance_builder
 
 class Project(SourceModel):
     """Object to explore a project in Radarly. This object is made
-    dynamically but you can explore it using the methods inherited
-    from ``SourceModel``.
+    dynamically but you can explore it using the methods defined in
+    ``SourceModel``.
 
     Example:
 
@@ -49,7 +49,7 @@ class Project(SourceModel):
         >>> project['$.tags.subtags']
         ...
 
-    Here are informations about some useful keys of the ``Project`` object.
+    Here are information about some useful keys of the ``Project`` object.
 
     Args:
         id (string): the unique ID used in our database to identify the project
@@ -60,9 +60,9 @@ class Project(SourceModel):
         dahboards (Dashboards): list of all dashboards created to organize your
             project.
         tags (Tags): list of all tags of the project
-        social_accounts (dict): informations about the social accounts
+        social_accounts (dict): information about the social accounts
             regitred in your project.
-        benchmark_entities (list[dict]): informations about the accounts
+        benchmark_entities (list[dict]): information about the accounts
             available for a benchmark
     """
 
@@ -90,7 +90,7 @@ class Project(SourceModel):
     @classmethod
     def find(cls, pid, api=None):
         """
-        Get informations about a specific project.
+        Get information about a specific project.
 
         Args:
             pid (int): project id of the project
@@ -181,7 +181,7 @@ class Project(SourceModel):
         Returns:
             InflencersGenerator: generator which yields influencer
         """
-        return InfluencersGenerator(
+        return Influencer.fetch_all(
             getattr(self, 'id'), search_parameter, api=self._api
         )
 
@@ -218,7 +218,7 @@ class Project(SourceModel):
                                   api=self._api)
 
     def get_cloud(self, search_parameter):
-        """Retrieve cloud informations from the Radarly's API.
+        """Retrieve cloud information from the Radarly's API.
 
         Args:
             search_parameter (CloudParameter): parameter used to
@@ -248,7 +248,7 @@ class Project(SourceModel):
                                 focuses=focuses, fields=fields, api=self._api)
 
     def get_social_performance(self, search_parameter):
-        """Retrieve informations about social account performance from the API.
+        """Retrieve information about social account performance from the API.
 
         Args:
             search_parameter (SocialPerformanceParameter): object sent as
@@ -261,7 +261,7 @@ class Project(SourceModel):
                                        api=self._api)
 
     def get_benchmark(self, search_parameter):
-        """Retrieve benchmark informations from the Radarly's API.
+        """Retrieve benchmark information from the Radarly's API.
 
         Args:
             search_parameter (BenchmarkParameter): parameter used to configure
@@ -334,7 +334,8 @@ class Project(SourceModel):
 
 
 class InfoProject(SourceModel):
-    """Some informations about a project"""
+    """Object storing information about a project (but not all available
+    information)"""
     def __init__(self, data, translator=None):
         super().__init__(data, translator=translator)
 
@@ -349,7 +350,7 @@ class InfoProject(SourceModel):
         return [cls(item) for item in data]
 
     def expand(self, api=None):
-        """Retrieve all informations about a project from the API.
+        """Retrieve additional information about a project from the API.
 
         Args:
             api (RadarlyApi): API used to perform the request. If None,

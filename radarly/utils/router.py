@@ -1,5 +1,5 @@
 """
-Module to handle all roads used to fetch informations.
+Module to handle all roads used to retrieve data.
 """
 
 

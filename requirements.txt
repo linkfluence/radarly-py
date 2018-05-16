@@ -1,3 +1,4 @@
 pycountry==18.2.23
 pytz==2018.3
+requests==2.18.4
 lxml==4.2.0

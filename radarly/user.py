@@ -1,6 +1,6 @@
 """
-This module defines objects used to explore informations about a Radarly User.
-For security reasons, you can only retrieve informations about the
+This module defines objects used to explore information about a Radarly User.
+For security reasons, you can only retrieve information about the
 current user of the API.
 """
 
@@ -11,13 +11,14 @@ from .utils.router import Router
 
 
 class User(SourceModel):
-    """Object used to explore user infomations returned by the API. Given that
+    """Object used to explore user informations returned by the API. Given that
     this object inherits from SourceModel, you can get the structure of the
     object with the `draw_structure` method.
 
     Examples:
+        >>> user = User.find(uid='me')
         >>> user
-        User(id=1234, email=john.doe@linkfluence.com)
+        <User.id=1234.email='john.doe@linkfluence.com'>
         >>> user.keys()
         {'projects', 'current_project_id', ..., 'is_disabled'}
 
@@ -26,8 +27,8 @@ class User(SourceModel):
         name (str): registred name of the user
         email (str): regitred email of the user
         projects (list[InfoProject]): list in which each item
-            is an object storing some informations about a project (notice
-            that all informations about a project are not stored in this
+            is an object storing some information about a project (notice
+            that all information about a project are not stored in this
             object)
         created (datetime.datetime): creation datetime of the user
         ...
@@ -46,7 +47,7 @@ class User(SourceModel):
     @classmethod
     def find(cls, uid, api=None):
         """
-        Get informations about an user.
+        Get information about an user.
 
         Args:
             uid (string): because you can only access datas about you, this
@@ -54,7 +55,7 @@ class User(SourceModel):
             api (RadarlyApi, optional): API used to make the
                 request. If None, the default API will be used.
         Returns:
-            User: User object storing informations retrieved from the API
+            User: User object storing information retrieved from the API
         """
         api = api or RadarlyApi.get_default_api()
         if uid == 'me':

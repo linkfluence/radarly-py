@@ -19,13 +19,13 @@ from .utils.router import Router
 
 
 class Publication(SourceModel):
-    """Dict-like object storing informations about the publication. All
+    """Dict-like object storing information about the publication. All
     datas are accessible using the key-value system of Python or as
     attribute of the instance.
 
     Args:
         uid (str): unique identifier of the publication
-        origin (dict): dictionary which contains informations about the
+        origin (dict): dictionary which contains information about the
             platform where the publication comes from.
         permalink (str): link to the publication
         lang (str): lang of the publication
@@ -34,7 +34,7 @@ class Publication(SourceModel):
         reach (int): estimated number of people reached by the publication
         tone (str): tone of the publication
         category (str): category of the publications
-        user (dict): informations about the author of the publication
+        user (dict): information about the author of the publication
     """
     def __init__(self, data, project_id, api=None):
         super().__init__()
@@ -99,7 +99,7 @@ class Publication(SourceModel):
             params (dict, optional): parameter send in the GET request. Default
                 to None.
         Returns:
-            Metadata: object storing metadata informations
+            Metadata: object storing metadata information
         """
         url = Router.publication['metadata'].format(project_id=self.pid)
         params = {} if params is None else params
@@ -142,9 +142,6 @@ class Publication(SourceModel):
             output_dir (str, optional): folder where the downloaded images must be
                 registred. The folder must already exists. Default to
                 the current working directory.
-            thumbnail (bool, optional): if the media is a video, whehter
-                or not download just the thumbnail of the video. Ignored
-                if the media is an image. Default to True.
             chunk_size (int, optional): chunk size used during the file
                 download with ``requests``. Default to 1024.
         Returns:

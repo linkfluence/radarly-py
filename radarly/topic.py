@@ -4,7 +4,7 @@ The topic wheel is a distribution of publications grouped by categories.
 
 
 class TopicWheel(list):
-    """List-like object storing informations about the topics."""
+    """List-like object storing information about the topics."""
     def __init__(self, data):
         super().__init__()
         self.extend(data)
@@ -14,7 +14,7 @@ class TopicWheel(list):
 
 
 class Entities(list):
-    """List-like object storing informations about entities"""
+    """List-like object storing information about entities"""
     def __init__(self, data):
         super().__init__()
         self.extend(data)

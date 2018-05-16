@@ -117,7 +117,7 @@ def parse_image_url(image_url):
     """
     path = urlparse(image_url).path
     pattern = re.compile(
-        r'/(?P<filename>[0-9a-zA-Z_]*).(?P<format>[a-z0-9]{3,4})$'
+        r'/(?P<filename>[0-9a-zA-Z_-]*).(?P<format>[a-z0-9]{3,4})$'
     )
     match = pattern.search(path)
     if match:

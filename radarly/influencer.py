@@ -12,7 +12,7 @@ from .utils.router import Router
 
 
 class Influencer(SourceModel):
-    """Dict-like object storing informations about an influencer. The value of
+    """Dict-like object storing information about an influencer. The value of
     this object are available as value associated to a key, or as attribute of
     the instance. Here are some useful attributes:
 
@@ -47,7 +47,7 @@ class Influencer(SourceModel):
 
     @classmethod
     def find(cls, project_id, influencer_id, platform, api=None):
-        """Retrieve informations about an influencer.
+        """Retrieve information about an influencer.
 
         Args:
             project_id (int): id of the project
@@ -104,7 +104,7 @@ class Influencer(SourceModel):
                                     project_id=project_id, api=api)
 
     def get_metrics(self):
-        """Retrieve metrics informations about the influencer from the API.
+        """Retrieve metrics data about the influencer from the API.
 
         Returns:
             dict:

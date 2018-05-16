@@ -11,13 +11,13 @@ from .misc import extract_type
 
 SEPARATOR_DPATH = re.compile(r'(.(?P<key>[\w]+)'
                              r'(\[(?P<index>[-\d]+)\])?'
-                             r'(\((?P<filters>[ -!=<>\w]+)\))?)')
+                             r'(\((?P<filters>[ #&\(\)*+,.!/:;<=>?@\[\\\]^_`\{|\}~/,\w-]+)\))?)')
 CORRECT_DPATH = re.compile(r'(^(\$|\$\$))({})*$'.format(SEPARATOR_DPATH.pattern))
 
 
-def draw_structure(element, max_depth=1, indent=2, show_type=True, level=0):
+def draw_structure(element, max_depth=2, indent=2, show_type=True, level=0):
     """
-    Recursive function to draw the structure of a ditionary.
+    Recursive function to draw the structure of a dictionary.
 
     Args:
         element (tuple): tuple where the first element is the name of the
@@ -33,7 +33,7 @@ def draw_structure(element, max_depth=1, indent=2, show_type=True, level=0):
     Returns:
         None:
     """
-    indent_spaces = (" |" + " " * (indent - 1)) * level
+    indent_spaces = ("|" + " " * (indent - 1)) * level
     name, data = element
     data_type = extract_type(data)
 
@@ -71,7 +71,11 @@ def draw_structure(element, max_depth=1, indent=2, show_type=True, level=0):
     return None
 
 
-def parse_filters(filters):
+def not_contains(a, b):
+    return not operator.contains(a, b)
+
+
+def parse_filter(filters):
     """Parse a filter string, like ``id=323``.
 
     Args:
@@ -88,16 +92,18 @@ def parse_filters(filters):
               value used to
     """
     if filters is None: return None
-    filter_pattern = re.compile(r'^(?P<key>[\w_]*)'
-                                r'(?P<operator>=|==|!=|<|>|>=|<=| in )'
-                                r'(?P<value>[\w_,]*)$')
+    pattern = r' #&\(\)*+,.!/:;<=>?@\[\\\]^_`\{|\}~/,\w-'
+    key_pattern = r'^(?P<key>[{}]*)'.format(pattern)
+    operator_pattern = r'(?P<operator>=|!=|<|>|>=|<=| in | notin )'
+    value_pattern = r'(?P<value>[{}]*)$'.format(pattern)
+    filter_pattern = re.compile(key_pattern + operator_pattern + value_pattern)
     match = filter_pattern.match(filters)
 
     op_dict = {
         '=': operator.eq, '==': operator.eq, '!=': operator.ne,
         '>': operator.gt, '>=': operator.ge,
         '<': operator.lt, '<=': operator.le,
-        ' in ': operator.contains
+        ' in ': operator.contains, ' notin ': not_contains
     }
     op_func = op_dict[match.group('operator')]
 
@@ -107,7 +113,7 @@ def parse_filters(filters):
     except ValueError:
         pass
 
-    if op_func in [operator.contains]:
+    if op_func in [operator.contains, not_contains]:
         return dict(value=match.group('key'), key=value.lower(), op=op_func)
     return dict(key=match.group('key'), value=value, op=op_func)
 
@@ -130,20 +136,21 @@ def return_item(item, key, silently=False):
 
 
 def dpath(source, path):
-    """Get some elements of a dictionary, using dictionary path. The path
-    should respect some format rules in order to be correctly understood by
-    the function.
+    """Quickly explore and find specific values in an object by following a
+    path. This path must respect some format rules in order to be correctly
+    understood by the function.
 
     * The path must begin with ``$``. If the path starts with ``$$``, the
-      function will not raise an error if a key specify in the path is not
+      function will not raise an error if a key specified in the path is not
       found but will return None instead. If the ``path`` doesn't start with
       ``$``, the behaviour of the function is the same as the standard
       ``__getitem__`` function.
-    * Each key of the path must be separated with ``.``
+    * Each key of the path must be separated with a point ``.``
     * If you want to get only one element of a list, you can specify the index
       of the element, as in ``dashboards[3]``.
     * You can filter a list to only retrieve items matching a criteria. The
-      criteria must be between parenthesis.
+      criteria must be between parenthesis. The supported operator are: =, !=,
+      <=, >=, >, <, in, notin
 
     **Example of valid paths**:
 
@@ -208,7 +215,7 @@ def dpath(source, path):
             dict(
                 key=item.group('key'),
                 index=item.group('index'),
-                filters=parse_filters(item.group('filters')),
+                filters=parse_filter(item.group('filters')),
             ) for item in SEPARATOR_DPATH.finditer(path)
         ]
         return get(source, path, silently=silently)

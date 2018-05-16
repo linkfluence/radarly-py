@@ -9,7 +9,7 @@ from .utils._internal import instance_builder
 
 class Focus(SourceModel):
     """
-    Dict-like object used to explore all focus' informations returned by the
+    Dict-like object used to explore focus' data returned by the
     API.
 
     Args:
@@ -19,7 +19,7 @@ class Focus(SourceModel):
         description (None or str): if available, describe the purpose of
             the focus
         created (datetime): creation date of the focus
-        filter (dict): informations about the query
+        filter (dict): information about the query
     """
     def __init__(self, data):
         super().__init__(data)

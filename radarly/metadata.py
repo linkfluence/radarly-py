@@ -1,5 +1,5 @@
 """
-Metadata are all meta-informations about a publication.
+Metadata are all meta-information about a publication.
 """
 
 from .model import SourceModel

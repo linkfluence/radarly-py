@@ -122,7 +122,7 @@ class DateMixin:
         created_after = check_date(created_after)
         if created_before or created_after:
             self['date'] = dict()
-            if created_before: self['date']['createdBefore']=created_before
+            if created_before: self['date']['createdBefore'] = created_before
             if created_after: self['date'].update(createdAfter=created_after)
         return self
 
@@ -218,22 +218,16 @@ class FollowerMixin:
         return self
 
 
-class GeoMixin:
-    """Field used to build the *geo* parameter in the payload data"""
-    def geo(self, gtype, glist):
-        """List of items following geo.type - fr, gb; Restricts to the
-        given languages, given by an ISO 3166-1 alpha-2
+class GenderMixin:
+    """Field used to build the *genders* parameter in the payload data"""
+    def genders(self, *gender_list):
+        """Restricts to the given genders.
 
         Args:
-            gtype (str): the type of geographical place (country or town)
-            glist (list[str]): if ``gtype``is 'country', you can pass a
-                country name, its alpha-2 code, its alpha-3 or its official
-                name.
+            *gender_list (string): list of wanted gender.
         """
-        GEOTYPE.check(gtype)
-        if gtype == GEOTYPE.COUNTRY:
-            glist = check_geocode(glist)
-        self['geo'] = dict(type=gtype, list=glist)
+        GENDER.check(gender_list)
+        self.update(genders=list(gender_list))
         return self
 
 
@@ -252,16 +246,35 @@ class GeoFilterMixin:
         return self
 
 
-class GenderMixin:
-    """Field used to build the *genders* parameter in the payload data"""
-    def genders(self, *gender_list):
-        """Restricts to the given genders.
+class GeoMixin:
+    """Field used to build the *geo* parameter in the payload data"""
+    def geo(self, gtype, glist):
+        """List of items following geo.type - fr, gb; Restricts to the
+        given languages, given by an ISO 3166-1 alpha-2
 
         Args:
-            *gender_list (string): list of wanted gender.
+            gtype (str): the type of geographical place (country or town)
+            glist (list[str]): if ``gtype`` is 'country', you can pass a
+                country name, its alpha-2 code, its alpha-3 or its official
+                name.
         """
-        GENDER.check(gender_list)
-        self.update(genders=list(gender_list))
+        GEOTYPE.check(gtype)
+        if gtype == GEOTYPE.COUNTRY:
+            glist = check_geocode(glist)
+        self['geo'] = dict(type=gtype, list=glist)
+        return self
+
+
+class GeoTypeMixin:
+    """Field used to specify the region type for geographical distribution"""
+    def geo_type(self, gtype):
+        """
+        Args:
+            gtype (str):
+        """
+        assert gtype in ['region', 'town'], \
+            "gtype is an unknown option for the geographical type"
+        self['geo_type'] = gtype
         return self
 
 
@@ -394,8 +407,8 @@ class QueryMixin:
     """Field used to build the *query* parameter in the payload data"""
     def query(self, query):
         """A UTF-8 search query string of maximum 4K characters maximum,
-        including operators. eg: “linkfluence AND radarly”. For more
-        informations on how to build the query, you can check the official
+        including operators. eg: “linkfluence AND radarly”. For additional
+        information on how to build the query, you can check the official
         documentation.
 
         Args:

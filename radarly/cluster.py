@@ -14,7 +14,7 @@ from .utils.router import Router
 
 
 class Cluster(SourceModel):
-    """Object which inherits from SourceModel storing informations
+    """Object which inherits from SourceModel storing information
     about a cluster"""
     def __init__(self, data, api=None):
         self._api = api or RadarlyApi.get_default_api()

@@ -4,7 +4,6 @@ Model used in ``radarly-py``
 
 import copy
 import json
-import warnings
 from abc import ABC, abstractmethod
 
 from pytz import timezone
@@ -43,20 +42,21 @@ class SourceModel:
         return None
 
     def __getitem__(self, path):
-        """Get some elements of a dictionary, using dictionary path. The path
-        should respect some format rules in order to be correctly understood by
-        the function.
+        """Quickly explore and find specific values in an object by following a
+        path. This path must respect some format rules in order to be correctly
+        understood by the function.
 
         * The path must begin with ``$``. If the path starts with ``$$``, the
-        function will not raise an error if a key specify in the path is not
+        function will not raise an error if a key specified in the path is not
         found but will return None instead. If the ``path`` doesn't start with
         ``$``, the behaviour of the function is the same as the standard
         ``__getitem__`` function.
-        * Each key of the path must be separated with ``.``
+        * Each key of the path must be separated with a point ``.``
         * If you want to get only one element of a list, you can specify the index
         of the element, as in ``dashboards[3]``.
         * You can filter a list to only retrieve items matching a criteria. The
-        criteria must be between parenthesis.
+        criteria must be between parenthesis. The supported operator are: =, !=,
+        <=, >=, >, <, in, notin
 
         **Example of valid paths**:
 
@@ -91,14 +91,11 @@ class SourceModel:
         return None
 
     def keys(self):
-        """Returns a set of available attribute.
-
-        .. warning:: This method will probably be removed.
-        """
-        warnings.warn('Will probably be removed', DeprecationWarning)
+        """Returns a set of available attribute."""
         return {key for key in self.__dict__ if not key.startswith('_')}
 
     def json(self, **kwargs):
+        """Serialize the object in order to have a dict object"""
         return json.dumps(self, cls=RadarlyEncoder, **kwargs)
 
 

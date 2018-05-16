@@ -11,7 +11,7 @@ from .utils.router import Router
 
 
 class RateConf:
-    """Object storing informations about the rate limit on each url of the
+    """Object storing information about the rate limit on each url of the
     ``Router`` object"""
     slow = [
         Router.influencer['search'],
@@ -77,7 +77,7 @@ class RateLimit:
 
     def update(self, url, data):
         """Parse a dictionnary which corresponds to the header of a response
-        in order to get the current limit. The informations retrieved are
+        in order to get the current limit. The information retrieved is
         stored in the object.
 
         Args:

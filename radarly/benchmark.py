@@ -14,7 +14,7 @@ from .utils.router import Router
 
 
 class Benchmark(dict):
-    """Dict-like object used to store the benchmark datas. The keys of this
+    """Dict-like object used to store the benchmark data. The keys of this
     object are the available platforms on which the different social accounts
     have been compared. The value associated to each platform is an object
     which can be transformed into a ``pandas.DataFrame`` for a better
@@ -45,11 +45,11 @@ class Benchmark(dict):
 
     @classmethod
     def fetch(cls, project_id, search_parameter, api=None):
-        """Retrieve benchmark informations from the Radarly's API.
+        """Retrieve benchmark information from the Radarly's API.
 
         Args:
             project_id (int): identifier of your project in which
-                informations are stored
+                information is stored
             search_parameter (BenchmarkParameter): parameter used to configure
                 the benchmark which will be performed. See the documentation
                 of ``BenchmarkParameter`` to see how you can build this object.

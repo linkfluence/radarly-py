@@ -1,10 +1,10 @@
 """
 In Radarly, the cloud features is used to visualize the most relevant keywords,
 hashtags, mentions, named entities... associated to your project or set of
-queries.
+publications.
 
 The ``Cloud`` object in ``radarly`` is build to give you the possibility to retrieve
-these informations.
+this kind of data.
 """
 
 from .api import RadarlyApi
@@ -41,7 +41,7 @@ class Cloud(dict):
 
     @classmethod
     def fetch(cls, project_id, search_parameter, api=None):
-        """Retrieve cloud informations from the Radarly's API.
+        """Retrieve cloud data from the Radarly's API.
 
         Args:
             project_id (int): identifier of your project.

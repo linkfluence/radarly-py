@@ -1,5 +1,6 @@
 # Editor and Linter files
 .vscode/
+.idea/
 .mypy_cache/
 .pylintrc
 

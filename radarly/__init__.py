@@ -3,7 +3,7 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Author: Linkfluence SAS
-:Version: 1.0.0
+:Version: 1.0.1
 :Licence: Apache-2.0
 
 .. _official documentation: https://api.linkfluence.com
@@ -20,8 +20,8 @@ do with this Python client and feel free to report any bug or suggestion you
 have to our developer team.
 
 
-Some informations about this package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Some information about this package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This package was build by trying to respect the architecture of Radarly's
 product. Most objects which exists in the product have been translated in the
 client. It may have some differences but there are reported and not
@@ -35,28 +35,29 @@ About the objects
 ^^^^^^^^^^^^^^^^^
 The ``radarly-py`` module uses mainly two kind of objects:
 
-* object which inherits from ``SourceModel`` which only store informations.
+* object which inherits from ``SourceModel`` which only store information.
   The objects ``Project``, ``User``, ``Tag`` or ``Dashboard`` are build on
-  this model. These objects aim to give you access to all your informations
+  this model. These objects aim to give you access to all your qualitative data
   stored in our databases. All objects of this types share some methods as
   ``draw_structure`` in order to ease the comprehension of Radarly's data
   models. Each object has also some specific methods in order to navigate
   in the API (for example, you can get some distribution statistics directly
   from a ``Project`` object using the ``get_analytics`` method). Check the
   documentation of each object to get some help on how to use it.
-* object storing quantitative datas, which are based on ``list`` or ``dict``.
-  These objects, as ``Analytics``, ``PivotTable`` or ``Distribution``, are
+* object storing quantitative data, which are based on ``list`` or ``dict``.
+  These objects, like ``Analytics``, ``PivotTable`` or ``Distribution``, are
   build to be easily parsed with ``pandas``.
 
-Most objects defined in ``radarly-py`` are documented. You can get more
-informations on how to use it with the tutorials.
+Most objects defined in ``radarly-py`` are documented. You can get additional
+information on how to use it with the tutorials
+(http://api.linkfluence.com/python/quickstart.html#use-cases).
 """
 
 from radarly.api import RadarlyApi
 
 
 __title__ = 'radarly'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __author__ = 'Linkfluence SAS'
 __url__ = 'https://api.linkfluence.com'
 __licence__ = 'Apache-2.0'

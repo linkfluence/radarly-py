@@ -21,14 +21,18 @@ def instance_builder(cls, data, *args, **kwargs):
 class CallableDict(dict):
     """Dict which return the key if it was not found. It also try to convert
     the key into an integer"""
+    def __init__(self, *datas):
+        super().__init__()
+        for data in datas:
+            data = dict([(str(key), data[key]) for key in data])
+            self.update(data)
+
     def __missing__(self, key):
-        try:
-            key = int(key)
-        except KeyError:
-            pass
-        if key in self:
-            return self[key]
         return str(key)
+
+    def __getitem__(self, key):
+        key = str(key).replace('focus_', '')
+        return super().__getitem__(key)
 
     def __call__(self, key):
         return self[key]
@@ -39,11 +43,11 @@ def id_to_value(data, dtype):
     a label"""
     if dtype == 'focuses':
         return dict([
-            (focus['id'], focus['label']) for focus in data
+            (str(focus['id']), focus['label']) for focus in data
         ])
     elif dtype == 'tags':
         return dict(flat([[
-            (subtag['id'], subtag['value']) for subtag in tag.subtags
+            (str(subtag['id']), subtag['value']) for subtag in tag.subtags
         ] for tag in data]))
     raise ValueError
 

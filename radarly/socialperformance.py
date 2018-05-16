@@ -1,6 +1,6 @@
 """
-In Radarly, you can monitore the perform of any of your own social accounts.
-This module defines an object in order to retrieve these informations.
+In Radarly, you can monitor the performance of any of your own social accounts.
+This module defines an object in order to retrieve information about that.
 """
 
 from .api import RadarlyApi
@@ -43,7 +43,7 @@ class SocialPerformance(list):
 
     @classmethod
     def fetch(cls, project_id, search_parameter, api=None):
-        """Retrieve informations about social account performance from the API.
+        """Retrieve information about social account performance from the API.
 
         Args:
             project_id (int): identifier of the project

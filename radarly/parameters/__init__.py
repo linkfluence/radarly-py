@@ -6,10 +6,9 @@ import json
 from urllib.parse import urlencode
 
 from .field import (ClusterMixin, FctxMixin, FieldsMixin, GeoFilterMixin,
-                    IntervalMixin, LocaleMixin, MetricsMixin, PaginationMixin,
-                    RangeDateMixin, SortMixin, StandardParameterMixin,
-                    TimezoneMixin)
-
+                    GeoTypeMixin, IntervalMixin, LocaleMixin, MetricsMixin,
+                    PaginationMixin, RangeDateMixin, SortMixin,
+                    StandardParameterMixin, TimezoneMixin)
 
 __all__ = (
     'AnalyticsParameter',
@@ -131,7 +130,8 @@ class ClusterParameter(Parameter,
 class DistributionParameter(Parameter,
                             StandardParameterMixin,
                             IntervalMixin,
-                            MetricsMixin):
+                            MetricsMixin,
+                            GeoFilterMixin):
     """Parameters used when retrieving a time distribution of some metrics.
 
     Example:
@@ -206,6 +206,7 @@ class InfluencerParameter(Parameter,
 class LocalizationParameter(Parameter,
                             StandardParameterMixin,
                             LocaleMixin,
+                            GeoTypeMixin,
                             TimezoneMixin,
                             MetricsMixin):
     """Parameters used when retrieving a geo distribution.
@@ -259,7 +260,8 @@ class SearchPublicationParameter(Parameter,
                                  SortMixin,
                                  PaginationMixin,
                                  FctxMixin,
-                                 ClusterMixin):
+                                 ClusterMixin,
+                                 GeoFilterMixin):
     """Parameters used when retrieving some publications.
 
     Example:

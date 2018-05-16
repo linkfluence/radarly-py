@@ -4,7 +4,7 @@ cross data analysis.
 """
 
 from .api import RadarlyApi
-from .utils._internal import id_to_value
+from .utils._internal import CallableDict, id_to_value
 from .utils.misc import to_snake_case
 from .utils.router import Router
 
@@ -29,16 +29,18 @@ class PivotTable(dict):
         super().__init__()
         if focuses is None: focuses = {}
         if fields is None: fields = {}
+        translator = CallableDict(focuses, fields)
         self.pivot = data['pivot']
         self.against = data['against']
         for focus in data[to_snake_case(self.pivot)]:
-            for element in focus['focuses']:
+            for element in focus[to_snake_case(self.against)]:
                 focus_id = element['term'].replace('focus_', '')
-                term = focuses.get(int(focus_id), focus_id)
+                term = translator(focus_id)
                 self.setdefault(term, dict())
                 self[term].update({
-                    (metric, fields.get(int(focus['term']), focus['term'])):
-                        element['counts'][metric]
+                    (metric, translator.get(
+                        focus['term'].replace('focus_', ''), focus['term'])
+                    ): element['counts'][metric]
                     for metric in focus['counts']
                 })
 

@@ -32,13 +32,13 @@ __all__ = ['RadarlyApi']
 
 def _parse_error_response(response):
     """Parse an error response made with the request module
-    in order to extract some informations about the error.
+    in order to extract information about the error.
 
     Args:
         response (requests.Response): error response get from
             a request made with requests.
     Returns:
-        dict: dictionary with some informations about the error,
+        dict: dictionary with information about the error,
         parsed from the content of th response
     """
     error_data = dict()
@@ -86,7 +86,7 @@ class RadarlyApi: # pylint: disable=R0902
         rates (RateLimit): RateLimit object which can be used to know the
             current number of requests made and how many left you can do.
     """
-    root_url = 'https://radarly.linkfluence.com/'
+    root_url = 'https://radarly.linkfluence.com'
     login_url = 'https://oauth.linkfluence.com/oauth2/token'
     version = '1.0'
     _default_api = None
@@ -190,7 +190,7 @@ class RadarlyApi: # pylint: disable=R0902
     def request(self, verb, url, **kwargs):
         """
         Send a request using the request module. Some pre- and post-tasks
-        are computed each time in order to actualize the rates informations
+        are computed each time in order to actualize the rates information
         and check whether or not the request is a success. This method uses
         the same parameters as request function of requests module so you can
         easily made your own authenticated request.
@@ -204,10 +204,14 @@ class RadarlyApi: # pylint: disable=R0902
         Returns:
             dict: corresponds to the response data of the answer
         """
+        url = url.strip('/')
         if self._auth is None:
             self.authenticate()
-        url = '{}{}'.format(self.version, url) if self.version else url
-        url = url if self.root_url in url else self.root_url + url
+        if self.version and not url.startswith(self.version) \
+            and not url.startswith(self.root_url):
+            url = '{}/{}'.format(self.version, url)
+        url = url if self.root_url in url  \
+            else '{}/{}'.format(self.root_url, url)
         kwargs.setdefault('headers', {})
         kwargs['headers'].setdefault(
             'Authorization', 'Bearer {}'.format(self.access_token)
@@ -297,7 +301,12 @@ class RadarlyApi: # pylint: disable=R0902
             scope=' '.join(self.scope)
         )
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-        kwargs = dict(data=data, headers=headers)
+        kwargs = dict(
+            data=data,
+            headers=headers,
+            proxies=self.proxies,
+            timeout=self.timeout
+        )
         auth_response = requests.request('POST', self.login_url, **kwargs)
         try:
             auth_response.raise_for_status()
@@ -326,7 +335,8 @@ class RadarlyApi: # pylint: disable=R0902
             'Content-Type': 'application/x-www-form-urlencoded'
         }
         auth_response = requests.request('POST', self.login_url,
-                                         data=data, headers=headers)
+                                         data=data, headers=headers,
+                                         proxies=self.proxies, timeout=self.timeout)
         auth_response = auth_response.json()
         self.access_token = auth_response.get('access_token')
         self.refresh_token = auth_response.get('refresh_token')

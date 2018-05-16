@@ -6,7 +6,7 @@ from .model import SourceModel
 
 
 class SocialAccount(SourceModel):
-    """Object storing informations retrieved from the API about a social account
+    """Object storing information retrieved from the API about a social account
     registred in your project.
 
     .. warning:: This object does not have the same keys depending on the
