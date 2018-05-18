@@ -6,7 +6,7 @@ from .model import SourceModel
 
 
 class Metadata(SourceModel):
-    """Dict-like object storing metadatas of a publication
+    """Dict-like object storing metadata of a publication
 
     Args:
         did (string): identifier for the publication

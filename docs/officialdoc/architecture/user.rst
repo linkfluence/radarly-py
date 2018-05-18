@@ -1,10 +1,11 @@
 User
 ~~~~
 
-Get Current User Informations
+Get Current User information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method allows users to current user informations and in particular, the list of projects available.
+This method allows users to current user information and in particular,
+the list of projects available.
 
 
 **Request**

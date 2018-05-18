@@ -2,18 +2,18 @@
 `radarly-py` : a python's client for Radarly's API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Author: Linkfluence SAS
+:Author: Linkfluence
 :Version: 1.0.1
 :Licence: Apache-2.0
 
 .. _official documentation: https://api.linkfluence.com
 
-This package, developed by Linkfluence SAS is a Python's client in order to
+This package, developed by Linkfluence is a Python's client in order to
 ease interactions with the official REST API of Radarly product. ``radarly-py``
 was designed in order to be compatible with standard Python's objects but also
 with ``pandas`` and with the JSON format. You want to transform a pivot table
 into a ``DataFrame``? Make it simply with ``pandas.DataFrame(my_pivot_table)``.
-You want to serve your user's datas with a server: serialize your datas with
+You want to serve your user's data with a server: serialize your object with
 ``my_current_user.json()``.
 Please read the `official documentation`_ of the project to know all you can
 do with this Python client and feel free to report any bug or suggestion you
@@ -22,8 +22,8 @@ have to our developer team.
 
 Some information about this package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This package was build by trying to respect the architecture of Radarly's
-product. Most objects which exists in the product have been translated in the
+This package was built by trying to respect the architecture of Radarly. Most
+objects which exists in the product have been translated in the
 client. It may have some differences but there are reported and not
 significant.
 
@@ -36,7 +36,7 @@ About the objects
 The ``radarly-py`` module uses mainly two kind of objects:
 
 * object which inherits from ``SourceModel`` which only store information.
-  The objects ``Project``, ``User``, ``Tag`` or ``Dashboard`` are build on
+  The objects ``Project``, ``User``, ``Tag`` or ``Dashboard`` are built on
   this model. These objects aim to give you access to all your qualitative data
   stored in our databases. All objects of this types share some methods as
   ``draw_structure`` in order to ease the comprehension of Radarly's data

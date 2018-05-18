@@ -22,5 +22,5 @@ class NoInitializedApi(Exception):
     """Error raised if the module could not find an API to make a request"""
     def __str__(self):
         return (
-            'No API was initialized.'
+            'No API has been initialized.'
         )

@@ -21,8 +21,8 @@ sys.path.insert(0, '/Users/alexandre/Documents/Linkfluence/radarly-py/radarly')
 # -- Project information -----------------------------------------------------
 
 project = 'Radarly API'
-copyright = '2018, Linkfluence SAS'
-author = 'Linkfluence SAS'
+copyright = '2018, Linkfluence'
+author = 'Linkfluence'
 
 # The short X.Y version
 version = ''
@@ -49,7 +49,7 @@ extensions = [
     'sphinxcontrib.httpdomain',
     'sphinxcontrib.httpexample',
     'nbsphinx',
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

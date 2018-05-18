@@ -22,7 +22,7 @@ You can use ``pip`` to install this package. The commmand
 ``pip install radarly-py`` will install the package and all its dependencies.
 
 .. note:: ``pandas`` is not a dependency of ``radarly-py`` but it is strongly
-    advise to use to explore all objects storing quantitative datas.
+    advise to use to explore all objects storing quantitative data.
 
 
 Quickstart

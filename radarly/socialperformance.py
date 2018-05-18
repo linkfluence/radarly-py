@@ -12,7 +12,7 @@ class SocialPerformance(list):
     social account. This object is compatible with ``pandas``.
 
     >>> social_perf
-    SocialPerformance(uid=172489456479180, platform=facebook)
+    <SocialPerformance.uid=172489456479180.platform=facebook>
     >>> import pandas as pd
     >>> df_social_perf = pd.DataFrame(social_perf)
     >>> df_social_perf.head()
@@ -42,12 +42,12 @@ class SocialPerformance(list):
         )
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrieve information about social account performance from the API.
 
         Args:
             project_id (int): identifier of the project
-            search_parameter (SocialPerformanceParameter): object sent as
+            parameter (SocialPerformanceParameter): object sent as
                 payload to the API. See ``SocialPerformanceParameter`` to see
                 how to build this object.
             api (RadarlyApi, optional): API used to make the
@@ -56,11 +56,11 @@ class SocialPerformance(list):
             SocialPerformance: list-like object compatible with ``pandas``
         """
         api = api or RadarlyApi.get_default_api()
-        platform = search_parameter['platform']
-        search_parameter = search_parameter()
+        platform = parameter['platform']
+        parameter = parameter()
 
         url = Router.social_performance['fetch'].format(project_id=project_id)
-        url = "{}?{}".format(url, search_parameter)
+        url = "{}?{}".format(url, parameter)
         data = api.get(url)
 
         return [cls(item, platform) for item in data if item['stats']]

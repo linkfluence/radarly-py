@@ -6,8 +6,9 @@ from .misc import flat
 
 
 def instance_builder(cls, data, *args, **kwargs):
-    """Build an object of a specific class. Scalable (if a list
-    is set as argument, return a list of object; else just one object)
+    """Build an object of a specific class. This function is scalable
+    (if a list is set as argument, return a list of object; else just
+    one object)
     """
     if not data:
         return data
@@ -19,8 +20,12 @@ def instance_builder(cls, data, *args, **kwargs):
 
 
 class CallableDict(dict):
-    """Dict which return the key if it was not found. It also try to convert
-    the key into an integer"""
+    """Dict which can be called (proxy for __getitem__ method). This object has three
+    additional features:
+    * it converts all the keys of data source into string
+    * the key before a search will be converted into a string
+    * if the value asked is not found, the value will be returned
+    """
     def __init__(self, *datas):
         super().__init__()
         for data in datas:
@@ -39,8 +44,18 @@ class CallableDict(dict):
 
 
 def id_to_value(data, dtype):
-    """Based on some datas, build a dictionary to translate an ID to a
-    a label"""
+    """Based on some data, build a dictionary to translate an ID to a
+    a label.
+
+    Args:
+        data (list[object]):
+        dtype (str):
+    Raises:
+        ValueError: error raised if dtype is not 'focuses' or 'tags'
+    Returns:
+        dict: dictionary where the key are ID of the object and the value,
+        the label.
+    """
     if dtype == 'focuses':
         return dict([
             (str(focus['id']), focus['label']) for focus in data

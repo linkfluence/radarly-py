@@ -19,9 +19,9 @@ from .utils.router import Router
 
 
 class Publication(SourceModel):
-    """Dict-like object storing information about the publication. All
-    datas are accessible using the key-value system of Python or as
-    attribute of the instance.
+    """Object base on ``SourceModel`` storing information about the
+    publication. The structure of the model can be drawn with the
+    ``draw_structure`` method.
 
     Args:
         uid (str): unique identifier of the publication
@@ -50,15 +50,17 @@ class Publication(SourceModel):
         return '<Publication.uid={}>'.format(publication_uid)
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """
-        Get publications linked to a project.
+        Get publications stored inside a project.
 
         Args:
             project_id (int): identifier of a project
-            search_parameter (SearchPublicationParameter): parameters object
+            parameter (SearchPublicationParameter): parameters object
                 made with the SearchPublicationParameter instance, which will
-                be used as payload data in POST request.
+                be used as payload data in POST request. See
+                ``SearchPublicationParameter`` to know how to build this
+                object.
             api (RadarlyApi, optional): API object used to perform request. If
                 None, it will use the default API.
         Returns:
@@ -66,22 +68,23 @@ class Publication(SourceModel):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.publication['search'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
         return [
             Publication(item, project_id, api) for item in data['hits']
         ]
 
     @classmethod
-    def fetch_all(cls, project_id, search_parameter, api=None):
+    def fetch_all(cls, project_id, parameter, api=None):
         """Get all publications matching given parameters. It yields
         publications.
 
         Args:
             project_id (int): identifier of your project
-            search_parameter (SearchPublicationParameter): parameters object
+            parameter (SearchPublicationParameter): parameters object
                 made with the SearchPublicationParameter instance, which will
                 be used as payload data in POST request. See
-                ``SearchPublicationParameter`` to know how to build this object
+                ``SearchPublicationParameter`` to know how to build this
+                object.
             api (RadarlyApi, optional): API object used to perform request. If
                 None, it will use the default API.
         Returns:
@@ -89,14 +92,14 @@ class Publication(SourceModel):
             Publication is yielded until there is no more publication.
         """
         api = api or RadarlyApi.get_default_api()
-        return PublicationsGenerator(search_parameter,
+        return PublicationsGenerator(parameter,
                                      project_id=project_id, api=api)
 
     def get_metadata(self, params=None):
         """This method allows users to get document’s metadata.
 
         Args:
-            params (dict, optional): parameter send in the GET request. Default
+            params (dict, optional): parameter sent in the GET request. Default
                 to None.
         Returns:
             Metadata: object storing metadata information
@@ -114,7 +117,7 @@ class Publication(SourceModel):
         """Get the raw content of the publication.
 
         Args:
-            params (dict, optional): parameter send in the GET request. Default
+            params (dict, optional): parameter sent in the GET request. Default
                 to None.
         Returns:
             dict: dictionary storing the raw content of the publication
@@ -138,18 +141,24 @@ class Publication(SourceModel):
     def download(self, output_dir=None, chunk_size=1024):
         """Download the publication if it is an image or video.
 
+        .. warning:: This function will not raised an error even if the
+            download fails. To know if all the download succeed, compare the
+            media object of a publication with the response of the function.
+
         Args:
-            output_dir (str, optional): folder where the downloaded images must be
-                registred. The folder must already exists. Default to
-                the current working directory.
+            output_dir (str, optional): folder where the downloaded images must
+                be saved. The folder must already exists. Default to the
+                current working directory.
             chunk_size (int, optional): chunk size used during the file
                 download with ``requests``. Default to 1024.
         Returns:
-            list[str]: filepath of the downloaded medias
+            dict[str]: filepath of the downloaded medias. This dictionary has
+            quite the same structure of the ``media`` attribute of the
+            publication.
         """
         def download_content(content_link, output_dir):
             """Download the content of a media and save it in a existing
-            directory
+            directory.
 
             Args:
                 content_link (str):

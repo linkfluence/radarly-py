@@ -1,10 +1,11 @@
 Project
 ~~~~~~~
 
-Get Project Informations
+Get Project information
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method allows users to retrieve project informations. It sends back all the informations about the project.
+This method allows users to retrieve project information. It sends back
+information about the project.
 
 
 **Request**

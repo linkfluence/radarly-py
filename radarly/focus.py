@@ -14,7 +14,7 @@ class Focus(SourceModel):
 
     Args:
         id (int): unique identifier for the focus
-        label (str): name of the focus (it correponds to the name in
+        label (str): name of the focus (it corresponds to the name in
             Radarly)
         description (None or str): if available, describe the purpose of
             the focus

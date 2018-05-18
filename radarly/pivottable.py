@@ -48,21 +48,21 @@ class PivotTable(dict):
         return '<PivotTable.pivot={0.pivot}.against={0.against}>'.format(self)
 
     @classmethod
-    def fetch(cls, project_id, search_parameter,
+    def fetch(cls, project_id, parameter,
               autotranslate=False, focuses=None, fields=None,
               api=None):
         """Retrieve data from the API in order to build the pivot table object.
 
         Args:
             project_id (int): identifier of the project
-            search_parameter (PivotParameter): parameter used to restrict data
+            parameter (PivotParameter): parameter used to restrict data
                 used to build the pivot table. See ``PivotParameter``
                 documentation to see how to build this object.
             autotranslate (bool): whether or not translate the headers and the
                 index in order to have labels and not integer ids. If True, it
                 will consume one extra request.
             focuses (dict, optional): dictionary used to translate the headers
-                (if *against* is set to 'focus' in the search_parameter)
+                (if *against* is set to 'focus' in the parameter)
             fields (dict, optional): dictionary used to translate the index
             api (RadarlyApi, optional): API used to make the
                 request. If None, the default API will be used.
@@ -72,7 +72,7 @@ class PivotTable(dict):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.pivot_table['fetch'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
 
         if autotranslate and not focuses and not fields:
             from .project import Project

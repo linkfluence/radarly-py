@@ -73,42 +73,42 @@ class Analytics(dict):
         return '<Analytics.fields={}>'.format(list(self.keys()))
 
     @classmethod
-    def fetch(cls, project_id, search_parameter,
+    def fetch(cls, project_id, parameter,
               focuses=None, api=None):
         """Retrieve some insights from the API. It allows you to dive deeper
         into the analysis of your project by retrieving several kind of
-        analytics computed on all publications stored in your project (eg
-        **tones** or **gender**).
+        analytics, computed on all or a subset of the publications stored in
+        your project.
 
         Args:
-            project_id (int): id of your project where all datas are stored
-            search_parameter (AnalyticsParameter): parameter used to specify
+            project_id (int): id of your project where all data are stored
+            parameter (AnalyticsParameter): parameter used to specify
                 which analytics you want to compute, on which subset of
                 publications to work... See ``AnalyticsParameter``
                 documentation to get some help on how build this object.
             focuses (dict): used to translate headers if *focuses* was asked
-                as a field.
+                in the field.
             api (RadarlyApi, optional): API to use to made the request. If
                 None, it will use the default API.
         Returns:
-            Analytics: object storing datas retrieved from the API and which
+            Analytics: object storing data retrieved from the API and which
             can be explore with ``pandas``
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.analytics['global'].format(project_id=project_id)
 
         is_occupation_asked = ANALYTICS_FIELD.OCCUPATIONS in \
-            search_parameter.get('fields', [])
+            parameter.get('fields', [])
         if is_occupation_asked:
-            search_parameter['fields'].remove(ANALYTICS_FIELD.OCCUPATIONS)
-        if search_parameter.get('fields', []) == [] and is_occupation_asked:
+            parameter['fields'].remove(ANALYTICS_FIELD.OCCUPATIONS)
+        if parameter.get('fields', []) == [] and is_occupation_asked:
             data = dict(dots=[])
         else:
-            data = api.post(url, data=search_parameter)
+            data = api.post(url, data=parameter)
         if is_occupation_asked:
-            _ = search_parameter.pop('fields')
+            _ = parameter.pop('fields')
             url = Router.analytics['occupation'].format(project_id=project_id)
-            occupations_data = api.post(url, data=search_parameter)
+            occupations_data = api.post(url, data=parameter)
             data['dots'] += occupations_data['dots']
 
         return cls(data, focuses)

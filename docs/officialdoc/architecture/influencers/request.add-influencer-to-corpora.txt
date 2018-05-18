@@ -2,3 +2,5 @@ POST /1.0/projects/:pid/corpora/cid/sources.json HTTP/1.1
 Host: radarly.linkfluence.com
 Content-Type: application/json
 Authorization: Bearer XXX
+
+{}

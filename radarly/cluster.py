@@ -14,7 +14,7 @@ from .utils.router import Router
 
 
 class Cluster(SourceModel):
-    """Object which inherits from SourceModel storing information
+    """Object which inherits from ``SourceModel`` storing information
     about a cluster"""
     def __init__(self, data, api=None):
         self._api = api or RadarlyApi.get_default_api()
@@ -23,16 +23,16 @@ class Cluster(SourceModel):
 
     def __repr__(self):
         return '<Cluster.size={}.story={}>'.format(
-            self.size, truncate_repr(self.story)
+            getattr(self, 'size'), truncate_repr(getattr(self, 'story'))
         )
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrieve clusters from the Radarly's API.
 
         Args:
             project_id (int): identifier of your project
-            search_parameter (ClusterParameter): parameter to configure
+            parameter (ClusterParameter): parameter to configure
                 how the cluster are calculated. See ``ClusterParameter``
                 documentation to know how build this object.
             api (RadarlyApi, optional): API used to perform the
@@ -43,7 +43,7 @@ class Cluster(SourceModel):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.cluster['fetch'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
         ans = []
         for data in data['hits']:
             data['project_id'] = project_id
@@ -75,8 +75,8 @@ class Cluster(SourceModel):
         Args:
             parameter (SearchPublicationParameter): object sent as payload to
                 the API to configure insights computation. See
-                ``SearchPublicationParameter`` documentation to see how build
-                this object.
+                ``SearchPublicationParameter`` documentation to see how to
+                build this object.
         Returns:
             Analytics:
         """
@@ -91,7 +91,8 @@ class Cluster(SourceModel):
 
         Args:
             parameter (CloudParameter): object sent as payload to the API. See
-                ``CloudParameter`` documentation to see how build this object.
+                ``CloudParameter`` documentation to see how to build this
+                object.
         Returns:
             Cloud:
         """

@@ -3,7 +3,7 @@ In Radarly, the cloud features is used to visualize the most relevant keywords,
 hashtags, mentions, named entities... associated to your project or set of
 publications.
 
-The ``Cloud`` object in ``radarly`` is build to give you the possibility to retrieve
+The ``Cloud`` object in ``radarly`` is built to give you the possibility to retrieve
 this kind of data.
 """
 
@@ -22,7 +22,7 @@ class Cloud(dict):
 
         >>> import pandas as pd
         >>> cloud
-        Cloud(fields=['emojiCharts', 'mentions',... , 'hashtags', 'affects'])
+        <Cloud.fields=['emojiCharts', 'mentions',... , 'hashtags', 'affects']>
         >>> mentions = pd.DataFrame(cloud['mentions'])
         >>> mentions
                             doc  impression     reach
@@ -40,12 +40,12 @@ class Cloud(dict):
         return '<Cloud.fields={}>'.format(list(self.keys()))
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrieve cloud data from the Radarly's API.
 
         Args:
             project_id (int): identifier of your project.
-            search_parameter (CloudParameter): parameter used to
+            parameter (CloudParameter): parameter used to
                 specify on which subset of publications the cloud
                 computations must be performed and which key must
                 be returned. See ``CloudParameter`` documentation
@@ -57,5 +57,5 @@ class Cloud(dict):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.cloud['fetch'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
         return cls(data['cloud'])

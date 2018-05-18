@@ -39,14 +39,15 @@ class GeoGrid(list):
         return '<GeoGrid.length={}>'.format(len(self))
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrive geographical distribution from the API.
 
         Args:
             project_id (int): unique identifier of the project
-            search_parameter (GeoParameter): parameter to specify how to
-                compute the geographical distribution. See ``GeoParameter``
-                documentation to see how to build this object.
+            parameter (GeoParameter): parameter to specify how to
+                compute the geographical distribution and on which subset of
+                publications work. See ``GeoParameter`` documentation to see
+                how to build this object.
             api (RadarlyApi, optional): API used to make the
                 request. If None, the default API will be used.
         Returns:
@@ -54,5 +55,5 @@ class GeoGrid(list):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.geogrid['fetch'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
         return cls(data)

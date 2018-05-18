@@ -4,9 +4,6 @@ accounts with those of your competitors. Thanks to that, you can manage and
 measure the performance of your accounts.
 This module defines the Python's object used to store the data of this
 benchmark.
-
-.. warning:: This module will probably be change in order to allow you to have
-    better interactions with the ``Benchmark`` object.
 """
 
 from .api import RadarlyApi
@@ -41,24 +38,24 @@ class Benchmark(dict):
                     self[platform].append(item)
 
     def __repr__(self):
-        return '<Benchmark.platforms={}>'.format(self.keys())
+        return '<Benchmark.platforms={}>'.format(list(self.keys()))
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrieve benchmark information from the Radarly's API.
 
         Args:
-            project_id (int): identifier of your project in which
-                information is stored
-            search_parameter (BenchmarkParameter): parameter used to configure
+            project_id (int): identifier of your project where information is
+                stored
+            parameter (BenchmarkParameter): parameter used to configure
                 the benchmark which will be performed. See the documentation
                 of ``BenchmarkParameter`` to see how you can build this object.
             api (RadarlyApi, optional): API object used to perform the request.
-                If None, it will be set to the default API.
+                If None, it will use the default API.
         Returns:
-            Benchmark: dict-like object storing benchmark datas by platform
+            Benchmark: dict-like object storing benchmark data by platform
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.benchmark['fetch'].format(project_id=project_id)
-        data = api.get(url, params=search_parameter)
+        data = api.get(url, params=parameter)
         return cls(data)

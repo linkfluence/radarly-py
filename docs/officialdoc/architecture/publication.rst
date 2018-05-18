@@ -1,8 +1,6 @@
 Publication
 ~~~~~~~~~~~
 
-Publication definition
-
 Search Publications
 ^^^^^^^^^^^^^^^^^^^
 
@@ -20,8 +18,11 @@ This method allows users to search for publications.
     ========= ======== ===============================================================
     Parameter Type     Description
     ========= ======== ===============================================================
-    metrics   array    List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
-    sortBy    string   Sorting parameter - ``volumetry`` or ``radar.impression`` or ``radar.reach``
+    metrics   array    List of the metrics returned in the statistics - Allowed
+                       metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                       ``repost``.
+    sortBy    string   Sorting parameter - ``volumetry`` or ``radar.impression``
+                       or ``radar.reach``
     sortOrder string   Sorting order - ``desc`` or ``asc``
     start     int      Starting index (used for pagination) Defaults to 0
     limit     int      Max number of results. Defaults to 25
@@ -55,7 +56,10 @@ This method allows users to get publication's metadata.
    * pid: project id
 **Query String Parameter**
    * uid: document id
-   * platform: document source type, ie. ``blog``, ``dailymotion``, ``website``, ``forum``, ``twitter``, ``media``, ``instagram``, ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``, ``vkontakte``, ``youku``, ``wechat``
+   * platform: document source type, ie. ``blog``, ``dailymotion``,
+     ``website``, ``forum``, ``twitter``, ``media``, ``instagram``, ``gplus``,
+     ``facebook``, ``linkedin``, ``youtube``, ``comment``, ``vkontakte``,
+     ``youku``, ``wechat``
    * from (optional)
    * to (optional)
 
@@ -67,7 +71,8 @@ This method allows users to get publication's metadata.
 Set Document Tags
 ^^^^^^^^^^^^^^^^^
 
-This method allows users to set a tag on a document. The response is a confirmation of the new document values.
+This method allows users to set a tag on a document. The response is a
+confirmation of the new document values.
 
 **Request**
    ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/documents.json
@@ -77,7 +82,10 @@ This method allows users to set a tag on a document. The response is a confirmat
    * pid: project id
 **Query String Parameter**
    * uid: document id
-   * platform: document source type, ie. ``blog``, ``dailymotion``, ``website``, ``forum``, ``twitter``, ``media``, ``instagram``, ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``, ``vkontakte``, ``youku``, ``wechat``
+   * platform: document source type, ie. ``blog``, ``dailymotion``,
+     ``website``, ``forum``, ``twitter``, ``media``, ``instagram``,
+     ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``,
+     ``vkontakte``, ``youku``, ``wechat``
 
 
 **Payload Parameter**::
@@ -104,7 +112,9 @@ This method allows users to set a tag on a document. The response is a confirmat
 Get Raw Content
 ^^^^^^^^^^^^^^^
 
-This method allows users to get document’s raw content. It sends back the zen content of the publication. If Fctx is used, content will be highlight using html tags in both title and text results : ```<hl class=\"focus-6\">...</hl>```
+This method allows users to get document’s raw content. It sends back the zen
+content of the publication. If Fctx is used, content will be highlight using
+html tags in both title and text results : ``<hl class="focus-6">...</hl>``
 
 
 **Request**
@@ -115,7 +125,10 @@ This method allows users to get document’s raw content. It sends back the zen 
    * pid: project id
 **Query String Parameter**
    * uid: document id
-   * platform: document source type, ie. ``blog``, ``dailymotion``, ``website``, ``forum``, ``twitter``, ``media``, ``instagram``, ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``, ``vkontakte``, ``youku``, ``wechat``
+   * platform: document source type, ie. ``blog``, ``dailymotion``,
+     ``website``, ``forum``, ``twitter``, ``media``, ``instagram``,
+     ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``,
+     ``vkontakte``, ``youku``, ``wechat``
 
 
 .. http:example:: curl wget python-requests
@@ -126,9 +139,12 @@ This method allows users to get document’s raw content. It sends back the zen 
 Get Metrics Related to a Publication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method allows users to get metrics about one document. It sends back all the metrics of the publication.
+This method allows users to get metrics about one document. It sends back all
+the metrics of the publication.
 
-.. warning:: To use the raw-metrics route, you need to authorize an access to your Social Networks Credentials in the platforms settings (Settings->Social Accounts) or ask your account manager.
+.. warning:: To use the raw-metrics route, you need to authorize an access to
+    your Social Networks Credentials in the platforms settings
+    (Settings->Social Accounts) or ask your account manager.
 
 
 **Request**
@@ -139,7 +155,10 @@ This method allows users to get metrics about one document. It sends back all th
    * pid: project id
 **Query String Parameter**
    * uid: document id
-   * platform: document source type, ie. ``blog``, ``dailymotion``, ``website``, ``forum``, ``twitter``, ``media``, ``instagram``, ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``, ``vkontakte``, ``youku``, ``wechat``
+   * platform: document source type, ie. ``blog``, ``dailymotion``,
+     ``website``, ``forum``, ``twitter``, ``media``, ``instagram``,
+     ``gplus``, ``facebook``, ``linkedin``, ``youtube``, ``comment``,
+     ``vkontakte``, ``youku``, ``wechat``
    * from (optional)
    * to (optional)
 

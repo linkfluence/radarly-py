@@ -4,7 +4,8 @@ Influencer
 Get Influencer Data
 ^^^^^^^^^^^^^^^^^^^
 
-This method allows users to get influencer’s metrics and informations. It sends back the metrics and the user informations, depending of the platform.
+This method allows users to get influencer’s metrics and information. It sends
+back the metrics and the user information, depending of the platform.
 
 **Request**
    ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/influencer.json
@@ -21,7 +22,7 @@ This method allows users to get influencer’s metrics and informations. It send
 
     {
         "metrics": <hash>,     # all the metrics depending of the platform,
-        "user": <hash>,        # user informations depending of the platform
+        "user": <hash>,        # user information depending of the platform
     }
 
 Example:
@@ -34,7 +35,8 @@ Example:
 Get All Influencers
 ^^^^^^^^^^^^^^^^^^^
 
-This method allows to retrieve the influencers for a set of publications. It sends back users.
+This method allows to retrieve the influencers for a set of publications.
+It sends back users.
 
 **Request**
    ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/influencers.json
@@ -45,14 +47,15 @@ This method allows to retrieve the influencers for a set of publications. It sen
 **Payload Parameter**
     Standard Search Parameter + Following Parameter:
 
-    ========= ======== ===============================================================
+    ========= ======== =========================================================
     Parameter Type     Description
-    ========= ======== ===============================================================
-    sortBy    string   Sorting parameter - ``volumetry`` or ``radar.impression`` or ``radar.reach``
+    ========= ======== =========================================================
+    sortBy    string   Sorting parameter - ``volumetry`` or ``radar.impression``
+                       or ``radar.reach``
     sortOrder string   Sorting order - ``desc`` or ``asc``
-    start     int      Starting index (used for pagination) Defaults to 0
+    start     int      Starting index (used for pagination). Defaults to 0
     limit     int      Max number of results. Defaults to 25
-    ========= ======== ===============================================================
+    ========= ======== =========================================================
 
 Response::
 
@@ -79,11 +82,12 @@ This method allows to add an influencer to a corpora.
    * pid: project id
    * cid: corpora id
 **Payload Parameter**
-    ========= ======== ===============================================================
+    ========= ======== ====================================
     Parameter Type     Description
-    ========= ======== ===============================================================
-    XXXXXX    array    List of the user under the form {name:”", screenName:"", userId: ""}
-    ========= ======== ===============================================================
+    ========= ======== ====================================
+    XXXXXX    array    List of the user under the form
+                       {name:”", screenName:"", userId: ""}
+    ========= ======== ====================================
 
 **Structure of the response**::
 

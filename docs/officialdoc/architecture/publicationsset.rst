@@ -27,8 +27,13 @@ It sends back a global JSON document with all the distributions break down by ke
     Parameter Type     Description
     ========= ======== ===============================================================
     tz        string    Timezone, formated according to the tz database: Europe/Paris
-    metrics   array     List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
-    fields    array     List of the type of results returned in the statistics - Allowed values - ``keywords``, ``hastags``, ``mentions``, ``namedEntities``, ``affects``, ``emojis`` (By default: ``keywords``,``mentions``, ``namedEntities``, ``hastags``)
+    metrics   array     List of the metrics returned in the statistics - Allowed
+                        metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                        ``repost``.
+    fields    array     List of the type of results returned in the statistics -
+                        Allowed values - ``keywords``, ``hastags``, ``mentions``,
+                        ``namedEntities``, ``affects``, ``emojis`` (By default:
+                        ``keywords``, ``mentions``, ``namedEntities``, ``hastags``)
     ========= ======== ===============================================================
 
 .. http:example:: curl wget python-requests
@@ -38,17 +43,21 @@ It sends back a global JSON document with all the distributions break down by ke
 
 Get Localizations
 ^^^^^^^^^^^^^^^^^
-This method allows users to retrieve distribution of publications by geographical zones. Sends back a global JSON document with all the distributions and information about the locations (name, lang, lat, lng, population, etc…)
+This method allows users to retrieve distribution of publications by
+geographical zones. Sends back a global JSON document with all the
+distributions and information about the locations (name, lang, lat,
+lng, population, etc…)
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/insights/cloud.json
+   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/insights/geo/:type.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
    * pid (*string*): project id
    * type (*string*): type of geography
 **Query String**
-   * locale (*string*): locale of the user to display the labels of the geographical zones, ie. ``en_GB``, ``fr_FR``
+   * locale (*string*): locale of the user to display the labels of the
+     geographical zones, ie. ``en_GB``, ``fr_FR``
 **Payload Parameter**
     Standard Search Parameter + Following Parameter
 
@@ -56,7 +65,9 @@ This method allows users to retrieve distribution of publications by geographica
     Parameter Type     Description
     ========= ======== ===============================================================
     tz        string    Timezone, formated according to the tz database: Europe/Paris
-    metrics   array     List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
+    metrics   array     List of the metrics returned in the statistics - Allowed
+                        metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                        ``repost``.
     ========= ======== ===============================================================
 
 .. http:example:: curl wget python-requests
@@ -67,7 +78,8 @@ This method allows users to retrieve distribution of publications by geographica
 Get Distributions
 ^^^^^^^^^^^^^^^^^
 
-This method allows users to retrieve publications volume/impression/reach distribution. Sends back a global JSON document with all the distributions.
+This method allows users to retrieve publications volume/impression/reach
+distribution. Sends back a global JSON document with all the distributions.
 
 **Request**
    ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/inbox/distribution.json
@@ -81,7 +93,9 @@ This method allows users to retrieve publications volume/impression/reach distri
     ========= ======== ===============================================================
     Parameter Type     Description
     ========= ======== ===============================================================
-    metrics   array     List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
+    metrics   array     List of the metrics returned in the statistics - Allowed
+                        metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                        ``repost``.
     ========= ======== ===============================================================
 
 
@@ -121,9 +135,16 @@ This method allows users to retrieve all the statistics about a query or a set o
     ========= ======== ===============================================================
     Parameter Type     Description
     ========= ======== ===============================================================
-    fctx      array     Registred queries in Radarly (id) used to compute the distribution of volume.
-    metrics   array     List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
-    fields    array     List of the type of results returned in the statistics - Allowed values ``keywords``, ``platforms``, ``focuses``, ``tones``, ``countries``, ``languages``, ``occupations``, ``demography``, ``genders``, ``categories``, ``logos``, ``<any_custom_field_name>``
+    fctx      array     Registred queries in Radarly (id) used to compute the
+                        distribution of volume.
+    metrics   array     List of the metrics returned in the statistics - Allowed
+                        metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                        ``repost``.
+    fields    array     List of the type of results returned in the statistics -
+                        Allowed values ``keywords``, ``platforms``, ``focuses``,
+                        ``tones``, ``countries``, ``languages``, ``occupations``,
+                        ``demography``, ``genders``, ``categories``, ``logos``,
+                        ``<any_custom_field_name>``
     ========= ======== ===============================================================
 
 
@@ -150,8 +171,11 @@ This method allows users to retrieve all the clusters of publications
     ========= ======== ===============================================================
     Parameter Type     Description
     ========= ======== ===============================================================
-    metrics   array     List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
-    sortBy    array     Sorting parameter - ``volumetry`` or ``radar.impression`` or ``radar.reach``
+    metrics   array     List of the metrics returned in the statistics - Allowed
+                        metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                        ``repost``.
+    sortBy    array     Sorting parameter - ``volumetry`` or ``radar.impression`` or
+                        ``radar.reach``
     sortOrder array     Sorting order - ``desc`` or ``asc``
     start     int      Starting index (used for pagination) Defaults to 0
     limit     int      Max number of results. Defaults to 25
@@ -173,18 +197,23 @@ Get Publications Topics
 **Path Parameter**
    * pid (*string*): project id
 **Query String**
-   * locale (*string*): locale of the user to display the labels of the geographical zones, ie. ``en_GB``, ``fr_FR``
+   * locale (*string*): locale of the user to display the labels of the
+     geographical zones, ie. ``en_GB``, ``fr_FR``
 **Payload Parameter**
     Standard Search Parameter + Following Parameter
 
     ========= ======== ===============================================================
     Parameter Type     Description
     ========= ======== ===============================================================
-    tz        string    Timezone, formated according to the tz database: ``Europe/Paris``
-    metrics   array     List of the metrics returned in the statistics - Allowed metrics - ``doc``, ``impression``, ``reach``
+    tz        string    Timezone, formated according to the tz database:
+                        ``Europe/Paris``
+    metrics   array     List of the metrics returned in the statistics - Allowed
+                        metrics - ``doc``, ``impression``, ``reach``, ``engagements``,
+                        ``repost``.
     ========= ======== ===============================================================
 
-This method allows users to retrieve all the values to recreate Radarly’s topic wheel. Sends back a global JSON document with all the distributions break down by keyword types.
+This method allows users to retrieve all the values to recreate Radarly’s
+topic wheel. Sends back a global JSON document with all the distributions break down by keyword types.
 
 .. http:example:: curl wget python-requests
    :request: ./publicationsset/request.get-publications-topics.txt

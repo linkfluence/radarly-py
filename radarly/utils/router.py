@@ -5,7 +5,7 @@ Module to handle all roads used to retrieve data.
 
 class Router:
     """Roads defined by the Radarly's API. Each attribute is a dictionary
-    storing URLs of the same view/category"""
+    storing URLs of the same category."""
     analytics = {
         'global': '/projects/{project_id}/insights.json',
         'occupation': '/projects/{project_id}/insights/occupation.json'

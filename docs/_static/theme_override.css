@@ -1,9 +1,9 @@
 /* .wy-nav-content {
   max-width: 100%;
 } */
-/* .wy-side-nav-search {
+.wy-side-nav-search {
   background-color: #343131 !important;
-} */
+}
 
 .wy-table-responsive table td,
 .wy-table-responsive table th {
@@ -16,4 +16,12 @@
 
 .blue {
   color: #0098e2;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.dataframe thead th {
+  text-align: center !important;
 }

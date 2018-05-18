@@ -1,6 +1,6 @@
-"""A field in parameter is a (key , value) pair in the dictionary send as
+"""A field in parameter is a (key , value) pair in the dictionary sent as
 payload to the API. For most of the field, the value is checked in
-order to be sure that the parameter is build properly, and so, avoid bad
+order to be sure that the parameter is built properly, and so, avoid bad
 requests."""
 
 import pytz
@@ -249,12 +249,12 @@ class GeoFilterMixin:
 class GeoMixin:
     """Field used to build the *geo* parameter in the payload data"""
     def geo(self, gtype, glist):
-        """List of items following geo.type - fr, gb; Restricts to the
+        """List of items following geo.type (fr, gb,...); Restricts to the
         given languages, given by an ISO 3166-1 alpha-2
 
         Args:
             gtype (str): the type of geographical place (country or town)
-            glist (list[str]): if ``gtype`` is 'country', you can pass a
+            glist (list[str]): if ``gtype`` is country, you can pass a
                 country name, its alpha-2 code, its alpha-3 or its official
                 name.
         """

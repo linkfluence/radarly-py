@@ -1,6 +1,6 @@
 """
 The Radarly's API uses several constants especially in the search parameters.
-In order to avoid you to send bad requests to the API, we have defined
+In order to avoid you bad requests to the API, we have defined
 several objects which represents all the constants which can be used to
 parametrize the requests. These constants are used in ``radarly.parameters``
 in order to check if the given parameters you enter are correct.
@@ -26,7 +26,7 @@ __all__ = [
 
 
 def _set_categories_data(cls):
-    """Dynamically load the categories datas in ``CATEGORY`` class
+    """Dynamically load the categories data in ``CATEGORY`` class
 
     Args:
         class in which the data must be injected

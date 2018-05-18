@@ -1,13 +1,15 @@
 """
 Authentification class used by ``requests`` on each request. The authentication
-system used by Radarly is based on a Bearer Token system.
+system used by Radarly is based on a bearer token system.
 """
+
+from reprlib import repr as truncate_repr
 
 from requests.auth import AuthBase
 
 
 class RadarlyAuth(AuthBase): # pylint: disable=R0903
-    """Authorization object used by request to acccess Radarly's API.
+    """Authorization object used in the request to acccess Radarly's API.
     This object is automatically initialized by the ``RadarlyApi`` object
     using your access_token so you don't need to handle the authentication
     for each of your requests to the API. If you want to do some other requests
@@ -28,5 +30,5 @@ class RadarlyAuth(AuthBase): # pylint: disable=R0903
         return r
 
     def __repr__(self):
-        token = self.token[:20] + '...'
+        token = truncate_repr(self.token)
         return '<RadarlyAuth.token={}.type=bearer>'.format(token)

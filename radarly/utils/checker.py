@@ -5,6 +5,7 @@ Used to control Python object type
 import pycountry
 from dateutil.parser import parse
 
+from .misc import flat
 
 def check_date(date_object):
     """Convert a date into the right for API"""
@@ -18,15 +19,18 @@ def check_date(date_object):
 def check_language(language):
     """Check if a language code or object is correct"""
     if isinstance(language, (list, tuple)):
-        return [check_language(item) for item in language]
-    if language == 'xx': return 'xx'
+        return flat([check_language(item) for item in language])
+    if language == 'xx': return ['xx']
+    if language == 'zh': return ['zh-cn', 'zh-tw']
+    if language in ['zh-cn', 'zh-tw']:
+        return [language]
     try:
         ans = pycountry.languages.lookup(language).alpha_2
     except LookupError:
         raise ValueError("{} is an unknown language code.".format(
             language
         ))
-    return ans
+    return [ans]
 
 
 def check_geocode(country):

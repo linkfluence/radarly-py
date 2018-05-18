@@ -68,12 +68,12 @@ class Influencer(SourceModel):
         return Influencer(res_data, project_id)
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrieve influencers list from a project.
 
         Args:
             project_id (int): id of the project
-            search_parameter (InfluencerParameter): parameter sent as payload
+            parameter (InfluencerParameter): parameter sent as payload
                 to the API. See ``InfluencerParameter`` to see how to build
                 this object.
             api (RadarlyApi): API used to performed the request. If None, the
@@ -83,16 +83,16 @@ class Influencer(SourceModel):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.influencer['search'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
         return [cls(item, project_id, api) for item in data['users']]
 
     @classmethod
-    def fetch_all(cls, project_id, search_parameter, api=None):
+    def fetch_all(cls, project_id, parameter, api=None):
         """Retrive all influencers from a project.
 
         Args:
             project_id (int): identifier of a project
-            search_parameter (InfluencerParameter): parameter sent as payload
+            parameter (InfluencerParameter): parameter sent as payload
                 to the API. See ``InfluencerParameter`` to see how to build
                 this object. This object must contain pagination's parameters.
             api (RadarlyApi): API used to performed the request. If None, the
@@ -100,7 +100,7 @@ class Influencer(SourceModel):
         Returns:
             InfluencerGenerator:
         """
-        return InfluencersGenerator(search_parameter,
+        return InfluencersGenerator(parameter,
                                     project_id=project_id, api=api)
 
     def get_metrics(self):

@@ -43,12 +43,12 @@ class Localization(list):
         return '<Localization.length={}>'.format(len(self))
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Get geographical distribution by country or town.
 
         Args:
             project_id (int): identifier of your project
-            search_parameter (LocalizationParameter): object send as payload to
+            parameter (LocalizationParameter): object sent as payload to
                 the API. See ``LocalizationParameter`` on how to build this
                 object.
             api (RadarlyApi, optional): API used to make the
@@ -56,14 +56,14 @@ class Localization(list):
         Returns:
             Localization: list of stats by geographical point
         """
-        search_parameter = copy.deepcopy(search_parameter)
+        parameter = copy.deepcopy(parameter)
         api = api or RadarlyApi.get_default_api()
         url = Router.localization['fetch'].format(
             project_id=project_id,
-            region_type=search_parameter.pop('geo_type', 'region')
+            region_type=parameter.pop('geo_type', 'region')
         )
         params = [
-            ('locale', search_parameter.pop('locale', 'en_GB'))
+            ('locale', parameter.pop('locale', 'en_GB'))
         ]
-        data = api.post(url, params=params, data=search_parameter)
+        data = api.post(url, params=params, data=parameter)
         return cls(data[to_snake_case('geo-digging')])

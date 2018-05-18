@@ -198,7 +198,7 @@ class RadarlyApi: # pylint: disable=R0902
         Args:
             verb (string): method used for the request
             url (string): url to ask
-            **kwargs: keywords arguments send with request
+            **kwargs: keywords arguments sent with request
         Raises:
             HTTP Error: raised if the request failed for an unknown cause
         Returns:
@@ -213,9 +213,6 @@ class RadarlyApi: # pylint: disable=R0902
         url = url if self.root_url in url  \
             else '{}/{}'.format(self.root_url, url)
         kwargs.setdefault('headers', {})
-        kwargs['headers'].setdefault(
-            'Authorization', 'Bearer {}'.format(self.access_token)
-        )
         kwargs['headers'].setdefault('Content-Type', 'application/json')
         if ('data' in kwargs and
                 kwargs['headers']['Content-Type'] == 'application/json'):
@@ -225,7 +222,7 @@ class RadarlyApi: # pylint: disable=R0902
         if self.rates.is_reached(url):
             raise RateReached('No more request available')
 
-        res = requests.request(verb, url, **kwargs)
+        res = requests.request(verb, url, auth=self._auth, **kwargs)
 
         try:
             res.raise_for_status()
@@ -234,7 +231,7 @@ class RadarlyApi: # pylint: disable=R0902
             error_type = error_data.get('error_type', '')
             if error_type == 'ExpiredTokenException' and self.autorefresh:
                 self.refresh()
-                res = requests.request(verb, url, **kwargs)
+                res = requests.request(verb, url, auth=self._auth, **kwargs)
                 res.raise_for_status()
             else:
                 raise err
@@ -247,7 +244,7 @@ class RadarlyApi: # pylint: disable=R0902
 
         Args:
             url (string): url to ask
-            **kwargs: keywords arguments send with ``request``
+            **kwargs: keywords arguments sent with ``request``
         Raises:
             HTTP Error: raised if the request failed for an unknown cause
         Returns:
@@ -260,7 +257,7 @@ class RadarlyApi: # pylint: disable=R0902
 
         Args:
             url (string): url to ask
-            **kwargs: keywords arguments send with request
+            **kwargs: keywords arguments sent with request
         Raises:
             HTTP Error: raised if the request failed for an unknown cause
         Returns:
@@ -273,7 +270,7 @@ class RadarlyApi: # pylint: disable=R0902
 
         Args:
             url (string): url to ask
-            **kwargs: keywords arguments send with request
+            **kwargs: keywords arguments sent with request
         Raises:
             HTTP Error: raised if the request failed for an unknown cause
         Returns:

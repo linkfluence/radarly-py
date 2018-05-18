@@ -27,12 +27,12 @@ __all__ = (
 
 
 class Parameter(dict):
-    """A dict-like object used to store the payload data sent with each
-    request in RadarlyApi. Each road in the API used an object (which inherits
-    from this class) to build the payload data which will be sent to the API.
-    When the methods of Parameter object is used to build the object, some
-    checks are computed on the values in order to assert that the payload data
-    are correctly made.
+    """An object based on ``dict`` used to store the payload data sent with
+    each request in RadarlyApi. Each road in the API used an object (which
+    inherits from this class) to help you build the payload data which will
+    be sent to the API. When the methods of Parameter object is used to build
+    the object, some checks are computed on the values in order to assert that
+    the payload data is correctly built.
     """
     pass
 
@@ -43,7 +43,9 @@ class AnalyticsParameter(Parameter,
                          MetricsMixin,
                          FieldsMixin,
                          ClusterMixin):
-    """Parameters used when retrieving some statistics.
+    """Helper to build the payload sent when retrieving some statistics
+    This helper contains all the methods to restrict the set of publications
+    (methods defined in radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -71,7 +73,8 @@ class BenchmarkParameter(Parameter,
                          RangeDateMixin,
                          TimezoneMixin,
                          IntervalMixin):
-    """Parameters used as payload when retrieving benchmark datas.
+    """Helper to build the payload sent to the API when retrieving benchmark
+    data.
 
     Example:
 
@@ -90,11 +93,14 @@ class BenchmarkParameter(Parameter,
 
 class CloudParameter(Parameter,
                      StandardParameterMixin,
+                     FctxMixin,
                      MetricsMixin,
                      TimezoneMixin,
                      FieldsMixin,
                      ClusterMixin):
-    """Parameters used when retrieving cloud datas.
+    """Helper to build the payload sent to the API when retrieving cloud data.
+    This helper contains all the methods to restrict the set of publications
+    (methods defined in radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -103,6 +109,9 @@ class CloudParameter(Parameter,
         >>> start = datetime(2018, 1, 1)
         >>> end = datetime(2018, 1, 31)
         >>> cloud_param = CloudParameter() \\
+                .focuses(include=[1, 2, 3, 4]) \\
+                .fctx(*[1, 2, 3, 4]) \\
+                .tones(TONE.POSITIVE) \\
                 .timezone('Europe/Paris') \\
                 .metrics(METRIC.DOC, METRIC.IMPRESSION, METRIC.REACH) \\
                 .fields(CLOUD_FIELD.KEYWORDS, CLOUD_FIELD.MENTIONS) \\
@@ -116,12 +125,21 @@ class ClusterParameter(Parameter,
                        MetricsMixin,
                        SortMixin,
                        PaginationMixin):
-    """Parameters used as payload when retrieving clusters of publications"""
+    """Helper to build the payload sent to the API when retrieving clusters
+    of publications. This helper contains all the methods to restrict the
+    set of publications (methods defined in
+    radarly.parameters.field.StandardParameterMixin).
+
+    ..warning:: The value for the sort_by parameter are restricted.
+        Check the ``AVAILABLE_SORT_BY`` class attribute to know the
+        available parameters.
+    """
     AVAILABLE_SORT_BY = [
         "volumetry",
         "radar.impression",
         "radar.reach"
     ]
+
     def __init__(self):
         super().__init__()
         self.flag(retweet=True)
@@ -132,7 +150,10 @@ class DistributionParameter(Parameter,
                             IntervalMixin,
                             MetricsMixin,
                             GeoFilterMixin):
-    """Parameters used when retrieving a time distribution of some metrics.
+    """Helper to build the payload sent to the API when retrieving time
+    distribution of some metrics. This helper contains all the methods
+    to restrict the set of publications (methods defined in
+    radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -154,8 +175,9 @@ class GeoParameter(Parameter,
                    FctxMixin,
                    GeoFilterMixin,
                    TimezoneMixin):
-    """Parameters used as payload when retrieving geographical distribution
-    datas
+    """Helper to build the payload sent to the georgrid of the API.
+    This helper contains all the methods to restrict the set of publications
+    (methods defined in radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -177,7 +199,13 @@ class InfluencerParameter(Parameter,
                           StandardParameterMixin,
                           SortMixin,
                           PaginationMixin):
-    """Parameter used when retrieving influencers' data.
+    """Helper to build the payload when retrieving influencers' data.
+    This helper contains all the methods to restrict the set of publications
+    (methods defined in radarly.parameters.field.StandardParameterMixin).
+
+    ..warning:: The value for the sort_by parameter are restricted.
+        Check the ``AVAILABLE_SORT_BY`` class attribute to know the
+        available parameters.
 
     Example:
 
@@ -209,7 +237,10 @@ class LocalizationParameter(Parameter,
                             GeoTypeMixin,
                             TimezoneMixin,
                             MetricsMixin):
-    """Parameters used when retrieving a geo distribution.
+    """Helper to build the payload sent to the API when retrieving distribution
+    of publications by geographical zones. This helper contains all the methods
+    to restrict the set of publications (methods defined in
+    radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -228,7 +259,9 @@ class PivotParameter(Parameter,
                      MetricsMixin,
                      FctxMixin,
                      IntervalMixin):
-    """Parameters used to build pivot table.
+    """Helper to build the payload for the pivot table road in the API.
+    This helper contains all the methods to restrict the set of publications
+    (methods defined in radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -236,12 +269,11 @@ class PivotParameter(Parameter,
         >>> start = datetime(2018, 1, 1)
         >>> end = datetime(2018, 1, 31)
         >>> pivot_param = PivotParameter(pivot='Fragrances', against='focuses') \\
+                .metrics(METRIC.DOC) \\
                 .publication_date(start, end) \\
                 .focuses(include=[1, 2, 3, 4]) \\
-                .fctx(*[1, 2, 3, 4]) \\
-                .metrics(METRIC.DOC) \\
-                .interval(INTERVAL.DAY) \\
-                .flag(retweet=False)
+                .flag(retweet=False) \\
+                .fctx(*[1, 2, 3, 4])
 
     """
     def __init__(self, pivot=None, against=None):
@@ -262,7 +294,14 @@ class SearchPublicationParameter(Parameter,
                                  FctxMixin,
                                  ClusterMixin,
                                  GeoFilterMixin):
-    """Parameters used when retrieving some publications.
+    """Helper to build the payload sent to the API when you are searching
+    pubications. This helper contains all the methods to restrict the set
+    of publications (methods defined in
+    radarly.parameters.field.StandardParameterMixin).
+
+    ..warning:: The value for the sort_by parameter are restricted.
+        Check the ``AVAILABLE_SORT_BY`` class attribute to know the
+        available parameters.
 
     Example:
 
@@ -271,7 +310,11 @@ class SearchPublicationParameter(Parameter,
         >>> param = SearchPublicationParameter() \\
                 .publication_date(start, end) \\
                 .platforms(PLATFORM.INSTAGRAM) \\
-                .pagination(0, 10)
+                .languages('french', 'english', 'zh-cn', 'zh-tw') \\
+                .flag(retweet=False, favorite=True) \\
+                .tones(TONE.POSITIVE, TONE.NEUTRAL) \\
+                .sort_by(BY.ENGAGEMENT) \\
+                .pagination(start=0, limit=25)
     """
     AVAILABLE_SORT_BY = [
         'date',
@@ -293,7 +336,12 @@ class SearchPublicationParameter(Parameter,
 class SocialPerformanceParameter(Parameter,
                                  RangeDateMixin,
                                  TimezoneMixin):
-    """Parameters used when retrieving social performance data
+    """Helper to build the payload sent to the API when retrieving
+    social performance data.
+
+    ..warning:: Only social accounts of some platforms can be analyzed. To
+        check the available platforms, you can examine the
+        ``AVAILABLE_PLATFORMs`` class attribute.
 
     Example:
 
@@ -305,17 +353,22 @@ class SocialPerformanceParameter(Parameter,
                 .platform(PLATFORM.INSTAGRAM) \\
                 .date_range(start, end)
     """
+    AVAILABLE_PLATFORMS = [
+        'instagram',
+        'youtube',
+        'twitter',
+        'facebook',
+        'linkedin',
+        'sinaweibo'
+    ]
     def platform(self, platform_value):
-        right_platforms = [
-            'instagram',
-            'youtube',
-            'twitter',
-            'facebook',
-            'linkedin',
-            'sinaweibo'
-        ]
-        assert platform_value in right_platforms, \
-            "The platform must be in {}".format(right_platforms)
+        """
+        Args:
+            platform_value (str): Platform of the social accounts on which the
+                benchmark will be computed.
+        """
+        assert platform_value in self.AVAILABLE_PLATFORMS, \
+            "The platform must be in {}".format(self.AVAILABLE_PLATFORMS)
         self['platform'] = platform_value
         return self
 
@@ -328,7 +381,9 @@ class TopicParameter(Parameter,
                      TimezoneMixin,
                      MetricsMixin,
                      LocaleMixin):
-    """Parameters used as payload when retrieving topic datas.
+    """Helper to bulid the payload sent to the API when retrieving topic data.
+    This helper contains all the methods to restrict the set of publications
+    (methods defined in radarly.parameters.field.StandardParameterMixin).
 
     Example:
 
@@ -340,6 +395,7 @@ class TopicParameter(Parameter,
                 .metrics(METRIC.DOC, METRIC.IMPRESSION) \\
                 .timezone('Europe/Paris') \\
                 .focuses(include=[1, 2, 3, 4]) \\
-                .publication_date(start, end)
+                .publication_date(start, end) \\
+                .platforms(PLATFORM.INSTAGRAM)
     """
     pass

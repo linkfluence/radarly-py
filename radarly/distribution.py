@@ -43,12 +43,12 @@ class Distribution(list):
         return '<Distribution.length={}>'.format(len(self))
 
     @classmethod
-    def fetch(cls, project_id, search_parameter, api=None):
+    def fetch(cls, project_id, parameter, api=None):
         """Retrieve distribution data from the Radarly's API.
 
         Args:
             project_id (int): identifier of your project
-            search_parameter (DistributionParameter): parameter used to specify
+            parameter (DistributionParameter): parameter used to specify
                 on which subset of publications the distribution must be
                 computed. See ``DistributionParameter`` documentation to see
                 how to build this object.
@@ -59,5 +59,5 @@ class Distribution(list):
         """
         api = api or RadarlyApi.get_default_api()
         url = Router.distribution['fetch'].format(project_id=project_id)
-        data = api.post(url, data=search_parameter)
+        data = api.post(url, data=parameter)
         return cls(data['distribution'])

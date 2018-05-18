@@ -12,8 +12,8 @@ from .utils.router import Router
 
 class User(SourceModel):
     """Object used to explore user informations returned by the API. Given that
-    this object inherits from SourceModel, you can get the structure of the
-    object with the `draw_structure` method.
+    this object inherits from ``SourceModel``, you can get the structure of the
+    object with the ``draw_structure`` method.
 
     Examples:
         >>> user = User.find(uid='me')
@@ -50,7 +50,7 @@ class User(SourceModel):
         Get information about an user.
 
         Args:
-            uid (string): because you can only access datas about you, this
+            uid (string): because you can only access data about you, this
                 argument must be set to ``me``
             api (RadarlyApi, optional): API used to make the
                 request. If None, the default API will be used.
