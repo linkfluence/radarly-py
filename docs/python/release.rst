@@ -8,6 +8,27 @@ Releases
 History
 ^^^^^^^
 
+1.0.2
+    :underline:`Release Date:` 2018/6/15
+
+    With this release comes a better management of authentication errors and a
+    small (internal) refactoring.
+
+    - If the authentication fails, the client raises an error which depend on
+      the error's type.
+    - An instance of ``radarly.api.RadarlyApi`` now stores a copy of the
+      ``radarly.utils.router.Router`` (in the ``router`` attribute) used for
+      each request.
+    - The default scopes for an instance of ``radarly.api.RadarlyApi`` has
+      been changed to ``listening`` and ``social-performance`` (the scope
+      ``historical-data`` has beeen removed).
+    - The ``version`` class attribute in ``radarly.api.RadarlyApi`` is now
+      an instance attribute.
+    - The ``set_version`` method of ``radarly.api.RadarlyApi`` has been
+      deleted (this is a small break compatibility but this method was useless
+      so the minor of the version has not been upgraded).
+    - All parsed dates are now unaware ``datetime`` object.
+
 1.0.1
     :underline:`Release Date:` 2018/5/18
 

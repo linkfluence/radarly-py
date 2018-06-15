@@ -1,7 +1,7 @@
 /* .wy-nav-content {
   max-width: 100%;
 } */
-.wy-side-nav-search {
+.wy-side-nav-search, nav.wy-nav-top {
   background-color: #343131 !important;
 }
 

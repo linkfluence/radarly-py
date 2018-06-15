@@ -6,7 +6,6 @@ cross data analysis.
 from .api import RadarlyApi
 from .utils._internal import CallableDict, id_to_value
 from .utils.misc import to_snake_case
-from .utils.router import Router
 
 
 class PivotTable(dict):
@@ -71,7 +70,7 @@ class PivotTable(dict):
             interact with it.
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.pivot_table['fetch'].format(project_id=project_id)
+        url = api.router.pivot_table['fetch'].format(project_id=project_id)
         data = api.post(url, data=parameter)
 
         if autotranslate and not focuses and not fields:

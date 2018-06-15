@@ -8,7 +8,6 @@ this kind of data.
 """
 
 from .api import RadarlyApi
-from .utils.router import Router
 
 
 class Cloud(dict):
@@ -56,6 +55,6 @@ class Cloud(dict):
             Cloud: dict-like object storing statistics by fields
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.cloud['fetch'].format(project_id=project_id)
+        url = api.router.cloud['fetch'].format(project_id=project_id)
         data = api.post(url, data=parameter)
         return cls(data['cloud'])

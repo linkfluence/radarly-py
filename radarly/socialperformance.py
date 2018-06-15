@@ -4,7 +4,6 @@ This module defines an object in order to retrieve information about that.
 """
 
 from .api import RadarlyApi
-from .utils.router import Router
 
 
 class SocialPerformance(list):
@@ -59,7 +58,9 @@ class SocialPerformance(list):
         platform = parameter['platform']
         parameter = parameter()
 
-        url = Router.social_performance['fetch'].format(project_id=project_id)
+        url = api.router.social_performance['fetch'].format(
+            project_id=project_id
+        )
         url = "{}?{}".format(url, parameter)
         data = api.get(url)
 

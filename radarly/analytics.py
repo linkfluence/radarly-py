@@ -11,7 +11,6 @@ distribution of some metrics.
 from .api import RadarlyApi
 from .constants import ANALYTICS_FIELD
 from .utils._internal import CallableDict
-from .utils.router import Router
 
 
 class Analytics(dict):
@@ -95,7 +94,7 @@ class Analytics(dict):
             can be explore with ``pandas``
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.analytics['global'].format(project_id=project_id)
+        url = api.router.analytics['global'].format(project_id=project_id)
 
         is_occupation_asked = ANALYTICS_FIELD.OCCUPATIONS in \
             parameter.get('fields', [])
@@ -107,7 +106,9 @@ class Analytics(dict):
             data = api.post(url, data=parameter)
         if is_occupation_asked:
             _ = parameter.pop('fields')
-            url = Router.analytics['occupation'].format(project_id=project_id)
+            url = api.router.analytics['occupation'].format(
+                project_id=project_id
+            )
             occupations_data = api.post(url, data=parameter)
             data['dots'] += occupations_data['dots']
 

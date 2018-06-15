@@ -6,7 +6,6 @@ region.
 """
 
 from .api import RadarlyApi
-from .utils.router import Router
 
 
 class GeoGrid(list):
@@ -54,6 +53,6 @@ class GeoGrid(list):
             GeoGrid: list-like object compatible with ``pandas``
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.geogrid['fetch'].format(project_id=project_id)
+        url = api.router.geogrid['fetch'].format(project_id=project_id)
         data = api.post(url, data=parameter)
         return cls(data)

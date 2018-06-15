@@ -2,12 +2,24 @@
 radarly-py
 ==========
 
+.. image:: https://img.shields.io/pypi/v/radarly-py.svg
+    :alt: PyPI - Python Version
+    :target: https://pypi.org/project/radarly-py/
+
 .. image:: https://img.shields.io/pypi/pyversions/radarly-py.svg
     :alt: PyPI - Python Version
     :target: https://pypi.org/project/radarly-py/
 
+.. image:: https://img.shields.io/pypi/l/radarly-py.svg
+    :alt: PyPI - Python Version
+    :target: https://pypi.org/project/radarly-py/
+
+
+
 :Author: Linkfluence
-:Version: 1.0.1
+:Version: 1.0.2
+
+
 
 .. _documentation: https://api.linkfluence.com/
 

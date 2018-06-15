@@ -15,7 +15,6 @@ from .constants import PLATFORM
 from .metadata import Metadata
 from .model import GeneratorModel, SourceModel
 from .utils.misc import parse_image_url
-from .utils.router import Router
 
 
 class Publication(SourceModel):
@@ -36,10 +35,9 @@ class Publication(SourceModel):
         category (str): category of the publications
         user (dict): information about the author of the publication
     """
-    def __init__(self, data, project_id, api=None):
+    def __init__(self, data, project_id):
         super().__init__()
         self.pid = project_id
-        self._api = api or RadarlyApi.get_default_api()
         super().add_data(data)
 
     def __repr__(self):
@@ -67,10 +65,10 @@ class Publication(SourceModel):
             list[Publication]:
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.publication['search'].format(project_id=project_id)
+        url = api.router.publication['search'].format(project_id=project_id)
         data = api.post(url, data=parameter)
         return [
-            Publication(item, project_id, api) for item in data['hits']
+            Publication(item, project_id) for item in data['hits']
         ]
 
     @classmethod
@@ -95,7 +93,7 @@ class Publication(SourceModel):
         return PublicationsGenerator(parameter,
                                      project_id=project_id, api=api)
 
-    def get_metadata(self, params=None):
+    def get_metadata(self, params=None, api=None):
         """This method allows users to get document’s metadata.
 
         Args:
@@ -104,16 +102,17 @@ class Publication(SourceModel):
         Returns:
             Metadata: object storing metadata information
         """
-        url = Router.publication['metadata'].format(project_id=self.pid)
+        api = api or RadarlyApi.get_default_api()
+        url = api.router.publication['metadata'].format(project_id=self.pid)
         params = {} if params is None else params
         params.update(dict(
             platform=self['origin']['platform'],
             uid=self['uid'],
         ))
-        res_data = self._api.get(url, params=params)
+        res_data = api.get(url, params=params)
         return Metadata(res_data, self['uid'])
 
-    def get_raw(self, params=None):
+    def get_raw(self, params=None, api=None):
         """Get the raw content of the publication.
 
         Args:
@@ -122,6 +121,7 @@ class Publication(SourceModel):
         Returns:
             dict: dictionary storing the raw content of the publication
         """
+        api = api or RadarlyApi.get_default_api()
         doc_platform = self['origin']['platform']
         available_platform = [
             PLATFORM.FORUM,
@@ -129,13 +129,13 @@ class Publication(SourceModel):
         ]
         assert doc_platform in available_platform, \
             "{} is not compatible with raw content".format(doc_platform)
-        url = Router.publication['raw'].format(project_id=self.pid)
+        url = api.router.publication['raw'].format(project_id=self.pid)
         params = {} if params is None else params
         params.update(dict(
             platform=doc_platform,
             uid=self['uid'],
         ))
-        res_data = self._api.get(url, params=params)
+        res_data = api.get(url, params=params)
         return res_data
 
     def download(self, output_dir=None, chunk_size=1024):
@@ -218,11 +218,13 @@ class PublicationsGenerator(GeneratorModel):
     """
     def _fetch_items(self):
         """Get next range of publications"""
-        url = Router.publication['search'].format(project_id=self.project_id)
+        url = self._api.router.publication['search'].format(
+            project_id=self.project_id
+        )
         res_data = self._api.post(url, data=self.search_param)
         self.total = res_data['total']
         self._items = (
-            Publication(item, self.project_id, self._api)
+            Publication(item, self.project_id)
             for item in res_data['hits']
         )
         div = self.total // self.search_param['limit']

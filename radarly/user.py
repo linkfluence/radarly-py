@@ -7,7 +7,6 @@ current user of the API.
 from .api import RadarlyApi
 from .model import SourceModel
 from .project import InfoProject
-from .utils.router import Router
 
 
 class User(SourceModel):
@@ -59,6 +58,6 @@ class User(SourceModel):
         """
         api = api or RadarlyApi.get_default_api()
         if uid == 'me':
-            user_data = api.get(Router.user['me'])
+            user_data = api.get(api.router.user['me'])
             return cls(user_data)
         raise ValueError("The 'uid' argument must be set to 'me'.")

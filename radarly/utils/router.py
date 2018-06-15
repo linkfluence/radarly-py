@@ -25,12 +25,18 @@ class Router:
     geogrid = {
         'fetch': '/projects/{project_id}/geogrid.json',
     }
+    host = {
+        'prod': 'https://radarly.linkfluence.com',
+    }
     influencer = {
         'search': '/projects/{project_id}/influencers.json',
         'find': '/projects/{project_id}/influencer.json',
     }
     localization = {
         'fetch': '/projects/{project_id}/insights/geo/{region_type}.json',
+    }
+    oauth = {
+        'prod': 'https://oauth.linkfluence.com/oauth2/token',
     }
     pivot_table = {
         'fetch': '/projects/{project_id}/insights/pivot.json',

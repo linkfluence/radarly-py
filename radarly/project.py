@@ -27,7 +27,6 @@ from .socialperformance import SocialPerformance
 from .analytics import Analytics
 from .tag import Tag
 from .topic import Entities, TopicWheel
-from .utils.router import Router
 from .utils._internal import id_to_value, instance_builder
 
 
@@ -78,7 +77,7 @@ class Project(SourceModel):
         translator = translator or dict()
         base_translator.update(translator)
         super().__init__(data, base_translator)
-        self._api = api or RadarlyApi.get_default_api()
+        api = api or RadarlyApi.get_default_api()
 
     def __repr__(self):
         pid, label = getattr(self, 'id'), getattr(self, 'label')
@@ -102,13 +101,10 @@ class Project(SourceModel):
             Project:
         """
         api = api or RadarlyApi.get_default_api()
-        project = api.get(Router.project['find'].format(project_id=pid))
+        project = api.get(api.router.project['find'].format(project_id=pid))
         return cls(project, api=api)
 
-    def _fetch_with_post(self, url, param_obj):
-        return self._api.post(url, data=param_obj)
-
-    def get_distribution(self, parameter):
+    def get_distribution(self, parameter, api=None):
         """
         Get distribution of volume, reach, engagement actions
         or/and impressions on a set of publications.
@@ -124,10 +120,10 @@ class Project(SourceModel):
             distribution. You can use the ``pandas`` module to explore this object.
         """
         return Distribution.fetch(
-            getattr(self, 'id'), parameter, api=self._api
+            getattr(self, 'id'), parameter, api=api
         )
 
-    def get_publications(self, parameter):
+    def get_publications(self, parameter, api=None):
         """
         Get publications of your project.
 
@@ -139,10 +135,10 @@ class Project(SourceModel):
             list[Publication]:
         """
         return Publication.fetch(
-            getattr(self, 'id'), parameter, self._api
+            getattr(self, 'id'), parameter, api
         )
 
-    def get_all_publications(self, parameter):
+    def get_all_publications(self, parameter, api=None):
         """Get all publications matching given parameters. It returns a
         generator which yields publications.
 
@@ -156,10 +152,10 @@ class Project(SourceModel):
             Publication is yielded until there is no more publications.
         """
         return Publication.fetch_all(
-            getattr(self, 'id'), parameter, self._api
+            getattr(self, 'id'), parameter, api
         )
 
-    def get_influencers(self, parameter):
+    def get_influencers(self, parameter, api=None):
         """Get influencers linked to a project.
 
         Args:
@@ -170,10 +166,10 @@ class Project(SourceModel):
             list[Influencer]:
         """
         return Influencer.fetch(
-            getattr(self, 'id'), parameter, self._api
+            getattr(self, 'id'), parameter, api
         )
 
-    def get_all_influencers(self, parameter):
+    def get_all_influencers(self, parameter, api=None):
         """Get all influencers in a project matching some parameters.
 
         Args:
@@ -184,10 +180,10 @@ class Project(SourceModel):
             InflencersGenerator: generator which yields influencer
         """
         return Influencer.fetch_all(
-            getattr(self, 'id'), parameter, api=self._api
+            getattr(self, 'id'), parameter, api=api
         )
 
-    def get_analytics(self, parameter):
+    def get_analytics(self, parameter, api=None):
         """Retrieve some insights from the API. It allows you to dive deeper
         into the analysis of your project by retrieving several kind of
         analytics, computed on all or a subset of the publications stored in
@@ -204,9 +200,9 @@ class Project(SourceModel):
         """
         focuses = id_to_value(getattr(self, 'focuses'), 'focuses')
         return Analytics.fetch(getattr(self, 'id'), parameter,
-                               focuses=focuses, api=self._api)
+                               focuses=focuses, api=api)
 
-    def get_localizations(self, parameter):
+    def get_localizations(self, parameter, api=None):
         """Get geographical distribution by region or town.
 
         Args:
@@ -217,9 +213,9 @@ class Project(SourceModel):
             Localization: list of stats by geographical point
         """
         return Localization.fetch(getattr(self, 'id'), parameter,
-                                  api=self._api)
+                                  api=api)
 
-    def get_cloud(self, parameter):
+    def get_cloud(self, parameter, api=None):
         """Retrieve cloud information from the Radarly's API.
 
         Args:
@@ -231,9 +227,9 @@ class Project(SourceModel):
         Returns:
             Cloud: dict-like object storing statistics by fields
         """
-        return Cloud.fetch(getattr(self, 'id'), parameter, self._api)
+        return Cloud.fetch(getattr(self, 'id'), parameter, api)
 
-    def get_pivot_table(self, parameter):
+    def get_pivot_table(self, parameter, api=None):
         """Retrieve data from the API in order to build the pivot table object.
 
         Args:
@@ -247,9 +243,9 @@ class Project(SourceModel):
         focuses = id_to_value(getattr(self, 'focuses'), 'focuses')
         fields = id_to_value(getattr(self, 'tags'), 'tags')
         return PivotTable.fetch(getattr(self, 'id'), parameter,
-                                focuses=focuses, fields=fields, api=self._api)
+                                focuses=focuses, fields=fields, api=api)
 
-    def get_social_performance(self, parameter):
+    def get_social_performance(self, parameter, api=None):
         """Retrieve information about social account performance from the API.
 
         Args:
@@ -260,9 +256,9 @@ class Project(SourceModel):
             SocialPerformance: list-like object compatible with ``pandas``
         """
         return SocialPerformance.fetch(getattr(self, 'id'), parameter,
-                                       api=self._api)
+                                       api=api)
 
-    def get_benchmark(self, parameter):
+    def get_benchmark(self, parameter, api=None):
         """Retrieve benchmark information from the Radarly's API.
 
         Args:
@@ -273,9 +269,9 @@ class Project(SourceModel):
             Benchmark: dict-like object storing benchmark data by platform
         """
         return Benchmark.fetch(getattr(self, 'id'), parameter,
-                               api=self._api)
+                               api=api)
 
-    def get_topic_and_entity(self, parameter):
+    def get_topic_and_entity(self, parameter, api=None):
         """
         Get distribution by category and subcategory.
 
@@ -286,10 +282,13 @@ class Project(SourceModel):
         Returns:
             TopicWheel, Entities:
         """
+        api = api or RadarlyApi.get_default_api()
         param = parameter.copy()
-        url = Router.topicwheel['fetch'].format(project_id=getattr(self, 'id'))
+        url = api.router.topicwheel['fetch'].format(
+            project_id=getattr(self, 'id')
+        )
         url = url + '?locale={}'.format(param.pop('locale'))
-        res_data = self._fetch_with_post(url, param)
+        res_data = api.post(url, data=param)
         categories = []
         entities = []
 
@@ -308,7 +307,7 @@ class Project(SourceModel):
 
         return TopicWheel(categories), Entities(entities)
 
-    def get_geogrid(self, parameter):
+    def get_geogrid(self, parameter, api=None):
         """Retrive geographical distribution from the API.
 
         Args:
@@ -319,9 +318,9 @@ class Project(SourceModel):
             GeoGrid: list-like object compatible with ``pandas``
         """
         return GeoGrid.fetch(getattr(self, 'id'), parameter,
-                             api=self._api)
+                             api=api)
 
-    def get_clusters(self, parameter):
+    def get_clusters(self, parameter, api=None):
         """Retrieve clusters from the Radarly's API.
 
         Args:
@@ -333,7 +332,7 @@ class Project(SourceModel):
             Cluster: cluster object
         """
         return Cluster.fetch(getattr(self, 'id'), parameter,
-                             api=self._api)
+                             api=api)
 
 
 class InfoProject(SourceModel):

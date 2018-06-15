@@ -21,7 +21,7 @@ def radarly_decoder(obj):
         )
 
         if isinstance(value, str) and pattern_date.match(value):
-            return parse(value)
+            return parse(value, ignoretz=True)
         elif key == 'timezone' and value in pytz.all_timezones_set:
             return pytz.timezone(value)
         return value

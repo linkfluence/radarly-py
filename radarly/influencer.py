@@ -8,7 +8,6 @@ influencers in your project and consequently understand your audience.
 from .api import RadarlyApi
 from .model import GeneratorModel, SourceModel
 from .utils._internal import parse_struct_stat
-from .utils.router import Router
 
 
 class Influencer(SourceModel):
@@ -29,9 +28,8 @@ class Influencer(SourceModel):
             project.
         stats (dict): statitics about the influencers publications
     """
-    def __init__(self, data, project_id, api=None):
+    def __init__(self, data, project_id):
         self.project_id = project_id
-        self._api = api or RadarlyApi.get_default_api()
         super().__init__()
         translator = dict(
             stats=parse_struct_stat
@@ -59,7 +57,7 @@ class Influencer(SourceModel):
             Influencer:
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.influencer['find'].format(project_id=project_id)
+        url = api.router.influencer['find'].format(project_id=project_id)
         params = dict(
             uid=influencer_id,
             platform=platform
@@ -82,9 +80,9 @@ class Influencer(SourceModel):
             list[Influencer]:
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.influencer['search'].format(project_id=project_id)
+        url = api.router.influencer['search'].format(project_id=project_id)
         data = api.post(url, data=parameter)
-        return [cls(item, project_id, api) for item in data['users']]
+        return [cls(item, project_id) for item in data['users']]
 
     @classmethod
     def fetch_all(cls, project_id, parameter, api=None):
@@ -103,18 +101,19 @@ class Influencer(SourceModel):
         return InfluencersGenerator(parameter,
                                     project_id=project_id, api=api)
 
-    def get_metrics(self):
+    def get_metrics(self, api=None):
         """Retrieve metrics data about the influencer from the API.
 
         Returns:
             dict:
         """
+        api = api or RadarlyApi.get_default_api()
         params = dict(
             platform=self['platform'],
             uid=self['id']
         )
-        url = Router.influencer['find'].format(project_id=self.project_id)
-        metrics = self._api.get(url, params=params)['metrics']
+        url = api.router.influencer['find'].format(project_id=self.project_id)
+        metrics = api.get(url, params=params)['metrics']
         return metrics
 
 
@@ -130,7 +129,7 @@ class InfluencersGenerator(GeneratorModel):
     """
     def _fetch_items(self):
         """Get next range of influencers"""
-        url = Router.influencer['search'].format(project_id=self.project_id)
+        url = self._api.router.influencer['search'].format(project_id=self.project_id)
         res_data = self._api.post(url, data=self.search_param)
         self.total = 1000
         self._items = (

@@ -5,7 +5,6 @@ publications.
 """
 
 from .api import RadarlyApi
-from .utils.router import Router
 
 
 class Distribution(list):
@@ -58,6 +57,6 @@ class Distribution(list):
             Distribution: list-like object storing statistics by date.
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.distribution['fetch'].format(project_id=project_id)
+        url = api.router.distribution['fetch'].format(project_id=project_id)
         data = api.post(url, data=parameter)
         return cls(data['distribution'])

@@ -7,7 +7,6 @@ benchmark.
 """
 
 from .api import RadarlyApi
-from .utils.router import Router
 
 
 class Benchmark(dict):
@@ -56,6 +55,6 @@ class Benchmark(dict):
             Benchmark: dict-like object storing benchmark data by platform
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.benchmark['fetch'].format(project_id=project_id)
+        url = api.router.benchmark['fetch'].format(project_id=project_id)
         data = api.get(url, params=parameter)
         return cls(data)

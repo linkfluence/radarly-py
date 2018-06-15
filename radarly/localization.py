@@ -8,7 +8,6 @@ import copy
 
 from .api import RadarlyApi
 from .utils.misc import to_snake_case
-from .utils.router import Router
 
 
 class Localization(list):
@@ -58,7 +57,7 @@ class Localization(list):
         """
         parameter = copy.deepcopy(parameter)
         api = api or RadarlyApi.get_default_api()
-        url = Router.localization['fetch'].format(
+        url = api.router.localization['fetch'].format(
             project_id=project_id,
             region_type=parameter.pop('geo_type', 'region')
         )

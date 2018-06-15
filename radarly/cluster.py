@@ -10,7 +10,6 @@ from .api import RadarlyApi
 from .model import SourceModel
 from .publication import Publication
 from .cloud import Cloud
-from .utils.router import Router
 
 
 class Cluster(SourceModel):
@@ -42,7 +41,7 @@ class Cluster(SourceModel):
                 get its structure)
         """
         api = api or RadarlyApi.get_default_api()
-        url = Router.cluster['fetch'].format(project_id=project_id)
+        url = api.router.cluster['fetch'].format(project_id=project_id)
         data = api.post(url, data=parameter)
         ans = []
         for data in data['hits']:
