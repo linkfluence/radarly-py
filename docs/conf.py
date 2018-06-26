@@ -159,7 +159,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Radarly-py.tex', 'Radarly-py Documentation',
-     'Linkfluence SAS', 'manual'),
+     'Linkfluence', 'manual'),
 ]
 
 

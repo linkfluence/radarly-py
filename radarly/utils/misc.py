@@ -4,6 +4,7 @@ Miscellaneous functions and classes
 
 import json
 import re
+import textwrap
 from collections import UserList, namedtuple
 from datetime import datetime
 from functools import reduce
@@ -123,3 +124,37 @@ def parse_image_url(image_url):
     if match:
         return match.group('filename'), match.group('format')
     return None, None
+
+
+def dict_to_tsv(data):
+    """Get a pretty representation of a dictionary as a table.
+
+    Args:
+        data_error (dict):
+    Returns:
+        str: pretty representation of the dictionary ``data``
+    """
+    offset = max([len(item) for item in data.keys()]) + 3
+
+    def multiline(long_string):
+        """Wraps a string and add some indentation to lines (except
+        for the first one).
+
+        Args:
+            long_string (str): string to wrap
+        Returns:
+            str: string wrapped.
+        """
+        multilines = textwrap.wrap(long_string, width=70)
+        multilines = [
+            int(index > 0) * offset * ' ' + item
+            for index, item in enumerate(multilines)
+        ]
+        return "\n".join(multilines)
+
+    template = []
+    for item in data:
+        multilined = multiline(str(data[item]))
+        template.append("{label:{offset}}{text}".format(
+            label=item, text=multilined, offset=offset))
+    return "\n".join(template)

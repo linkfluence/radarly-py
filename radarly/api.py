@@ -1,17 +1,14 @@
 """
-This module is the core of the Python's client. It handles all the
+This module is the core module of the Python's client. It handles all the
 requests made to the API and parses the response in order make the
 interactions with the API as easy as possible. The initialization of the
 RadarlyApi's object defined here is the first step to start using the API.
-We advise you to use a default RadarlyAPI object otherwise you must be specify
-a RadarlyApi object each time you want to retrieve documents from the API.
+We advise you to use a default RadarlyAPI object otherwise you must specify
+a RadarlyApi object each time you want to retrieve data from the API.
 To initialize a default API, simply run:
 
->>> from radarly.api import RadarlyApi
+>>> from radarly import RadarlyApi
 >>> RadarlyApi.init(client_id=<client_id>, client_secret=<client_secret>)
-
-Now you don't have to try to get an access token or check if the access
-token has expired: we check it for you!
 """
 
 import json
@@ -22,11 +19,11 @@ import requests
 from lxml import html
 
 from .auth import RadarlyAuth
-from .exceptions import AuthenticationError, NoInitializedApi, RateReached
+from .exceptions import (AuthenticationError, NoInitializedApi,
+                         RadarlyHTTPError, RateReached)
 from .rate import RateLimit
 from .utils.jsonparser import radarly_decoder as _decoder
 from .utils.router import Router
-
 
 __all__ = ['RadarlyApi']
 
@@ -43,6 +40,8 @@ def _parse_error_response(response):
         parsed from the content of th response
     """
     error_data = dict()
+    if response.ok:
+        return error_data
     error_data['error_code'] = response.status_code
     content_type = response.headers.get('Content-Type', '')
     if content_type == 'text/html':
@@ -60,7 +59,7 @@ def _parse_error_response(response):
 
 class RadarlyApi: # pylint: disable=R0902
     """Main interface with the Radarly's API. It defines several methods in
-    order to ease the interaction with the Radarly's API. For example, it
+    order to ease the interactions with the Radarly's API. For example, it
     defines the methods in order to authenticate to the API or to refresh the
     tokens. Thanks to the current implementation of the package, you can use
     ``radarly`` without using any of the ``RadarlyApi``'s methods.
@@ -71,10 +70,9 @@ class RadarlyApi: # pylint: disable=R0902
             set to None during initialization, it will try to recover the
             RADARLY_CLIENT_ID environment variable.
         client_secret (str): code given by Linkfluence in order to ensure that
-            is the right user which is using the API. Can be set at
-            initialization. If this argument is set to None during
-            initialization, it will try to recover the RADARLY_CLIENT_SECRET
-            environment variable.
+            the right user is using the API. Can be set at initialization.
+            If this argument is set to None during initialization, it will
+            try to recover the RADARLY_CLIENT_SECRET environment variable.
         scope (list[str]): scopes of the API. If None, the default value will
             be used (which is ``['listening', 'social-performance']``). Can be
             set at initialization.
@@ -227,17 +225,14 @@ class RadarlyApi: # pylint: disable=R0902
 
         res = requests.request(verb, url, auth=self._auth, **kwargs)
 
-        try:
-            res.raise_for_status()
-        except requests.exceptions.HTTPError as err:
-            error_data = _parse_error_response(res)
-            error_type = error_data.get('error_type', '')
-            if error_type == 'ExpiredTokenException' and self.autorefresh:
-                self.refresh()
-                res = requests.request(verb, url, auth=self._auth, **kwargs)
-                res.raise_for_status()
-            else:
-                raise err
+        error_data = _parse_error_response(res)
+        error_type = error_data.get('error_type', '')
+        if self.autorefresh and error_type == 'ExpiredTokenException':
+            self.refresh()
+            res = requests.request(verb, url, auth=self._auth, **kwargs)
+        if not res.ok:
+            raise RadarlyHTTPError(response=res)
+
         self.rates.update(url, res.headers)
 
         return res.json(object_hook=_decoder)

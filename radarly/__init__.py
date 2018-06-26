@@ -3,7 +3,7 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Author: Linkfluence
-:Version: 1.0.2
+:Version: 1.0.3
 :Licence: Apache-2.0
 
 .. _official documentation: https://api.linkfluence.com
@@ -57,8 +57,8 @@ from radarly.api import RadarlyApi
 
 
 __title__ = 'radarly'
-__version__ = '1.0.2'
-__author__ = 'Linkfluence SAS'
+__version__ = '1.0.3'
+__author__ = 'Linkfluence'
 __url__ = 'https://api.linkfluence.com'
 __licence__ = 'Apache-2.0'
-__copyright__ = 'Copyright 2018 Linkfluence SAS'
+__copyright__ = 'Copyright 2018 Linkfluence'

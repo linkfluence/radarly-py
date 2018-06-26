@@ -8,6 +8,12 @@ Releases
 History
 ^^^^^^^
 
+1.0.3
+    :underline:`Release Date:` 2018/6/22
+
+    - Improve error management.
+
+
 1.0.2
     :underline:`Release Date:` 2018/6/15
 
@@ -29,6 +35,7 @@ History
       so the minor of the version has not been upgraded).
     - All parsed dates are now unaware ``datetime`` object.
 
+
 1.0.1
     :underline:`Release Date:` 2018/5/18
 
@@ -46,6 +53,7 @@ History
     - Correct making of url in ``radarly.api.RadarlyApi``
     - Correct ``refresh`` method in ``radarly.api.RadarlyApi``
     - Major updates of documentation
+
 
 1.0.0
     :underline:`Release Date:` 2018/4/27

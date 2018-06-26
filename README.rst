@@ -17,7 +17,7 @@ radarly-py
 
 
 :Author: Linkfluence
-:Version: 1.0.2
+:Version: 1.0.3
 
 
 
@@ -39,14 +39,14 @@ You can use ``pip`` to install this package. The commmand
 
 Quickstart
 ^^^^^^^^^^
-First thing first you must initialize an API.
+First thing first, you must initialize an API.
 
 >>> from radarly import RadarlyApi
 >>> credentials = dict(client_id="XXXXX", client_secret="XXXXX")
 >>> RadarlyApi.init(**credentials)
 <RadarlyAPI.client_id=XXXXXXX>
 
-Then you can explore the Radarly's API with the different objects defined by
+Then, you can explore Radarly's API with the different objects defined by
 the client.
 
 For example, you can explore all information about you (your projects,
@@ -151,4 +151,4 @@ of your project).
 
 This client gives you many possibilities to explore and navigate in
 our API. Plese read the official `documentation`_ of the API and the
-client to check all you can do.
+client to check all that is possible.
