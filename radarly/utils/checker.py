@@ -49,7 +49,9 @@ def check_geocode(country):
 
 def check_list(elements, rtype, assertion_message=None):
     """Check if all the items of a list has the right type"""
-    error_message = "Please enter an argument of type '{}'".format(rtype)
+    error_message = "Invalid type (must be a list of {})".format(rtype)
     assertion_message = assertion_message or error_message
+    assert isinstance(elements, list), 'A list must be given.'
     assert all([isinstance(element, rtype) for element in elements]), \
         assertion_message
+    return None

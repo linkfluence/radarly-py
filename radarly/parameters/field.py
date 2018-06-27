@@ -250,7 +250,7 @@ class GeoMixin:
     """Field used to build the *geo* parameter in the payload data"""
     def geo(self, gtype, glist):
         """List of items following geo.type (fr, gb,...); Restricts to the
-        given languages, given by an ISO 3166-1 alpha-2
+        given countries, given by an ISO 3166-1 alpha-2
 
         Args:
             gtype (str): the type of geographical place (country or town)

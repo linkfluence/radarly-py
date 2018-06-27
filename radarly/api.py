@@ -22,7 +22,7 @@ from .auth import RadarlyAuth
 from .exceptions import (AuthenticationError, NoInitializedApi,
                          RadarlyHTTPError, RateReached)
 from .rate import RateLimit
-from .utils.jsonparser import radarly_decoder as _decoder
+from .utils.jsonparser import snake_dict as _decoder, _BLACKLIST_PATH
 from .utils.router import Router
 
 __all__ = ['RadarlyApi']
@@ -44,7 +44,7 @@ def _parse_error_response(response):
         return error_data
     error_data['error_code'] = response.status_code
     content_type = response.headers.get('Content-Type', '')
-    if content_type == 'text/html':
+    if content_type == 'text/html' or '<!DOCTYPE html>' in response.text:
         document = html.fromstring(response.text)
         error_data['error_type'] = document.xpath('//title/text()')
         try:
@@ -235,7 +235,7 @@ class RadarlyApi: # pylint: disable=R0902
 
         self.rates.update(url, res.headers)
 
-        return res.json(object_hook=_decoder)
+        return _decoder(res.json(), blacklist=_BLACKLIST_PATH)
 
     def get(self, url, **kwargs):
         """Shortcut for the ``request`` method with 'GET' as verb.

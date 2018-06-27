@@ -78,7 +78,7 @@ def parse_date(date_string):
 
 
 def to_snake_case(name):
-    """Converts a string into camel_case format"""
+    """Converts a string into snake_case format"""
     name = name.replace('-', '_')
     temp = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
     return re.sub('([a-z0-9])([A-Z])', r'\1_\2', temp).lower()

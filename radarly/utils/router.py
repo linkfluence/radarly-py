@@ -48,6 +48,7 @@ class Router:
         'search': '/projects/{project_id}/inbox/search.json',
         'metadata': '/projects/{project_id}/documents.json',
         'raw': '/projects/{project_id}/documents/raw.json',
+        'set_tag': '/projects/{project_id}/documents.json',
     }
     social_performance = {
         'fetch': '/projects/{project_id}/performance.json',

@@ -8,8 +8,20 @@ Releases
 History
 ^^^^^^^
 
+1.0.4
+    :underline:`Release Date:` 2018/6/28
+
+    - Add ``set_tags`` method in ``radarly.publication.Publication``
+      in order to set some tags (tone, language, custom_tags, ...) on
+      a publication. Check the documentation and the quickstart example
+      to get all informations about this feature.
+    - Some fields in the response of a request are now not converted into
+      snake case format. For example, the field ``radar.tag`` of a publication
+      is ignored during the parsing of the response of a request.
+
+
 1.0.3
-    :underline:`Release Date:` 2018/6/22
+    :underline:`Release Date:` 2018/6/26
 
     - Improve error management.
 

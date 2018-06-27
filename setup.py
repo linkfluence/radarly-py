@@ -15,7 +15,7 @@ def readme():
 
 setup(
     name='radarly-py',
-    version='1.0.3',
+    version='1.0.4',
     description="Python's client for Radarly API",
     long_description=readme(),
     author='Linkfluence',

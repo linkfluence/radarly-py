@@ -11,10 +11,13 @@ from reprlib import repr as trunc_repr
 import requests
 
 from .api import RadarlyApi
-from .constants import PLATFORM
+from .constants import PLATFORM, TONE
+from .exceptions import PublicationUpdateFailed
 from .metadata import Metadata
 from .model import GeneratorModel, SourceModel
 from .utils.misc import parse_image_url
+from .utils.jsonparser import snake_dict
+from .utils.checker import check_geocode, check_language, check_list
 
 
 class Publication(SourceModel):
@@ -38,6 +41,7 @@ class Publication(SourceModel):
     def __init__(self, data, project_id):
         super().__init__()
         self.pid = project_id
+        data = snake_dict(data, blacklist=[['radar', 'tag']])
         super().add_data(data)
 
     def __repr__(self):
@@ -137,6 +141,99 @@ class Publication(SourceModel):
         ))
         res_data = api.get(url, params=params)
         return res_data
+
+    def set_tags(self, tone=None, language=None, country=None,
+                 keyword=None, custom_tags=None,
+                 api=None):
+        """Update some informations about a publication in Radarly.
+
+        Args:
+            tone (str): tone of the publication. Can be `positive`,
+                `negative`, `mixed` or `neutral`.
+            language (str): alpha-2, alpha-3, or name of the language
+            country (str): alpha-2, alpha-3 or name of the country
+            keywords (list[str]): list of keywords for the publication
+            custom_tags (dict[str -> list[str]]): value of the custom tags
+                to set. The template for this argument is::
+
+                {<label of the custom_tag>: [<label of the subtag>]}.
+
+                Example: Given two tags (the first one named ``Product``
+                with ``Shoes``, ``T-Shirt`` and ``Clothes`` as subtags and
+                the second one named ``Price`` with ``High``, ``Medium``
+                and ``Low`` as subtags), a valid value for the ``custom_tags``
+                could be::
+
+                    {'Product': ['Clothes', 'T-Shirt'], 'Price': ['High']}
+        Raises:
+            PublicationUpdateFailed: error raised if the publication failed
+        Returns:
+            None
+        """
+
+        def check_update(pub, tone, language, country,
+                         keyword, custom_tags):
+            """Check the publication's update."""
+            not_updated_fields = []
+            if pub['tone'] != tone: not_updated_fields.append('tone')
+            if pub['keyword'] != keyword: not_updated_fields.append('keyword')
+            if pub['lang'] != language: not_updated_fields.append('lang')
+            if pub['geo']['inferred']['country'] != country:
+                not_updated_fields.append('geo.inferred.country')
+            _ = [
+                not_updated_fields.append('radar.tag.custom.{}'.format(key))
+                for key in custom_tags
+                if pub['radar']['tag']['custom'][key] != custom_tags[key]
+            ]
+            if not_updated_fields:
+                raise PublicationUpdateFailed(fields=not_updated_fields)
+            return None
+
+        tone = tone or self['tone']
+        _ = TONE.check(tone)
+        language = language or self['lang']
+        language = check_language(language)[0].lower()
+        country = country or self['geo']['inferred']['country']
+        country = check_geocode(country).lower()
+        if keyword != []:
+            keyword = keyword or self['keyword']
+        check_list(keyword, str, "`keyword` must be a list of string.")
+        custom_tags = custom_tags or self['radar']['tag']['custom']
+        _ = {
+            key: check_list(custom_tags[key], str,
+                            ("The value for the field `{}` must be a "
+                             "list of `{}` element").format(key, str(str)))
+            for key in custom_tags
+        }
+
+        custom_tags_setter = {
+            label: {'set': custom_tags[label]} for label in custom_tags
+        }
+        params = dict(
+            uid=self['uid'],
+            platform=self['origin']['platform'],
+        )
+        payload = {
+            "doc": {
+                "country": country,
+                "lang": language,
+                "keyword": {'set': keyword},
+                "radar": {"tag": {"custom": custom_tags_setter}},
+                "tone": tone,
+            }
+        }
+        api = api or RadarlyApi.get_default_api()
+        url = api.router.publication['set_tag'].format(
+            project_id=self['pid']
+        )
+        res = api.post(url, params=params, data=payload)
+        self.add_data(res)
+
+        check_update(self, tone, language, country,
+                     keyword, custom_tags)
+
+        return None
+
 
     def download(self, output_dir=None, chunk_size=1024):
         """Download the publication if it is an image or video.
