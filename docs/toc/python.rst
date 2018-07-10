@@ -1,5 +1,5 @@
 .. toctree::
-   :caption: Python's Client
+   :caption: Python Client
    :maxdepth: 2
 
    ../python/introduction

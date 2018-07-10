@@ -1,5 +1,5 @@
 """
-This module is the core module of the Python's client. It handles all the
+This module is the core module of the Python client. It handles all the
 requests made to the API and parses the response in order make the
 interactions with the API as easy as possible. The initialization of the
 RadarlyApi's object defined here is the first step to start using the API.
@@ -16,45 +16,16 @@ from datetime import datetime
 from os import getenv
 
 import requests
-from lxml import html
 
 from .auth import RadarlyAuth
 from .exceptions import (AuthenticationError, NoInitializedApi,
                          RadarlyHTTPError, RateReached)
 from .rate import RateLimit
+from .utils._internal import _parse_error_response
 from .utils.jsonparser import snake_dict as _decoder, _BLACKLIST_PATH
 from .utils.router import Router
 
 __all__ = ['RadarlyApi']
-
-
-def _parse_error_response(response):
-    """Parse an error response made with the request module
-    in order to extract information about the error.
-
-    Args:
-        response (requests.Response): error response get from
-            a request made with requests.
-    Returns:
-        dict: dictionary with information about the error,
-        parsed from the content of th response
-    """
-    error_data = dict()
-    if response.ok:
-        return error_data
-    error_data['error_code'] = response.status_code
-    content_type = response.headers.get('Content-Type', '')
-    if content_type == 'text/html' or '<!DOCTYPE html>' in response.text:
-        document = html.fromstring(response.text)
-        error_data['error_type'] = document.xpath('//title/text()')
-        try:
-            element = document.xpath("//p[@id='detail']/text()")
-            error_data['error_message'] = element[0]
-        except IndexError:
-            error_data['error_message'] = ''
-    elif content_type == 'application/json':
-        error_data.update(response.json())
-    return error_data
 
 
 class RadarlyApi: # pylint: disable=R0902
@@ -113,7 +84,7 @@ class RadarlyApi: # pylint: disable=R0902
         if not(client_id and client_secret):
             raise KeyError(("Neither client_id nor client_secret has been set "
                             "during the initialization of the API. Furthermore "
-                            "RADARLY_CLIENT_ID and RADARLY_CLIENT_SECRET"
+                            "RADARLY_CLIENT_ID and RADARLY_CLIENT_SECRET "
                             "variables have not be found in environment "
                             "variables. You must either specify the client_id "
                             "and client_secret arguments or set the right "

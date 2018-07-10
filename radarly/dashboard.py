@@ -2,7 +2,7 @@
 The Dashboard is an object in order to organize your project. It is a set
 of focuses, social accounts and benchmark_entities.
 
-In the Python's client, a ``Dashboard`` object stored the ID of all the objects
+In the Python client, a ``Dashboard`` object stored the ID of all the objects
 contained in the dashboard.
 """
 

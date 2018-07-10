@@ -15,8 +15,8 @@ def readme():
 
 setup(
     name='radarly-py',
-    version='1.0.4',
-    description="Python's client for Radarly API",
+    version='1.0.5',
+    description="Python client for Radarly API",
     long_description=readme(),
     author='Linkfluence',
     author_email='python@linkfluence.com',
@@ -36,6 +36,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     project_urls={
         'Documentation': 'https://api.linkfluence.com',

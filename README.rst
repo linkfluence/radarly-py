@@ -17,13 +17,13 @@ radarly-py
 
 
 :Author: Linkfluence
-:Version: 1.0.4
+:Version: 1.0.5
 
 
 
 .. _documentation: https://api.linkfluence.com/
 
-This package is a Python's client in order to use Radarly's API. Thanks to
+This package is a Python client in order to use Radarly's API. Thanks to
 this client, you can fetch most of the endpoints described in the
 `documentation`_.
 

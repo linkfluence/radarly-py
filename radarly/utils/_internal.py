@@ -2,6 +2,9 @@
 Some functions and classes used internally.
 """
 
+import re
+from lxml import html
+
 from .misc import flat
 
 
@@ -91,3 +94,36 @@ def parse_struct_interval(intervals):
             data.setdefault(metric, {})
             data[metric].update({item['date']: item['counts'][metric]})
     return data
+
+
+def _parse_error_response(response):
+    """Parse an error response made with the request module
+    in order to extract information about the error.
+
+    Args:
+        response (requests.Response): error response get from
+            a request made with requests.
+    Returns:
+        dict: dictionary with information about the error,
+        parsed from the content of th response
+    """
+    error_data = dict()
+    if response.ok:
+        return error_data
+    error_data['error_code'] = response.status_code
+    content_type = response.headers.get('Content-Type', '')
+    if content_type == 'text/html' or '<!DOCTYPE html>' in response.text:
+        document = html.fromstring(response.text)
+        error_data['error_type'] = document.xpath('//title/text()')[0]
+        try:
+            element = document.xpath("//body")[0]
+            message = element.text_content()
+        except IndexError:
+            message = ''
+        finally:
+            message = message.replace('\n', ' ')
+            message = re.sub(r'[ ]+', ' ', message).strip()
+            error_data['error_message'] = message
+    elif content_type == 'application/json':
+        error_data.update(response.json())
+    return error_data

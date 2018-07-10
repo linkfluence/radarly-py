@@ -48,6 +48,7 @@ extensions = [
     'sphinxcontrib.napoleon',
     'sphinxcontrib.httpdomain',
     'sphinxcontrib.httpexample',
+    'sphinx.ext.intersphinx',
     'nbsphinx',
     'sphinx.ext.mathjax',
 ]
@@ -193,3 +194,9 @@ texinfo_documents = [
 todo_include_todos = True
 
 httpexample_scheme = 'https'
+
+
+intersphinx_mapping  = {
+    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None),
+    'python': ('https://docs.python.org/3.6/', None)
+}

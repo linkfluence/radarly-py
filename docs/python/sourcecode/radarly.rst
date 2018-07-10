@@ -21,6 +21,7 @@ Submodules
    radarly.cloud
    radarly.cluster
    radarly.constants
+   radarly.corpus
    radarly.dashboard
    radarly.distribution
    radarly.exceptions

@@ -71,8 +71,9 @@ def draw_structure(element, max_depth=2, indent=2, show_type=True, level=0):
     return None
 
 
-def not_contains(a, b):
-    return not operator.contains(a, b)
+def not_contains(container, element):
+    """Antonym of :func:`operator.contains`"""
+    return not operator.contains(container, element)
 
 
 def parse_filter(filters):
@@ -108,6 +109,8 @@ def parse_filter(filters):
     op_func = op_dict[match.group('operator')]
 
     value = match.group('value')
+    if value == 'True': value = True
+    if value == 'False': value = False
     try:
         value = float(value)
     except ValueError:
@@ -123,7 +126,7 @@ def return_item(item, key, silently=False):
     or the attribute `key` of the object item.
 
     Args:
-        item (dict or object): Python's object to explore
+        item (dict or object): Python object to explore
         key (str): key to search in the object
         silently (bool, optional): whether or not the function should
             raises an error if key is not found. Default to False

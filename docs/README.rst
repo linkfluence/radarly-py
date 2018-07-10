@@ -3,7 +3,7 @@ radarly-py's documentation
 ==========================
 
 This folder contains the documentation of the official API of Radarly and the
-documentation for the Python's client. The HTML version of the documentation is
+documentation for the Python client. The HTML version of the documentation is
 hosted on https://api.linkfluence.com. By reading it, you will get all the
 knowledges to interact with our APIs.
 

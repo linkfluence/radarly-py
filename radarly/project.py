@@ -3,16 +3,18 @@
 
 As in Radarly, the ``Project`` object contains all the needed data
 in order to start exploring a project. The ``Project`` object is built
-dynamically using the response get from the `API call`_ to get
+dynamically using the response got from the `API call`_ in order to retrieve
 information about a project. Several methods have been defined in order
-to retrieve publications inside the project, to know the influencers or
-to make some computations on the publications quantitative data.
+to, for example, retrieve publications inside the project, know the
+influencers or get some statitics about publications inside your project.
 """
 
+from .analytics import Analytics
 from .api import RadarlyApi
 from .benchmark import Benchmark
 from .cloud import Cloud
 from .cluster import Cluster
+from .corpus import InfoCorpus
 from .dashboard import Dashboard
 from .distribution import Distribution
 from .focus import Focus
@@ -24,7 +26,6 @@ from .pivottable import PivotTable
 from .publication import Publication
 from .socialaccount import SocialAccount
 from .socialperformance import SocialPerformance
-from .analytics import Analytics
 from .tag import Tag
 from .topic import Entities, TopicWheel
 from .utils._internal import id_to_value, instance_builder
@@ -49,16 +50,16 @@ class Project(SourceModel):
         >>> project['$.tags(type=custom).subtags']
         ...
 
-    Here are information about some useful attributes of the ``Project``
+    Here is information about some useful attributes of the ``Project``
     object.
 
     Args:
         id (string): the unique ID used in our database to identify the project
         docs_count (int): the actual number of documents inside your project
         created (datetime.datetime): creation date of the project
-        updated (datetime.datetime): last datetime the project has been updated
+        updated (datetime.datetime): last date the project was updated
         focuses (Focuses): list of all focuses (queries) of the project
-        dahboards (Dashboards): list of all dashboards created to organize your
+        dashboards (Dashboards): list of all dashboards created to organize your
             project.
         tags (Tags): list of all tags of the project
         social_accounts (dict): information about the social accounts
@@ -72,7 +73,8 @@ class Project(SourceModel):
             tags=Tag._builder,
             dashboards=Dashboard._builder,
             focuses=Focus._builder,
-            social_accounts=SocialAccount._builder
+            social_accounts=SocialAccount._builder,
+            corpora=InfoCorpus._builder
         )
         translator = translator or dict()
         base_translator.update(translator)
@@ -96,7 +98,7 @@ class Project(SourceModel):
         Args:
             pid (int): project id of the project
             api (RadarlyApi, optional): api which must be used to perform the
-                request. If None, the default API will be used.
+                request. If ``None``, the default API will be used.
         Returns:
             Project:
         """
@@ -115,9 +117,12 @@ class Project(SourceModel):
                 computed and how the distribution must be computed.
                 See ``DistributionParameter`` documentation to see
                 how to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
-            Distribution: a list-like object storing all data about the wanted
-            distribution. You can use the ``pandas`` module to explore this object.
+            Distribution: a list-like object storing all data about the asked
+            distribution. You can use the ``pandas`` module to explore this
+            object.
         """
         return Distribution.fetch(
             getattr(self, 'id'), parameter, api=api
@@ -129,8 +134,11 @@ class Project(SourceModel):
 
         Args:
             parameter (SearchPublicationParameter): parameters object
-                made with the SearchPublicationParameter instance, which will
-                be used as payload data in the POST request.
+                made with ``SearchPublicationParameter`` object, which will
+                be used as payload data in the POST request to retrieve
+                publications.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             list[Publication]:
         """
@@ -145,11 +153,14 @@ class Project(SourceModel):
         Args:
             parameter (SearchPublicationParameter): parameters object
                 made with the SearchPublicationParameter instance, which will
-                be used as payload data in POST request. See
-                ``SearchPublicationParameter`` to know how to build this object
+                be used as payload data in POST request. Go to
+                ``SearchPublicationParameter`` documentation to know how to
+                build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             PublicationGenerator: generator of publications. On each iterations, a
-            Publication is yielded until there is no more publications.
+            Publication is yielded until there is no more publication.
         """
         return Publication.fetch_all(
             getattr(self, 'id'), parameter, api
@@ -160,8 +171,10 @@ class Project(SourceModel):
 
         Args:
             parameter (InfluencerParameter): parameter sent as payload
-                to the API. See ``InfluencerParameter`` documentation to see
+                to the API. Go to ``InfluencerParameter`` documentation to see
                 how to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             list[Influencer]:
         """
@@ -176,6 +189,8 @@ class Project(SourceModel):
             parameter (InfluencerParameter): parameters object which
                 is the payload of the request made to get data. Must contains
                 pagination's parameter.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             InflencersGenerator: generator which yields influencer
         """
@@ -184,16 +199,18 @@ class Project(SourceModel):
         )
 
     def get_analytics(self, parameter, api=None):
-        """Retrieve some insights from the API. It allows you to dive deeper
-        into the analysis of your project by retrieving several kind of
-        analytics, computed on all or a subset of the publications stored in
-        your project.
+        """Retrieve some statistics from the API. It allows you to dive deeper
+        into the analysis of your publication's project by retrieving several
+        kind of analytics, computed on all or a subset of the publications
+        stored in your project.
 
         Args:
             parameter (AnalyticsParameter): parameter used to specify
                 which analytics you want to compute, on which subset of
                 publications to work... See ``AnalyticsParameter``
                 documentation to get some help on how build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             Analytics: object storing data retrieved from the API. Each field
             can be explore with ``pandas``.
@@ -207,22 +224,24 @@ class Project(SourceModel):
 
         Args:
             parameter (LocalizationParameter): object sent as payload to
-                the API. See ``LocalizationParameter`` on how to build this
-                object.
+                the API. Go to ``LocalizationParameter`` documentation to
+                know how to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
-            Localization: list of stats by geographical point
+            Localization: list of statistics by geographical point
         """
         return Localization.fetch(getattr(self, 'id'), parameter,
                                   api=api)
 
     def get_cloud(self, parameter, api=None):
-        """Retrieve cloud information from the Radarly's API.
+        """Retrieve cloud statistics from the Radarly's API.
 
         Args:
             parameter (CloudParameter): parameter used to
                 specify on which subset of publications the cloud
                 computations must be performed and which key must
-                be returned. See ``CloudParameter`` documentation
+                be returned. Go to ``CloudParameter`` documentation
                 to know how you can build this object.
         Returns:
             Cloud: dict-like object storing statistics by fields
@@ -233,9 +252,12 @@ class Project(SourceModel):
         """Retrieve data from the API in order to build the pivot table object.
 
         Args:
-            parameter (PivotParameter): parameter used to restrict data
-                used to build the pivot table. See ``PivotParameter``
-                documentation to see how to build this object.
+            parameter (PivotParameter): parameter used to restrict the set
+                of publications on which the pivot table will be based.
+                Go to ``PivotParameter`` documentation to see how to build
+                this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             PivotTable: data from the pivot table. You can use ``pandas`` to
             interact with it.
@@ -250,8 +272,10 @@ class Project(SourceModel):
 
         Args:
             parameter (SocialPerformanceParameter): object sent as
-                payload to the API. See ``SocialPerformanceParameter`` to see
-                how to build this object.
+                payload to the API. Go to ``SocialPerformanceParameter`` to
+                know how to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             SocialPerformance: list-like object compatible with ``pandas``
         """
@@ -263,8 +287,11 @@ class Project(SourceModel):
 
         Args:
             parameter (BenchmarkParameter): parameter used to configure
-                the benchmark which will be performed. See the documentation
-                of ``BenchmarkParameter`` to see how you can build this object.
+                the benchmark which will be performed. Go to
+                ``BenchmarkParameter`` documentation to see how you can
+                build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             Benchmark: dict-like object storing benchmark data by platform
         """
@@ -277,8 +304,10 @@ class Project(SourceModel):
 
         Args:
             parameter (TopicParameter): parameter sent as payload
-                to the API. See ``TopicParameter`` to see how to build
-                this object.
+                to the API. Go to ``TopicParameter`` documenation to know
+                how to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             TopicWheel, Entities:
         """
@@ -312,8 +341,10 @@ class Project(SourceModel):
 
         Args:
             parameter (GeoParameter): parameter to specify how to
-                compute the geographical distribution. See ``GeoParameter``
-                documentation to see how to build this object.
+                compute the geographical distribution. Go to ``GeoParameter``
+                documentation to know how to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             GeoGrid: list-like object compatible with ``pandas``
         """
@@ -326,8 +357,10 @@ class Project(SourceModel):
         Args:
             parameter (ClusterParameter): parameter to configure
                 how the cluster are built and which subet of publications must
-                be used. See ``ClusterParameter`` documentation to know how
-                build this object.
+                be used. Go to ``ClusterParameter`` documentation to know how
+                to build this object.
+            api (RadarlyApi, optional): api which must be used to perform the
+                request. If ``None``, the default API will be used.
         Returns:
             Cluster: cluster object
         """
@@ -337,7 +370,9 @@ class Project(SourceModel):
 
 class InfoProject(SourceModel):
     """Object storing information about a project (but not all available
-    information)"""
+    information). To get the full version of the object, you can use the
+    ``expand`` class method.
+    """
     def __init__(self, data, translator=None):
         super().__init__(data, translator=translator)
 
@@ -355,10 +390,10 @@ class InfoProject(SourceModel):
         """Retrieve additional information about a project from the API.
 
         Args:
-            api (RadarlyApi): API used to perform the request. If None,
-                the default API will be used.
+            api (RadarlyApi, optional): API used to perform the request.
+                If ``None``, the default API will be used.
         Returns:
-            Project:
+            Project: object storing all available information about a project
         """
         api = api or RadarlyApi.get_default_api()
         return Project.find(pid=getattr(self, 'id'), api=api)

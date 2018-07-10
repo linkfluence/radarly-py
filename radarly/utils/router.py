@@ -19,6 +19,9 @@ class Router:
     cluster = {
         'fetch': '/projects/{project_id}/stories.json',
     }
+    corpora = {
+        'fetch_media': '/projects/{project_id}/corpora/{corpora_id}.json',
+    }
     distribution = {
         'fetch': '/projects/{project_id}/inbox/distribution.json',
     }

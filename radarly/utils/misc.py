@@ -85,10 +85,10 @@ def to_snake_case(name):
 
 
 def extract_type(obj):
-    """Get the name of a Python's object, based on its type
+    """Get the name of a Python object, based on its type
 
     Args:
-        obj (object): Python's object
+        obj (object): Python object
     Returns:
         str:
     """

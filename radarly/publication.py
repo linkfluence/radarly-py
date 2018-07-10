@@ -142,10 +142,14 @@ class Publication(SourceModel):
         res_data = api.get(url, params=params)
         return res_data
 
-    def set_tags(self, tone=None, language=None, country=None,
-                 keyword=None, custom_tags=None,
-                 api=None):
-        """Update some informations about a publication in Radarly.
+    def set_tags(self, *args, **kwargs):
+        """Update some informations about a publication in Radarly. This
+        method is based on the ``set_publication_tags`` function defined in
+        the same module.
+
+        .. warning:: Unlike the ``set_publication_tags``, this function returns
+            None in case of success (the ``set_publication_tags`` returns a
+            ``Publication`` object).
 
         Args:
             tone (str): tone of the publication. Can be `positive`,
@@ -171,67 +175,14 @@ class Publication(SourceModel):
             None
         """
 
-        def check_update(pub, tone, language, country,
-                         keyword, custom_tags):
-            """Check the publication's update."""
-            not_updated_fields = []
-            if pub['tone'] != tone: not_updated_fields.append('tone')
-            if pub['keyword'] != keyword: not_updated_fields.append('keyword')
-            if pub['lang'] != language: not_updated_fields.append('lang')
-            if pub['geo']['inferred']['country'] != country:
-                not_updated_fields.append('geo.inferred.country')
-            _ = [
-                not_updated_fields.append('radar.tag.custom.{}'.format(key))
-                for key in custom_tags
-                if pub['radar']['tag']['custom'][key] != custom_tags[key]
-            ]
-            if not_updated_fields:
-                raise PublicationUpdateFailed(fields=not_updated_fields)
-            return None
-
-        tone = tone or self['tone']
-        _ = TONE.check(tone)
-        language = language or self['lang']
-        language = check_language(language)[0].lower()
-        country = country or self['geo']['inferred']['country']
-        country = check_geocode(country).lower()
-        if keyword != []:
-            keyword = keyword or self['keyword']
-        check_list(keyword, str, "`keyword` must be a list of string.")
-        custom_tags = custom_tags or self['radar']['tag']['custom']
-        _ = {
-            key: check_list(custom_tags[key], str,
-                            ("The value for the field `{}` must be a "
-                             "list of `{}` element").format(key, str(str)))
-            for key in custom_tags
-        }
-
-        custom_tags_setter = {
-            label: {'set': custom_tags[label]} for label in custom_tags
-        }
-        params = dict(
-            uid=self['uid'],
-            platform=self['origin']['platform'],
+        publication = set_publication_tags(
+            *args,
+            project_id=getattr(self, 'pid'),
+            uid=getattr(self, 'uid'),
+            platform=getattr(self, 'origin')['platform'],
+            **kwargs
         )
-        payload = {
-            "doc": {
-                "country": country,
-                "lang": language,
-                "keyword": {'set': keyword},
-                "radar": {"tag": {"custom": custom_tags_setter}},
-                "tone": tone,
-            }
-        }
-        api = api or RadarlyApi.get_default_api()
-        url = api.router.publication['set_tag'].format(
-            project_id=self['pid']
-        )
-        res = api.post(url, params=params, data=payload)
-        self.add_data(res)
-
-        check_update(self, tone, language, country,
-                     keyword, custom_tags)
-
+        self.add_data(publication.__dict__)
         return None
 
 
@@ -334,3 +285,103 @@ class PublicationsGenerator(GeneratorModel):
         return '<PublicationsGenerator.total={}.total_page={}>'.format(
             self.total, self.total_page
         )
+
+
+def set_publication_tags(project_id, uid, platform,
+                         tone=None, language=None, country=None,
+                         keyword=None, custom_tags=None, api=None):
+    """Update some fields in a publication in Radarly. Only specific field
+    can be updated. This function is outside the ``Publication`` class in order
+    to give you the opportunity to update a publication without having the full
+    object. The ``set_tags`` method of ``Publication`` uses this function so
+    there is no big differences between theses two functions.
+
+    Args:
+        tone (str): tone of the publication. Can be `positive`,
+            `negative`, `mixed` or `neutral`.
+        language (str): alpha-2, alpha-3, or name of the language
+        country (str): alpha-2, alpha-3 or name of the country
+        keywords (list[str]): list of keywords for the publication
+        custom_tags (dict[str -> list[str]]): value of the custom tags
+            to set. The tags must already exist. The template for this
+            argument is::
+
+            {<label of the custom_tag>: [<label of the subtag>]}.
+
+            Example: Given two tags (the first one named ``Product``
+            with ``Shoes``, ``T-Shirt`` and ``Clothes`` as subtags and
+            the second one named ``Price`` with ``High``, ``Medium``
+            and ``Low`` as subtags), a valid value for the ``custom_tags``
+            could be::
+
+                {'Product': ['Clothes', 'T-Shirt'], 'Price': ['High']}
+    Raises:
+        PublicationUpdateFailed: error raised if the publication failed
+    Returns:
+        Publication: publication which was updated
+    """
+
+    def check_update(pub, tone, language, country,
+                     keyword, custom_tags):
+        """Check the publication's update."""
+        not_updated_fields = []
+        if tone and pub['tone'] != tone:
+            not_updated_fields.append('tone')
+        if keyword and pub['keyword'] != keyword:
+            not_updated_fields.append('keyword')
+        if language and pub['lang'] != language:
+            not_updated_fields.append('lang')
+        if country and pub['geo']['inferred']['country'] != country:
+            not_updated_fields.append('geo.inferred.country')
+        if custom_tags:
+            _ = [
+                not_updated_fields.append('radar.tag.custom.{}'.format(key))
+                for key in custom_tags
+                if pub['radar']['tag']['custom'][key] != custom_tags[key]
+            ]
+        if not_updated_fields:
+            raise PublicationUpdateFailed(fields=not_updated_fields)
+        return None
+
+    payload = {}
+    if tone:
+        _ = TONE.check(tone)
+        payload['tone'] = tone
+    if language:
+        language = check_language(language)[0].lower()
+        payload['lang'] = language
+    if keyword is not None:
+        check_list(keyword, str, "`keyword` must be a list of string.")
+        payload['keyword'] = {'set': keyword}
+    if country:
+        payload['country'] = check_geocode(country)
+    if custom_tags:
+        _ = {
+            key: check_list(custom_tags[key], str,
+                            ("The value for the field `{}` must be a "
+                             "list of `{}` element").format(key, str(str)))
+            for key in custom_tags
+        }
+        custom_tags_setter = {
+            label: {'set': custom_tags[label]} for label in custom_tags
+        }
+        payload['radar'] = {'tag': {'custom': custom_tags_setter}}
+
+    params = dict(
+        uid=uid,
+        platform=platform,
+    )
+    payload = {
+        "doc": payload
+    }
+    api = api or RadarlyApi.get_default_api()
+    url = api.router.publication['set_tag'].format(
+        project_id=project_id
+    )
+    publication = api.post(url, params=params, data=payload)
+    publication = Publication(data=publication, project_id=project_id)
+
+    check_update(publication, tone, language, country,
+                 keyword, custom_tags)
+
+    return publication

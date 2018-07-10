@@ -4,6 +4,7 @@ Exception raised by the client.
 
 from requests.exceptions import HTTPError
 
+from .utils._internal import _parse_error_response
 from .utils.misc import dict_to_tsv
 
 
@@ -38,12 +39,18 @@ class AuthenticationError(Exception):
 
 class RadarlyHTTPError(HTTPError):
     """An HTTP error occured when querying Radarly's API"""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.parsed_response = _parse_error_response(self.response)
+
     def __str__(self):
+        content = self.parsed_response.get('error_message') \
+            or self.response.text or '(no content)'
         data = {
             'Code': self.response.status_code,
             'Reason': self.response.reason,
             'URL': self.response.url,
-            'Content': self.response.text or '(no content)',
+            'Content': content,
         }
         if 400 <= data['Code'] < 500:
             data['Reason'] += ' (Client Side Error)'
@@ -62,13 +69,18 @@ class RateReached(Exception):
 
 
 class PublicationUpdateFailed(Exception):
-    """Error raised if the update of a publication's field failed."""
+    """Error raised if the update of a publication's field failed.
+
+    Args:
+        not_updated_fields (list[str]): list of fields which have not been
+            updated.
+    """
     def __init__(self, fields):
         super().__init__()
-        self.fields = fields
+        self.not_updated_fields = fields
 
     def __str__(self):
         return ("The field `{}` of the publication "
                 "has not been updated.").format(
-                    ", ".join(self.fields)
+                    ", ".join(self.not_updated_fields)
                 )

@@ -2,7 +2,7 @@
 In Radarly, the benchmark feature allows you to compare your own social media
 accounts with those of your competitors. Thanks to that, you can manage and
 measure the performance of your accounts.
-This module defines the Python's object used to store the data of this
+This module defines the Python object used to store the data of this
 benchmark.
 """
 

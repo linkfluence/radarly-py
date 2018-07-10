@@ -36,4 +36,4 @@ Instead of ``python setup.py install``, you can use ``pip install .``.
 
 .. note:: ``pandas`` is not a dependency for ``radarly-py`` but we strongly
     advise you to install it in the same time because it will be very useful
-    to explore some objects defined by the Python's client.
+    to explore some objects defined by the Python client.

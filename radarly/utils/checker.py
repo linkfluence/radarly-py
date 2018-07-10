@@ -7,6 +7,7 @@ from dateutil.parser import parse
 
 from .misc import flat
 
+
 def check_date(date_object):
     """Convert a date into the right for API"""
     if date_object is None: return None

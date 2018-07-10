@@ -15,11 +15,12 @@ from .misc import to_snake_case
 _BLACKLIST_PATH = [
     ['hits', 'radar', 'tag'],
     ['radar', 'tag'],
+    ['dots', 'stats'],
 ]
 
 
 def decode_value(value, key=None):
-    """Try to convert a string into a specific Python's object"""
+    """Try to convert a string into a specific Python object"""
     pattern_date = re.compile(
         r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z'
     )
@@ -64,7 +65,7 @@ def snake_dict(data, blacklist=None, path=[]):
     Args:
         data (object): dictionary or list to convert
         blacklist (list[list[str]]): path to ignored during the parsing.
-            Example: ``[['radar', 'tag', 'custom']]
+            Example: ``[['radar', 'tag', 'custom']]``
         path (list[str]): internal use.
     Returns:
         object: the same object with all keys converted into snake cas format

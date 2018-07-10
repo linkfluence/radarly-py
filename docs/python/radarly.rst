@@ -31,6 +31,7 @@ Submodules
    ./sourcecode/radarly.cloud
    ./sourcecode/radarly.cluster
    ./sourcecode/radarly.constants
+   ./sourcecode/radarly.corpus
    ./sourcecode/radarly.dashboard
    ./sourcecode/radarly.distribution
    ./sourcecode/radarly.exceptions
