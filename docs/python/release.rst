@@ -8,6 +8,13 @@ Releases
 History
 ^^^^^^^
 
+
+1.0.6
+    :underline:`Release Date:` 2018/7/19
+
+    - The :class:`radarly.milestone.Milestone` was created in order to parse
+      the values associated to ``milestones`` in a project.
+
 1.0.5
     :underline:`Release Date:` 2018/6/28
 

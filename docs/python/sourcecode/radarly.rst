@@ -30,6 +30,7 @@ Submodules
    radarly.influencer
    radarly.localization
    radarly.metadata
+   radarly.milestone
    radarly.model
    radarly.pivottable
    radarly.project

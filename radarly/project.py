@@ -21,6 +21,7 @@ from .focus import Focus
 from .geogrid import GeoGrid
 from .influencer import Influencer
 from .localization import Localization
+from .milestone import Milestone
 from .model import SourceModel
 from .pivottable import PivotTable
 from .publication import Publication
@@ -73,6 +74,7 @@ class Project(SourceModel):
             tags=Tag._builder,
             dashboards=Dashboard._builder,
             focuses=Focus._builder,
+            milestones=Milestone._builder,
             social_accounts=SocialAccount._builder,
             corpora=InfoCorpus._builder
         )

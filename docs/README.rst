@@ -11,9 +11,10 @@ This documentation has been built with Sphinx (version 1.7.0). If you want, you
 can get a local version of the documentation by building the HTML files with
 Sphinx. Follow these steps to build the files:
 
-- Install all the requirements with ``pip install -r requirements_doc.txt``
+- Clone this repository.
 - Go in the directory where the documentation is stored (the same directory as
-  this file).
+  this file) with ``cd radarly-py/docs``.
+- Install all the requirements with ``pip install -r requirements_doc.txt``
 - Run ``make html`` in order to build the files.
 - The built files are now in the ``_build/html`` folder. The home file of the
   documentation is ``index.html``.

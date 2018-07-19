@@ -40,6 +40,7 @@ Submodules
    ./sourcecode/radarly.influencer
    ./sourcecode/radarly.localization
    ./sourcecode/radarly.metadata
+   ./sourcecode/radarly.milestone
    ./sourcecode/radarly.model
    ./sourcecode/radarly.parameters
    ./sourcecode/radarly.pivottable
