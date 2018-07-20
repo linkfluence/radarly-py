@@ -7,7 +7,7 @@ from .api import RadarlyApi
 
 
 class SocialPerformance(list):
-    """List-like object storing time distribution of some stats about a
+    """List-like object storing distribution over time of some stats about a
     social account. This object is compatible with ``pandas``.
 
     >>> social_perf

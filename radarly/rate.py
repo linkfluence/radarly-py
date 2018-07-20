@@ -28,7 +28,7 @@ class RateConf:
 
     @classmethod
     def get_category(cls, url):
-        """Get the rate limit category of an URL.
+        """Get the rate limit category of a URL.
 
         Args:
             url (string):
@@ -95,7 +95,7 @@ class RateLimit:
         return None
 
     def is_reached(self, url):
-        """Whether or not the current user can make some requests.
+        """Whether or not the current user can run some requests.
 
         Args:
             url (string): url which will be fectch by the pending request

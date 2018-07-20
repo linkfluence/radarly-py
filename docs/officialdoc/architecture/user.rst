@@ -4,8 +4,8 @@ User
 Get Current User information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method allows users to current user information and in particular,
-the list of projects available.
+This method allows users to retrieve current user information and in particular,
+the list of available projects.
 
 
 **Request**

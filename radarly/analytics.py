@@ -91,7 +91,7 @@ class Analytics(dict):
                 None, it will use the default API.
         Returns:
             Analytics: object storing data retrieved from the API and which
-            can be explore with ``pandas``
+            can be explored with ``pandas``
         """
         api = api or RadarlyApi.get_default_api()
         url = api.router.analytics['global'].format(project_id=project_id)

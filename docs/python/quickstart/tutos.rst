@@ -6,10 +6,10 @@ Use Cases
 Here are some tutorials to get familiar with the client. By following the
 whole tutorial, you will learn how to use the client. Before starting this
 tutorial, please read the official `documentation of the API`_ in order to get
-familiar with the core principles of Radarly's API.
+familiar with the core principles of Radarly API.
 
 These tutorials are often updated but don't hesitate to report any glitch you
-find.
+find to help@loinkfluence.com.
 
 .. toctree::
 

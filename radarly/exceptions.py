@@ -38,7 +38,7 @@ class AuthenticationError(Exception):
 
 
 class RadarlyHTTPError(HTTPError):
-    """An HTTP error occured when querying Radarly's API"""
+    """An HTTP error occured when querying the Radarly API"""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parsed_response = _parse_error_response(self.response)

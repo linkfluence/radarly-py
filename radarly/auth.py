@@ -9,7 +9,7 @@ from requests.auth import AuthBase
 
 
 class RadarlyAuth(AuthBase): # pylint: disable=R0903
-    """Authorization object used in the request to acccess Radarly's API.
+    """Authorization object used in the request to access Radarly API.
     This object is automatically initialized by the ``RadarlyApi`` object
     using your access_token so you don't need to handle the authentication
     for each of your requests to the API. If you want to do some other requests

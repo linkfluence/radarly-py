@@ -4,7 +4,7 @@ Introduction
 Purpose
 ~~~~~~~
 This package has been developed by our developers in order to ease the
-access to our APIs. It will be updated in the same time as Radarly product
+access to our APIs. It will be updated at the same time as Radarly product
 to allow you to have the last update of Radarly in the client.
 
 License

@@ -29,8 +29,8 @@ __all__ = ['RadarlyApi']
 
 
 class RadarlyApi: # pylint: disable=R0902
-    """Main interface with the Radarly's API. It defines several methods in
-    order to ease the interactions with the Radarly's API. For example, it
+    """Main interface with the Radarly API. It defines several methods in
+    order to ease the interactions with the Radarly API. For example, it
     defines the methods in order to authenticate to the API or to refresh the
     tokens. Thanks to the current implementation of the package, you can use
     ``radarly`` without using any of the ``RadarlyApi``'s methods.
@@ -249,7 +249,7 @@ class RadarlyApi: # pylint: disable=R0902
 
     def authenticate(self):
         """
-        Enable the authentification to Radarly's API. The Radarly's API is
+        Enable the authentification to Radarly API. The Radarly API is
         currently using the OAUTH2 system for authorization : the
         (client_id, client_secret) will be used to generate an access_token
         and a refresh_token.

@@ -1,7 +1,7 @@
 Searching in the API
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Radarly Search API allows queries against the documents of your project.
+The Radarly Search API allows to run queries against the documents of your project.
 
 Standard Query Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -13,7 +13,7 @@ All parameters are optional except where noted.
 |       Parameter             | Type       | Description                                                             |
 +=============================+============+=========================================================================+
 |        query                |  string    | A UTF-8 search query string of maximum 4K characters maximum, including |
-|                             |            | operators. eg: “linkfluence AND radarly”                                |
+|                             |            | operators. eg: `linkfluence AND radarly`                                |
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |        platforms            |  array     | Restricts to the given source types: `blog`, `dailymotion`, `website`,  |
 |                             |            | `twitter`, `media`, `instagram`, `gplus`, `facebook`, `linkedin`,       |
@@ -28,9 +28,9 @@ All parameters are optional except where noted.
 | birthdate  +----------------+------------+-------------------------------------------------------------------------+
 |            | lt             |  date      | Restricts to the max birthdate date of the author                       |
 +------------+----------------+------------+-------------------------------------------------------------------------+
-|        hasChildren          |  bool      | Restricts to author that declare to have children true or not false     |
+|        hasChildren          |  bool      | Restricts to author that declares to have children true or not false    |
 +------------+----------------+------------+-------------------------------------------------------------------------+
-|        inRelationship       |  bool      | Restricts to author that declare to be in a relationship true or not    |
+|        inRelationship       |  bool      | Restricts to author that declares to be in a relationship true or not   |
 |                             |            | false                                                                   |
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |        verified             |  bool      | Restricts to author with certified accounts true or not verified false  |
@@ -71,7 +71,7 @@ All parameters are optional except where noted.
 | date       +----------------+------------+-------------------------------------------------------------------------+
 |            | createdAfter   |  datetime  | End datetime of the time period (indexed date of the document)          |
 +------------+----------------+------------+-------------------------------------------------------------------------+
-|            | type           |  array     | Restricts to the givent type of geographic localization: country or town|
+|            | type           |  array     | Restricts to the given type of geographic localization: country or town |
 | geo        +----------------+------------+-------------------------------------------------------------------------+
 |            | list           |  array     | List of items following geo.type - fr, gb; Restricts to the given       |
 |            |                |            | languages, given by an ISO 3166-1 alpha-2)                              |
@@ -100,7 +100,7 @@ All parameters are optional except where noted.
 Query Syntax
 ^^^^^^^^^^^^
 
-The query parameter query can have operators that modify its behavior, the
+The query parameter can have operators that modify its behavior, the
 available operators are explained below. Search, Focus, and Trigger queries
 as Filters search have the same syntax.
 
@@ -108,7 +108,7 @@ as Filters search have the same syntax.
 Case & special characters
 *************************
 
-By default, text is indexed and queried.
+By default, text is indexed and queried:
 
 * in lower-case: Query strings are case insensitive: searching ``Bonjour``
   and ``bonjour`` will retrieve the same results.
@@ -125,7 +125,7 @@ By default, text is indexed and queried.
 Radarly searches for exact expressions. This means that if you choose the
 keyword ``yamaha``, ``yamahamotors`` will not match your query. When
 writing queries, use lower case letters without accents: write
-``barack obama” OR elephant`` instead of ``Barack Obama OR éléphant``
+``"barack obama" OR elephant`` instead of ``"Barack Obama" OR éléphant``
 (but using accents and special characters in a query do not have an impact
 in Radarly.)
 
@@ -137,8 +137,8 @@ Must / Must not
 
 These operators are prefered to the classical AND and NOT operators because
 they are less complex (from a computer point of view) and thus faster! From
-ElasticSearch, the preferred operators are + (this term ‘'’must’’’ be present)
-and - (this term ‘'’must not’’’ be present). All other terms are optional.
+ElasticSearch, the preferred operators are + (this term must be present)
+and - (this term must not be present). All other terms are optional.
 
 Operators
 *********
@@ -185,7 +185,7 @@ Wildcard ``*`` operator
 ***************************
 You can use the wildcard character ``*`` to search for suffix part of words.
 
-``operation*`` <ill retrieve documents containing “operation”, “operations”,
+``operation*`` will retrieve documents containing “operation”, “operations”,
 “operational”, etc. Mono Wildcard operator ``“?”`` can be replaced by another
 letter maga?ine OR operation? to search for : maga?ine => Will find mentions
 magazine or magasine
@@ -280,12 +280,12 @@ Hashtags #
 
    On Twitter, if we simply look for a hashtag, always write the hashtag with
    the #. But if we want to search for a hashtag as well as a word, enter the
-   the hashtag with and without the #. Not only the bare word. Some retweets
+   the hashtag with and without the #, not only the bare word. Some retweets
    exceed 140 characters and are therefore cut off. When you query for a
-   hashtag that has been cut, we miss these posts. The hashtags being cut off,
-   you lose the ability to query on these hashtags. One workaround for this
-   truncated hashtag problem, is to retrieve information in the general
-   meta-information so that we can recover these publications.
+   hashtag that has been cut, we miss these posts. The hashtags in the textfield
+   being cut off, you lose the ability to query on these hashtags. One
+   workaround for this truncated hashtag problem, is to retrieve information
+   in the general meta-information so that we can recover these publications.
 
 Screen names
    ``<platform>.mentions.screen-name:linkfluence OR @linkfluence OR

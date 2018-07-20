@@ -143,7 +143,7 @@ class Publication(SourceModel):
         return res_data
 
     def set_tags(self, *args, **kwargs):
-        """Update some informations about a publication in Radarly. This
+        """Update some information about a publication in Radarly. This
         method is based on the ``set_publication_tags`` function defined in
         the same module.
 
@@ -255,7 +255,7 @@ class Publication(SourceModel):
 
 
 class PublicationsGenerator(GeneratorModel):
-    """Generator which yield all publications matching some payload.
+    """Generator which yields all publications matching some payload.
 
     Args:
         search_param (SearchPublicationParameter):

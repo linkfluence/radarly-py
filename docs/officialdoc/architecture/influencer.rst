@@ -4,7 +4,7 @@ Influencer
 Get Influencer Data
 ^^^^^^^^^^^^^^^^^^^
 
-This method allows users to get influencer’s metrics and information. It sends
+This method allows users to get an influencer’s metrics and information. It sends
 back the metrics and the user information, depending of the platform.
 
 **Request**
@@ -69,10 +69,10 @@ Example:
    :response: ./influencers/response.get-influencers.txt
 
 
-Add Influencer to Corpora
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Add an Influencer to a Corpus
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method allows to add an influencer to a corpora.
+This method allows to add an influencer to a corpus.
 
 **Request**
    ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/corpora/:cid/sources.json

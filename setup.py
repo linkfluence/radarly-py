@@ -19,7 +19,7 @@ setup(
     description="Python client for Radarly API",
     long_description=readme(),
     author='Linkfluence',
-    author_email='python@linkfluence.com',
+    author_email='help@linkfluence.com',
     packages=find_packages(),
     install_requires=[
         'requests',

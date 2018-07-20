@@ -2,18 +2,18 @@ Rate Limits
 ~~~~~~~~~~~~
 
 
-The rate limiting of API provides a way to limit the number of requests
+The rate limiting of the API provides a way to limit the number of requests
 made by a client in a time-span. If a method allows for 100 requests per
 rate limit window, then it allows you to make 100 requests per window per
 leveraged access token. Rate limits are divided into 15 minute intervals.
-Since endpoints require authentication, so there is no concept of
+Since endpoints require authentication, there is no concept of
 unauthenticated calls and rate limits.
 
 The time window is sliding, that means the number of requests left for
 a token is equal to : ``MaxRequestNumber - (number of requests in the
 last X minutes)```
 
-Each rate-limited route limit requests depending on its policy. Rate
+Each rate-limiteds route limit requests depending on its policy. Rate
 limit is made per route and per token.
 Restricted Methods :
 

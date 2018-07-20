@@ -1,7 +1,7 @@
 """A field in parameter is a (key , value) pair in the dictionary sent as
-payload to the API. For most of the field, the value is checked in
-order to be sure that the parameter is built properly, and so, avoid bad
-requests."""
+payload to the API. For most fields, the value is checked in
+order to be sure that the parameter is built properly. This way, bad
+requests can be avoided."""
 
 import pytz
 
@@ -31,7 +31,7 @@ class AuthorMixin:
         return self
 
     def author_has_children(self, has_children):
-        """Restricts to author that declare to have children.
+        """Restricts to author that declares to have children.
 
         Args:
             has_children (bool): whether or note the author has children
@@ -42,7 +42,7 @@ class AuthorMixin:
         return self
 
     def author_in_relationship(self, in_relationship):
-        """Restricts to author that declare to be in a relationship
+        """Restricts to author that declares to be in a relationship
 
         Args:
             in_relationship (bool): whether or not the author must be in a

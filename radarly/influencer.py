@@ -86,7 +86,7 @@ class Influencer(SourceModel):
 
     @classmethod
     def fetch_all(cls, project_id, parameter, api=None):
-        """Retrive all influencers from a project.
+        """retrieve all influencers from a project.
 
         Args:
             project_id (int): identifier of a project
@@ -118,7 +118,7 @@ class Influencer(SourceModel):
 
 
 class InfluencersGenerator(GeneratorModel):
-    """Generator which yield all influencers matching some payload.
+    """Generator which yields all influencers matching some payload.
 
     Args:
         search_param (InfluencerParameter):

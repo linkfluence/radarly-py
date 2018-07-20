@@ -6,7 +6,7 @@ from .model import SourceModel
 
 
 class Milestone(SourceModel):
-    """This object stores all informations about a milestone. Data store
+    """This object stores all information about a milestone. Data store
     in the milestones can be used to configure the ``Parameter`` object.
 
     Args:

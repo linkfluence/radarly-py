@@ -36,7 +36,7 @@ History
 
     - Add :func:`radarly.publication.Publication.set_tags`
       a publication. Check the documentation and the quickstart example
-      to get all informations about this feature.
+      to get all information about this feature.
     - Some fields in the response of a request are now not converted into
       snake case format. For example, the field ``radar.tag`` of a publication
       is ignored during the parsing of the response of a request.
@@ -95,7 +95,7 @@ History
     :underline:`Release Date:` 2018/4/27
 
     *(Initial Release)* The client offers read-only methods to connect with
-    Radarly's API (for example, there is no special methods for the moment to
+    Radarly API (for example, there is no special methods for the moment to
     set a tag on a document or to add an influencer to a corpora).
 
 

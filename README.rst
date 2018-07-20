@@ -23,7 +23,7 @@ radarly-py
 
 .. _documentation: https://api.linkfluence.com/
 
-This package is a Python client in order to use Radarly's API. Thanks to
+This package is a Python client in order to use Radarly API. Thanks to
 this client, you can fetch most of the endpoints described in the
 `documentation`_.
 
@@ -46,7 +46,7 @@ First thing first, you must initialize an API.
 >>> RadarlyApi.init(**credentials)
 <RadarlyAPI.client_id=XXXXXXX>
 
-Then, you can explore Radarly's API with the different objects defined by
+Then, you can explore Radarly API with the different objects defined by
 the client.
 
 For example, you can explore all information about you (your projects,

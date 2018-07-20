@@ -43,7 +43,7 @@ class AnalyticsParameter(Parameter,
                          MetricsMixin,
                          FieldsMixin,
                          ClusterMixin):
-    """Helper to build the payload sent when retrieving some statistics
+    """Helper to build the payload sent when retrieving some statistics.
     This helper contains all the methods to restrict the set of publications
     (methods defined in radarly.parameters.field.StandardParameterMixin).
 

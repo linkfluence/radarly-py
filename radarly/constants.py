@@ -1,5 +1,5 @@
 """
-The Radarly's API uses several constants especially in the search parameters.
+The Radarly API uses several constants especially in the search parameters.
 In order to avoid you bad requests to the API, we have defined
 several objects which represents all the constants which can be used to
 parametrize the requests. These constants are used in ``radarly.parameters``

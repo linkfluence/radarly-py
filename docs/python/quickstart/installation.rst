@@ -6,7 +6,7 @@ Installation
 
 The ``radarly-py`` package can be found in the official packages index pypi_
 and on Github_, so there is two different ways to install it. The most updated
-version in on Github but the package on Pypi will often be updated.
+version can be found on Github but the package on Pypi will often be updated.
 
 With ``pip``
 ++++++++++++
@@ -35,5 +35,5 @@ Instead of ``python setup.py install``, you can use ``pip install .``.
 
 
 .. note:: ``pandas`` is not a dependency for ``radarly-py`` but we strongly
-    advise you to install it in the same time because it will be very useful
+    advise you to install it at the same time because it will be very useful
     to explore some objects defined by the Python client.

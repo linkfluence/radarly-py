@@ -4,8 +4,8 @@
    contain the root `toctree` directive.
 
 
-Welcome to Radarly API's documentation!
-=======================================
+Welcome to the Radarly API documentation!
+=========================================
 
 
 .. include:: toc/officialdoc.rst

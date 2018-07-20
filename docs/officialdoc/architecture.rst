@@ -1,10 +1,10 @@
-API's Documentation
--------------------
+API Documentation
+-----------------
 
 Global Scheme
 ~~~~~~~~~~~~~
-.. note:: Notices that the dashboard object doesn't appear in the scheme. It
-    is because the dashboard in mainly an object used in the API to organize
+.. note:: Please note that the dashboard object doesn't appear in the scheme.
+    It is because the dashboard is mainly an object used in the API to organize
     your queries, social accounts and benchmark entities.
 
 .. image:: /_static/radarly_api_scheme.svg
@@ -19,8 +19,8 @@ In :green:`green` URL to fetch with POST method.
 In :blue:`blue` URL to fetch with GET method.
 
 
-Deep Dive in the API
-~~~~~~~~~~~~~~~~~~~~~
+Deep Dive into the API
+~~~~~~~~~~~~~~~~~~~~~~
 
 Explore the API
 

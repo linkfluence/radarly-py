@@ -1,18 +1,20 @@
 Set of Publications
 ~~~~~~~~~~~~~~~~~~~
 
-Get Publications Keywords
-^^^^^^^^^^^^^^^^^^^^^^^^^
-This method allows users to retrieve all the best keywords about a query or a set of queries:
+Get Keywords, Hashtags, Mentions, etc. for Publications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This method allows users to retrieve all the most relevant keywords
+about a query or a set of queries:
 
 * keywords (trigger keywords + manual keywords)
 * hashtags
 * mentions
-* namedEntities (agggregation of people, organizations, locations, miscellaneous)
+* namedEntities (aggregation of people, organizations, locations, miscellaneous)
 * affects
 * emojis (under the Charts 💖 or Annotations “heart” format)
 
-It sends back a global JSON document with all the distributions break down by keyword types.
+It sends back a global JSON document with all the distributions broken down by keyword types.
 
 **Request**
    ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/insights/cloud.json
@@ -43,7 +45,7 @@ It sends back a global JSON document with all the distributions break down by ke
 
 Get Localizations
 ^^^^^^^^^^^^^^^^^
-This method allows users to retrieve distribution of publications by
+This method allows users to retrieve the distribution of publications by
 geographical zones. Sends back a global JSON document with all the
 distributions and information about the locations (name, lang, lat,
 lng, population, etc…)
@@ -213,7 +215,8 @@ Get Publications Topics
     ========= ======== ===============================================================
 
 This method allows users to retrieve all the values to recreate Radarly’s
-topic wheel. Sends back a global JSON document with all the distributions break down by keyword types.
+topic wheel. Sends back a global JSON document with all the distributions broken
+down by keyword types.
 
 .. http:example:: curl wget python-requests
    :request: ./publicationsset/request.get-publications-topics.txt

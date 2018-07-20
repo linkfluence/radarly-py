@@ -42,8 +42,8 @@ This method allows users to search for publications.
    :response: ./publication/response.search-for-publications.txt
 
 
-Get Publication's Metadata
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Get Metadata of a Publication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This method allows users to get publication's metadata.
 
@@ -109,11 +109,11 @@ confirmation of the new document values.
    :response: ./publication/response.set-document-tags.txt
 
 
-Get Raw Content
-^^^^^^^^^^^^^^^
+Get Raw Content of a Publication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This method allows users to get document’s raw content. It sends back the zen
-content of the publication. If Fctx is used, content will be highlight using
+This method allows users to get raw content of a document. It sends back the zen
+content of the publication. If Fctx is used, content will be highlighted using
 html tags in both title and text results : ``<hl class="focus-6">...</hl>``
 
 

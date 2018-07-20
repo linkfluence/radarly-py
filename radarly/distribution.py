@@ -1,6 +1,6 @@
 """
 The distribution is a very useful feature in Radarly because it allows you
-to get the time distribution (by hour, day, week or month) of all your
+to get the distribution over time (by hour, day, week or month) of all your
 publications.
 """
 
@@ -9,7 +9,7 @@ from .api import RadarlyApi
 
 class Distribution(list):
     """
-    List-like object storing the time distribution of some metrics. Each item
+    List-like object storing the distribution over time of some metrics. Each item
     in the list is the statistics for one date. The ``Distribution`` object
     is compatible with ``pandas``.
 
@@ -43,7 +43,7 @@ class Distribution(list):
 
     @classmethod
     def fetch(cls, project_id, parameter, api=None):
-        """Retrieve distribution data from the Radarly's API.
+        """Retrieve distribution data from the Radarly API.
 
         Args:
             project_id (int): identifier of your project

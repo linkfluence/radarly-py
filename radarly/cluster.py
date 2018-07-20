@@ -13,7 +13,7 @@ from .cloud import Cloud
 
 
 class Cluster(SourceModel):
-    """Object which inherits from ``SourceModel`` storing information
+    """Object which inherits from the ``SourceModel`` storing information
     about a cluster"""
     def __init__(self, data, api=None):
         self._api = api or RadarlyApi.get_default_api()
@@ -27,7 +27,7 @@ class Cluster(SourceModel):
 
     @classmethod
     def fetch(cls, project_id, parameter, api=None):
-        """Retrieve clusters from the Radarly's API.
+        """Retrieve clusters from the Radarly API.
 
         Args:
             project_id (int): identifier of your project

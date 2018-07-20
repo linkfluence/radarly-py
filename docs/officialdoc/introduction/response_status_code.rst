@@ -14,4 +14,4 @@ Error
     codes along with some additional information. The error
     code is sent back as a status header. The body includes an
     object describing both the code and message (for debugging
-    and/or display purposes),
+    and/or display purposes).

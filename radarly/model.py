@@ -100,7 +100,7 @@ class SourceModel:
 
 
 class GeneratorModel(ABC):
-    """Generator which yield all items matching some payload.
+    """Generator which yields all items matching some payload.
 
     Args:
         search_param (Parameter): parameter which should contains pagination

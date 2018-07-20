@@ -66,9 +66,9 @@ In order to receive an access token, you must do the following:
 
 1. Direct the user to our authorization url (
    ``https://oauth.linkfluence.com/oauth2/authorize?state=xxx&redirect_uri=xxx&client_id=xxx&response_type=code``
-   ). If the user is not logged in, they will be asked to log in. The user
-   will be asked if they would like to grant your application access to her
-   Radarly data
+   ). If the user is not logged in, they will be asked to do so. The user
+   will be asked if they would like to grant the application access to his or her
+   Radarly data.
 2. The server will redirect the user to a URI of your choice. Take the
    provided code parameter and exchange it for an access token by
    POSTing the code to our access_token endpoint.
@@ -123,7 +123,7 @@ Miscellaneous
 The OAuth 2.0 specification allows you to specify the scope of the access you
 are requesting from the user. All approved apps have a basic access by default,
 but if you plan on asking for extended access such as reading data from social
-networks as posts or reviewss, you will need to specify these scopes in your
+networks as posts or reviews, you will need to specify these scopes in your
 authorization request. Note that in order to use these extended permissions,
 you must first contact us to generate a client. Here are the scopes we
 currently support:
@@ -131,8 +131,8 @@ currently support:
 *listening*
     to read data from social networks as posts, reviews, images…
 *social-performance*
-    to read personal information about registered social network account
-    in Radarly.
+    to read publically available information about registered social network
+    account in Radarly.
 *historical-data*
     to read historical data from social networks as posts, reviews, images…
 
@@ -155,6 +155,6 @@ token in your request. You must provide the token in the HTTP header
     :response: ./requests/response.example.txt
 
 **How to find my client credentials**
-If you want to use our api, and be able to request an access token you
+If you want to use our API, and be able to request an access token you
 first need to contact us to generate an appropriate token to your use case.
 A token validity duration depends on the generated client.

@@ -39,7 +39,7 @@ class GeoGrid(list):
 
     @classmethod
     def fetch(cls, project_id, parameter, api=None):
-        """Retrive geographical distribution from the API.
+        """retrieve geographical distribution from the API.
 
         Args:
             project_id (int): unique identifier of the project

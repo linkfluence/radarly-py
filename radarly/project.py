@@ -215,7 +215,7 @@ class Project(SourceModel):
                 request. If ``None``, the default API will be used.
         Returns:
             Analytics: object storing data retrieved from the API. Each field
-            can be explore with ``pandas``.
+            can be explored with ``pandas``.
         """
         focuses = id_to_value(getattr(self, 'focuses'), 'focuses')
         return Analytics.fetch(getattr(self, 'id'), parameter,
@@ -237,7 +237,7 @@ class Project(SourceModel):
                                   api=api)
 
     def get_cloud(self, parameter, api=None):
-        """Retrieve cloud statistics from the Radarly's API.
+        """Retrieve cloud statistics from the Radarly API.
 
         Args:
             parameter (CloudParameter): parameter used to
@@ -285,7 +285,7 @@ class Project(SourceModel):
                                        api=api)
 
     def get_benchmark(self, parameter, api=None):
-        """Retrieve benchmark information from the Radarly's API.
+        """Retrieve benchmark information from the Radarly API.
 
         Args:
             parameter (BenchmarkParameter): parameter used to configure
@@ -339,7 +339,7 @@ class Project(SourceModel):
         return TopicWheel(categories), Entities(entities)
 
     def get_geogrid(self, parameter, api=None):
-        """Retrive geographical distribution from the API.
+        """retrieve geographical distribution from the API.
 
         Args:
             parameter (GeoParameter): parameter to specify how to
@@ -354,7 +354,7 @@ class Project(SourceModel):
                              api=api)
 
     def get_clusters(self, parameter, api=None):
-        """Retrieve clusters from the Radarly's API.
+        """Retrieve clusters from the Radarly API.
 
         Args:
             parameter (ClusterParameter): parameter to configure

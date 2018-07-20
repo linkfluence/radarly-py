@@ -4,8 +4,8 @@ Social Performance
 
 Get Social Performance
 ^^^^^^^^^^^^^^^^^^^^^^
-This method allows users to get social performance data (twitter, facebook,
-instagram and youtube).
+This method allows users to get social performance data (Twitter, Facebook,
+Instagram, Youtube, Linkedin and Sina Weibo).
 
 **Request**
    ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/performance.json

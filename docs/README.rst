@@ -21,4 +21,4 @@ Sphinx. Follow these steps to build the files:
 
 
 This documentation will be updated as the same time as the client. If you find
-a glitch in the documentation, please contact us at python@linkfuence.com.
+a glitch in the documentation, please contact us at help@linkfuence.com.

@@ -1,5 +1,5 @@
 """
-`radarly-py` : a python client for Radarly's API
+`radarly-py` : a python client for Radarly API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Author: Linkfluence
@@ -10,7 +10,7 @@
 .. _quickstart tutorials: https://api.linkfluence.com/python/quickstart.html#use-cases
 
 This package, developed by Linkfluence is a Python client in order to
-ease interactions with the official REST API of Radarly product. ``radarly-py``
+ease interactions with the official REST API of Radarly products. ``radarly-py``
 was designed in order to be compatible with standard Python objects but also
 with :mod:`pandas` and with the JSON format. You want to transform a pivot table
 into a :class:`pandas.DataFrame`? Make it simply with
@@ -25,18 +25,14 @@ Some information about this package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This package was built by trying to respect the architecture of Radarly. Most
 objects which exists in the product have been translated in the
-client. It may have some differences but there are reported and not
-significant.
-
-.. warning:: Some objects like the dashboard can have minor importances in the
-    client compared with the product.
+client.
 
 
 About the objects
 ^^^^^^^^^^^^^^^^^
 The ``radarly-py`` module uses mainly two kind of objects:
 
-* object which inherits from ``SourceModel`` which only store information.
+* object which inherits from the ``SourceModel`` and stores information.
   The objects ``Project``, ``User``, ``Tag`` or ``Dashboard`` are built on
   this model. These objects aim to give you access to all your qualitative data
   stored in our databases. All objects of this types share some methods as

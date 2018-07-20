@@ -1,8 +1,6 @@
 Introduction
 ============
 
-Introduction text
-
 .. include:: /officialdoc/introduction/getting_started.rst
 .. include:: /officialdoc/introduction/assumptions.rst
 .. include:: /officialdoc/introduction/convention.rst

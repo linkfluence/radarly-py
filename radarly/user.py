@@ -10,8 +10,8 @@ from .project import InfoProject
 
 
 class User(SourceModel):
-    """Object used to explore user informations returned by the API. Given that
-    this object inherits from ``SourceModel``, you can get the structure of the
+    """Object used to explore user information returned by the API. Given that
+    this object inherits from the ``SourceModel``, you can get the structure of the
     object with the ``draw_structure`` method.
 
     Examples:

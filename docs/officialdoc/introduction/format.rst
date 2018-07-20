@@ -10,7 +10,7 @@ data types:
 * ``array``
 * ``dictionary`` or ``hash``
 
-In the documentation, we define also some kind of specific types:
+In the documentation, we define also certain specific types:
 
 * ``int`` - an integer number
 * ``datetime`` - ISO-8601 datetime format in a string, eg.

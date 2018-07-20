@@ -41,7 +41,7 @@ class Benchmark(dict):
 
     @classmethod
     def fetch(cls, project_id, parameter, api=None):
-        """Retrieve benchmark information from the Radarly's API.
+        """Retrieve benchmark information from the Radarly API.
 
         Args:
             project_id (int): identifier of your project where information is

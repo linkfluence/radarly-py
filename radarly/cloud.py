@@ -40,7 +40,7 @@ class Cloud(dict):
 
     @classmethod
     def fetch(cls, project_id, parameter, api=None):
-        """Retrieve cloud data from the Radarly's API.
+        """Retrieve cloud data from the Radarly API.
 
         Args:
             project_id (int): identifier of your project.
