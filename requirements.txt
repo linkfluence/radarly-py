@@ -1,5 +1,5 @@
 pycountry==18.2.23
 pytz==2018.3
-requests==2.18.4
+requests==2.20.0
 lxml==4.2.0
 python-dateutil
