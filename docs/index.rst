@@ -7,7 +7,6 @@
 Welcome to the Radarly API documentation!
 =========================================
 
-
 .. include:: toc/officialdoc.rst
 .. include:: toc/python.rst
 .. include:: toc/indices.rst

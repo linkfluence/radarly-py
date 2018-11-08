@@ -6,91 +6,245 @@ Content-Type: application/json
 Content-Length: 862
 
 {
-   "took" : 2,
-   "total" : 2332,
-   "hits" : [
-      {
-         "text" : "Hungry? Get free cupcakes and nice Social Media Monitoring Solutions on H6G031 #linkfluence
-            #dmexco #Dmexco2015 http://t.co/EcQhNltkSq",
-         "sscore" : 0,
-         "idStr" : "644416829281189889",
-         "inReplyToStatusIdStr" : "-1",
-         "lang" : "en",
-         "externalUrl" : "http://t.co/EcQhNltkSq",
-         "keyword" : [
-            "linkfluence",
-            "dmexco",
-            "dmexco2015"
-         ],
-         "inReplyToStatusId" : -1,
-         "uid" : "r3_prod_3-644416829281189889",
-         "rawScore" : 0,
-         "geo" : {
-            "inferred" : {
-               "admin1" : "null",
-               "cid" : "null",
-               "country" : "XX",
-               "location" : "null"
-            },
-            "given" : {
-               "location" : "null",
-               "admin1" : "null",
-               "cid" : "null",
-               "country" : "XX"
-            }
-         },
-         "tone" : "neutral",
-         "id" : 644416829281189889,
-         "retweet" : "null",
-         "isRT" : false,
-         "date" : "2015-09-17T07:45:19.000Z",
-         "hashtag" : [
-            "linkfluence",
-            "dmexco",
-            "Dmexco2015"
-         ],
-         "score" : {
-            "favourite" : "null",
-            "rt" : 1,
-            "reply" : "null"
-         },
-         "user" : {
-            "geo" : {
-               "location" : "null",
-               "country" : "XX",
-               "cid" : "null",
-               "admin1" : "null"
-            },
-            "profileImg" : "http://pbs.twimg.com/profile_images/590057333029478400/sx5Lfvyk_normal.png",
-            "followers" : 456,
-            "gender" : "null",
-            "screenName" : "linkfluenceDE",
-            "name" : "linkfluenceDE",
-            "id" : 1376110370
-         },
-         "focuses" : [],
-         "origin" : {
-            "source" : "twitter",
-            "platform" : "twitter",
-            "detailed" : "stream"
-         },
-         "mention" : [],
-         "media" : {
-            "presentation" : [],
-            "image" : [
-               "http://pbs.twimg.com/media/CPFtr1wWwAEgano.jpg"
-            ],
-            "video" : "null"
-         },
-         "radar" : {
-            "updated" : "2015-09-17T07:45:20.000Z",
-            "tag" : "null",
-            "created" : "2015-09-17T07:45:20.000Z",
-            "trash" : false,
-            "favorite" : false
-         },
-         "permalink" : "https://twitter.com/linkfluenceDE/status/644416829281189889"
+  "took": 141,
+  "total": 514652,
+  "hits": [
+    {
+      "permalink": "https://www.instagram.com/p/Bp7sHnul341/",
+      "uid": "r3_prod_57-1908312904861974069_2075472024",
+      "type": "instagram",
+      "text": "Got em! As usual thanks to @stockx 💥💥 #bahrain #q8 #uk #usa #nyc #la #losangeles #doha #qatar #newyork #newyorkcity #ny #uae #dxb #london #hypebeast #kuwait #dubai #hype #nike #kicks #sneakers #sneakerheads #nikesb #diamondsupplyco #sneakercheck #stockx",
+      "lang": "en",
+      "date": "2018-11-08T20:24:07.000Z",
+      "keyword": [],
+      "radar": {
+        "favorite": false,
+        "trash": false,
+        "created": "2018-11-08T20:25:29.000Z",
+        "updated": "2018-11-08T20:25:29.000Z",
+        "userUpdated": null,
+        "tag": {
+          "user": [],
+          "custom": {
+            "Legging brands": [
+              "Nike"
+            ]
+          }
+        },
+        "focus": [
+          79336,
+          190130
+        ]
       },
-   ],
-   "stats" : {}
+      "origin": {
+        "source": "instagram",
+        "detailed": "search",
+        "platform": "instagram"
+      },
+      "tone": "positive",
+      "emotion": [
+        "joy"
+      ],
+      "category": null,
+      "user": {
+        "id": 2075472024,
+        "idStr": "2075472024",
+        "name": "STAY WOKE",
+        "screenName": "simontheinstigator",
+        "gender": null,
+        "profileImg": "https://scontent.cdninstagram.com/t51.2885-19/s150x150/14368964_230918757351993_383509217681604608_a.jpg",
+        "followers": 1668,
+        "birthDate": null,
+        "verified": null,
+        "accountType": "business",
+        "businessId": 17841401920739434
+      },
+      "impression": 1668,
+      "reach": 250,
+      "geo": {
+        "given": {
+          "country": "xx",
+          "location": null,
+          "cid": null,
+          "admin1": null
+        },
+        "inferred": {
+          "country": "xx",
+          "location": null,
+          "cid": null,
+          "admin1": null
+        }
+      },
+      "affects": [
+        "positive.usual.thanks"
+      ],
+      "score": null,
+      "engagementScore": null,
+      "media": {
+        "video": [],
+        "image": [
+          "https://scontent.cdninstagram.com/vp/ee25a54aaac58f75356f1617e1c63e2d/5C677473/t51.2885-15/sh0.08/e35/s640x640/44305117_172541610357077_4567250830484408418_n.jpg"
+        ],
+        "meta": null
+      },
+      "id": "1908312904861974069_2075472024",
+      "isStory": false,
+      "focuses": [
+        79336
+      ]
+    },
+    {
+      "permalink": "https://www.instagram.com/p/Bp7sDPDAJjz/",
+      "uid": "r3_prod_57-1908312603482953971_9199264153",
+      "type": "instagram",
+      "text": "Squad of the week⚽️🦄🔥\nFollow fifachampionsleague01⚽️🦄🔥💫🇦🇷🇫🇷🇮🇹🇪🇸🎉 #football #soccer #skills #mood #fun #fifa19 #foot #championsleague #easport #adidas #nike #fut #love #2018 #monde #resultat",
+      "lang": "en",
+      "date": "2018-11-08T20:23:31.000Z",
+      "keyword": [],
+      "radar": {
+        "favorite": false,
+        "trash": false,
+        "created": "2018-11-08T20:24:01.000Z",
+        "updated": "2018-11-08T20:24:01.000Z",
+        "userUpdated": null,
+        "tag": {
+          "user": [],
+          "custom": {
+            "Legging brands": [
+              "Nike"
+            ]
+          }
+        },
+        "focus": [
+          378,
+          425,
+          79336,
+          190130
+        ]
+      },
+      "origin": {
+        "source": "instagram",
+        "detailed": "search",
+        "platform": "instagram"
+      },
+      "tone": "positive",
+      "emotion": [
+        "joy"
+      ],
+      "category": "sport.football",
+      "user": {
+        "id": null,
+        "idStr": "",
+        "name": null,
+        "screenName": "fifachampionsleague01",
+        "gender": null,
+        "profileImg": null,
+        "followers": 0,
+        "birthDate": null,
+        "verified": null,
+        "accountType": "undetected",
+        "businessId": null
+      },
+      "impression": null,
+      "reach": null,
+      "geo": {
+        "given": {
+          "country": "xx",
+          "location": null,
+          "cid": null,
+          "admin1": null
+        },
+        "inferred": {
+          "country": "xx",
+          "location": null,
+          "cid": null,
+          "admin1": null
+        }
+      },
+      "affects": null,
+      "score": null,
+      "engagementScore": null,
+      "media": {
+        "video": [],
+        "image": [
+          "https://scontent.cdninstagram.com/vp/325e4c9002826cbdfa6409dfcb61d2ad/5C66F1E1/t51.2885-15/sh0.08/e35/p640x640/43367908_568507353580217_2208684787578686353_n.jpg"
+        ],
+        "meta": null
+      },
+      "id": "1908312603482953971_9199264153",
+      "isStory": false,
+      "focuses": [
+        79336
+      ]
+    },
+    {
+      "permalink": "http://esnoticiapr.com/empresas-y-mercados/#comment-644638",
+      "uid": "r3_prod_57-com.esnoticiapr/empresas-y-mercados/#comment-644638",
+      "text": "\nair max thea se bling wanelo.co\n\n\nnike lebron 11 blackout.pngmonthly delivery subscriptions wanelo.cocrystal converse edison chen stripenike air jordan max crystal\n\n",
+      "type": "web",
+      "lang": "en",
+      "tone": "neutral",
+      "emotion": [],
+      "category": null,
+      "date": "2018-11-08T20:22:40.000Z",
+      "keyword": [],
+      "radar": {
+        "favorite": false,
+        "trash": false,
+        "created": "2018-11-08T20:24:42.000Z",
+        "updated": "2018-11-08T20:24:42.000Z",
+        "userUpdated": null,
+        "tag": {
+          "user": [],
+          "custom": {
+            "Legging brands": [
+              "Nike"
+            ]
+          }
+        },
+        "focus": [
+          369,
+          79336,
+          190130
+        ]
+      },
+      "origin": {
+        "source": "yak",
+        "detailed": "feed",
+        "platform": "comment"
+      },
+      "title": "Comentario en Empresas y Mercados por air max thea se bling wanelo.co",
+      "url": {
+        "reversed": "com.esnoticiapr/empresas-y-mercados/#comment-644638",
+        "normalized": "http://esnoticiapr.com/empresas-y-mercados/#comment-644638",
+        "terminal": "http://esnoticiapr.com/empresas-y-mercados/#comment-644638",
+        "site": {
+          "reversed": "com.esnoticiapr",
+          "url": "http://esnoticiapr.com",
+          "siteType": "comment"
+        }
+      },
+      "namedEntity": null,
+      "affects": null,
+      "engagementScore": null,
+      "geo": {
+        "given": null,
+        "inferred": {
+          "country": "xx",
+          "location": null,
+          "cid": null,
+          "admin1": null
+        }
+      },
+      "media": null,
+      "focuses": [
+        79336
+      ],
+      "impression": null,
+      "reach": null,
+      "pageRank": 0,
+      "story": null
+    }
+  ],
+  "stats": {}
 }

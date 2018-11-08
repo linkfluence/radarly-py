@@ -1,6 +1,16 @@
 Publication
 ~~~~~~~~~~~
 
+.. Warning::
+	Restriction on Document Output
+	Depending to the type of the document, the list of available fields can differs. 
+	The search route will always returns all the available fields. 
+	The reason a field may not be available to a document are the following:
+		* You are not granted to access this information. Some platforms restrict access to meta-data to the owner or to the recipient of the post.
+		* The platform does not allow us in its terms of use to return all the content through our own APIs. For instance, Twitter is restricting the content to be distributed through APIs to only Tweet IDs, Direct Message IDs, and/or User IDs.
+	
+	To know more about the subject and to learn how to access restricted data, consider reading the :doc:`/officialdoc/architecture/documentoutput` section
+
 Search Publications
 ^^^^^^^^^^^^^^^^^^^
 

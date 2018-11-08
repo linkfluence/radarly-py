@@ -34,3 +34,4 @@ Explore the API
    /officialdoc/architecture/publication.rst
    /officialdoc/architecture/socialperformance.rst
    /officialdoc/architecture/influencer.rst
+   /officialdoc/architecture/documentoutput.rst
