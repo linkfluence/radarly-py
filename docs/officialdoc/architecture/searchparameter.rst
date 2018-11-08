@@ -47,9 +47,12 @@ All parameters are optional except where noted.
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |        verified             |  bool      | Restricts to author with certified accounts true or not verified false  |
 +------------+----------------+------------+-------------------------------------------------------------------------+
-|        tones                |  array     | Restricts to the given tones: positive, negative, neutral, mixed        |
+|        tones                |  array     | Restricts to the given tones: `positive`, `negative`, `neutral`, `mixed |
 +------------+----------------+------------+-------------------------------------------------------------------------+
-|        media                |  array     | Restricts to the given media types:image or video                       |
+|        emotions             |  array     | Restricts to the given emotions: `joy`, `love`, `surprise`, `fear`      |
+|                             |            | `anger`, `disgust`,  `sadness`                                          |
++------------+----------------+------------+-------------------------------------------------------------------------+
+|        media                |  array     | Restricts to the given media types: `image` or `video`                  |
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |            | hashtags       |    array   | Restrics to the given hashtags                                          |
 +            +----------------+------------+-------------------------------------------------------------------------+

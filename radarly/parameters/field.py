@@ -480,6 +480,19 @@ class ToneMixin:
         self.update(tones=list(tone_list))
         return self
 
+class EmotionMixin:
+    """Field used to build the *emotions* parameter in the payload data"""
+    def emotions(self, *emotion_list):
+        """Restricts to the given emotions. All available emotions are given in
+        the `emotions` object of the `constants` module.
+
+        Args:
+            *emotion_list (string):
+        """
+        TONE.check(emotion_list)
+        self.update(emotions=list(emotion_list))
+        return self
+
 
 class StandardParameterMixin(QueryMixin,
                              PlatformMixin,

@@ -22,6 +22,7 @@ __all__ = [
     'ORDER',
     'PLATFORM',
     'TONE',
+    'EMOTION'
 ]
 
 
@@ -104,6 +105,16 @@ class TONE(CheckerMixin):
     POSITIVE = 'positive'
 
 
+class EMOTION(CheckerMixin):
+    """Emotion of a publication given by our algorithms"""
+    JOY = 'joy'
+    LOVE = 'love'
+    SURPRISE = 'surprise'
+    FEAR = 'fear'
+    ANGER = 'anger'
+    DISGUST = 'disgust'
+    FEAR = 'sadness'
+
 class MEDIA(CheckerMixin):
     """Media's type of publications"""
     IMAGE = 'image'
@@ -160,7 +171,6 @@ class CLOUD_FIELD(CheckerMixin): # pylint: disable=C0103
 class ANALYTICS_FIELD: # pylint: disable=C0103
     """Kind of analytics you want to retrieve when you ask statistics
     about a query or set of queries."""
-    BUYING_CRITERIA = 'Buying criteria'
     CATEGORIES = 'categories'
     COUNTRIES = 'countries'
     DEMOGRAPHY = 'demography'
@@ -174,6 +184,7 @@ class ANALYTICS_FIELD: # pylint: disable=C0103
     OPERATING_SYSTEMS = 'operatingSystems'
     PLATFORMS = 'platforms'
     TONES = 'tones'
+    EMOTIONS = 'emotions'
 
 
 class METRIC(CheckerMixin):
