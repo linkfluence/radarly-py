@@ -47,7 +47,7 @@ All parameters are optional except where noted.
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |        verified             |  bool      | Restricts to author with certified accounts true or not verified false  |
 +------------+----------------+------------+-------------------------------------------------------------------------+
-|        tones                |  array     | Restricts to the given tones: `positive`, `negative`, `neutral`, `mixed |
+|        tones                |  array     | Restricts to the given tones: `positive`, `negative`, `neutral`, `mixed`|
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |        emotions             |  array     | Restricts to the given emotions: `joy`, `love`, `surprise`, `fear`      |
 |                             |            | `anger`, `disgust`,  `sadness`                                          |
@@ -90,6 +90,22 @@ All parameters are optional except where noted.
 | geo        +----------------+------------+-------------------------------------------------------------------------+
 |            | list           |  array     | List of items following geo.type - fr, gb; Restricts to the given       |
 |            |                |            | languages, given by an ISO 3166-1 alpha-2)                              |
++------------+----------------+------------+-------------------------------------------------------------------------+
+|            |                | array of   | Defines a geo polygon to filter on.                                     |
+|            |                | lat/lon    |                                                                         |                            
+| geoFilter  | filterPolygon  | objects    | Example::                                                               |
+|            |                |            |                                                                         |
+|            |                |            |     {"geoFilter": { "filterPolygon":                                    |
+|            |                |            |         [{"lon": 0.400344, "lat": 48.98236987}                          |
+|            |                |            |         {"lon": 0.6132404, "lat": 47.47567007},                         |
+|            |                |            |         {"lon": 2.5958299, "lat": 47.43068309},                         |
+|            |                |            |         {"lon": 2.7954194, "lat": 47.79844068}]}                        |
+|            |                |            |     }                                                                   |
++------------+----------------+------------+-------------------------------------------------------------------------+
+|            | geoLocations   |  array     | List of geoLocation ID as registered in Radarly settings                |
+| geoArea    +----------------+------------+-------------------------------------------------------------------------+
+|            | geoTags        | array      | List of geoTag ID as registered in Radarly settings                     |
+|            |                |            |                                                                         |
 +------------+----------------+------------+-------------------------------------------------------------------------+
 |        focuses              |  array     | List of the Radarly registred query ids you want to search into         |
 +------------+----------------+------------+-------------------------------------------------------------------------+
