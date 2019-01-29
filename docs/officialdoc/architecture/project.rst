@@ -9,7 +9,7 @@ information about the project.
 
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid.json
 **Headers**
    * *Authorization*: Bearer XXX
 

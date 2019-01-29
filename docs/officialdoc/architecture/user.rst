@@ -9,7 +9,7 @@ the list of available projects.
 
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/users.json
+   ``GET`` https://radarly.linkfluence.com/1.1/users.json
 **Headers**
    * *Authorization*: Bearer XXX
 

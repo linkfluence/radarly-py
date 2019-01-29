@@ -17,7 +17,7 @@ about a query or a set of queries:
 It sends back a global JSON document with all the distributions broken down by keyword types.
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/insights/cloud.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/insights/cloud.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -51,7 +51,7 @@ distributions and information about the locations (name, lang, lat,
 lng, population, etc…)
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/insights/geo/:type.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/insights/geo/:type.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -84,7 +84,7 @@ This method allows users to retrieve publications volume/impression/reach
 distribution. Sends back a global JSON document with all the distributions.
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/inbox/distribution.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/inbox/distribution.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -126,7 +126,7 @@ This method allows users to retrieve all the statistics about a query or a set o
 
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/inbox/insights.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/inbox/insights.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -162,7 +162,7 @@ This method allows users to retrieve all the clusters of publications
 
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/inbox/stories.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/inbox/stories.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -193,7 +193,7 @@ Get Publications Topics
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/topicwheel.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/topicwheel.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**

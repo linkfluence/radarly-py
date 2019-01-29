@@ -8,7 +8,7 @@ This method allows users to get an influencer’s metrics and information. It se
 back the metrics and the user information, depending of the platform.
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/influencer.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid/influencer.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -39,7 +39,7 @@ This method allows to retrieve the influencers for a set of publications.
 It sends back users.
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/influencers.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/influencers.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -75,7 +75,7 @@ Add an Influencer to a Corpus
 This method allows to add an influencer to a corpus.
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/corpora/:cid/sources.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/corpora/:cid/sources.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -120,7 +120,7 @@ Set Influencer Tag
 This method allows users to set a tag on an influencer.
 
 **Request**
-   ``PUT`` https://radarly.linkfluence.com/1.0/projects/:pid/influencers/tags.json
+   ``PUT`` https://radarly.linkfluence.com/1.1/projects/:pid/influencers/tags.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**

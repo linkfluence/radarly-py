@@ -17,7 +17,7 @@ Search Publications
 This method allows users to search for publications.
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/inbox/search.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/inbox/search.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -59,7 +59,7 @@ This method allows users to get publication's metadata.
 
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/documents.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid/documents.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -85,7 +85,7 @@ This method allows users to set a tag on a document. The response is a
 confirmation of the new document values.
 
 **Request**
-   ``POST`` https://radarly.linkfluence.com/1.0/projects/:pid/documents.json
+   ``POST`` https://radarly.linkfluence.com/1.1/projects/:pid/documents.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -128,7 +128,7 @@ html tags in both title and text results : ``<hl class="focus-6">...</hl>``
 
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/raw.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid/raw.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -158,7 +158,7 @@ the metrics of the publication.
 
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/raw-metrics.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid/raw-metrics.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**

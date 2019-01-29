@@ -1,4 +1,4 @@
-POST /1.0/projects/3/insights/cloud.json HTTP/1.1
+POST /1.1/projects/3/insights/cloud.json HTTP/1.1
 Host: radarly.linkfluence.com
 Content-Type: application/json
 Authorization: Bearer XXX

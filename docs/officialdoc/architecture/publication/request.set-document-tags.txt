@@ -1,4 +1,4 @@
-POST /1.0/projects/2/documents/raw.json?uid=r3_prod_2-com.wordpress.onstageleblog%2F2017%2F05%2F01%2Figit-poetise-ses-chansons-sur-scene%2F&platform=blog&fctx=93066%2C6 HTTP/1.1
+POST /1.1/projects/2/documents/raw.json?uid=r3_prod_2-com.wordpress.onstageleblog%2F2017%2F05%2F01%2Figit-poetise-ses-chansons-sur-scene%2F&platform=blog&fctx=93066%2C6 HTTP/1.1
 Host: radarly.linkfluence.com
 Content-Type: application/json
 Authorization: Bearer XXX

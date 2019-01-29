@@ -8,7 +8,7 @@ This method allows users to get social performance data (Twitter, Facebook,
 Instagram, Youtube, Linkedin and Sina Weibo).
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/performance.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid/performance.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**
@@ -39,7 +39,7 @@ Get Benchmark Statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Request**
-   ``GET`` https://radarly.linkfluence.com/1.0/projects/:pid/benchmark.json
+   ``GET`` https://radarly.linkfluence.com/1.1/projects/:pid/benchmark.json
 **Headers**
    * *Authorization*: Bearer XXX
 **Path Parameter**

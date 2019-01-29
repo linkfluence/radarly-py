@@ -1,3 +1,3 @@
-GET /1.0/projects/3/documents/zen.json?uid=r3_prod_3-fr.lesechos.marketingclient%2Fsante%2Fpres-de-trois-francais-sur-quatre-prets-a-acheter-des-medicaments-sur-internet_a-56-212.html&fctx=18 HTTP/1.1
+GET /1.1/projects/3/documents/zen.json?uid=r3_prod_3-fr.lesechos.marketingclient%2Fsante%2Fpres-de-trois-francais-sur-quatre-prets-a-acheter-des-medicaments-sur-internet_a-56-212.html&fctx=18 HTTP/1.1
 Host: radarly.linkfluence.com
 Authorization: Bearer XXX
