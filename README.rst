@@ -17,7 +17,7 @@ radarly-py
 
 
 :Author: Linkfluence
-:Version: 1.0.8
+:Version: 1.0.9
 
 
 
