@@ -38,7 +38,7 @@ How to display a Tweet on a website using the Tweet id
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is possible to display a tweet using Twitter tools:
-	#. the Javascript API and the id of a tweet: `Javascript API <https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview>`_.
+	#. the Javascript API and the id of a tweet: `Twitter Javascript API <https://developer.twitter.com/en/docs/twitter-for-websites/overview>`_.
 	#. the Oembed API and the url of a tweet: `GET statuses/oembed <https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed>`_.
 
 How to access the content of a Tweet or an Author using a list of Ids
@@ -47,5 +47,10 @@ How to access the content of a Tweet or an Author using a list of Ids
 It is possible to *access the content of a tweet or an author* by using the Twitter API.
 	#. First, you need to register and create an app on the `Twitter Developer Website <https://developer.twitter.com/en/docs.html#/>`_.
 	#. Using your app and credentials, you will be able to access:
-		* Tweet Content by providing up to 100 tweet ids per calls using: `GET statuses/lookup <https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup/>`_. (A user object is included as Author of a Tweet object)
-		* User Content by providing up to 100 user ids per calls using: `GET users/lookup <https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup/>`_. 
+		* Tweet Content by providing up to 100 tweet ids per calls using: `GET statuses/lookup <https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup>`_. (A user object is included as Author of a Tweet object)
+		* User Content by providing up to 100 user ids per calls using: `GET users/lookup <https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup>`_. 
+	#. The number of tweets you can retrieve using this methods will be affected by the rate-limit implemented by twitter in its API. 
+
+	**How to evaluate the max number of tweets to be retrieved**:
+		``100 tweets per request * 900 calls per 15min Windows (by using user_auth) = 90 000 tweets per 15min``
+		``90 000 Tweets per 15 min * 4 (one hour) * 24 (one day) = 8 640 000 tweets per day``
