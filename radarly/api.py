@@ -206,7 +206,10 @@ class RadarlyApi: # pylint: disable=R0902
 
         self.rates.update(url, res.headers)
 
-        return _decoder(res.json(), blacklist=_BLACKLIST_PATH)
+        if 'inbox/searchQuery.json' in url:
+            return res.json()
+        else:
+            return _decoder(res.json(), blacklist=_BLACKLIST_PATH)
 
     def get(self, url, **kwargs):
         """Shortcut for the ``request`` method with 'GET' as verb.
