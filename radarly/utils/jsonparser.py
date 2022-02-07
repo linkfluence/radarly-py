@@ -22,11 +22,11 @@ _BLACKLIST_PATH = [
 def decode_value(value, key=None):
     """Try to convert a string into a specific Python object"""
     pattern_date = re.compile(
-        r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z'
+        r'^ *\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z *$'
     )
 
     if isinstance(value, str) and pattern_date.match(value):
-        return parse(value, ignoretz=True)
+        return parse(value.strip(), ignoretz=True)
     elif key == 'timezone' and value in pytz.all_timezones_set:
         return pytz.timezone(value)
 
