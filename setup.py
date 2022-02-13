@@ -14,7 +14,8 @@ def readme():
 
 
 setup(
-    name='radarly-py',
+    # name='radarly-py',
+    name='adriamanu-test-radarly',
     version='1.0.9',
     description="Python client for Radarly API",
     long_description=readme(),

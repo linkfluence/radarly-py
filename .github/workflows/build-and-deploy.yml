@@ -1,0 +1,25 @@
+
+name: Build and deploy
+on:
+  push:
+    # branches: [master]
+    branches: ['*']
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.4'
+      - name: Install dependencies
+        run: |
+          pip install build
+          python3 -m build
+
+      - name: Publish radarly-py to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
