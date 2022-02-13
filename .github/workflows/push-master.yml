@@ -1,0 +1,19 @@
+# Ensure that package can be build and deployed before sending it to PyPi
+name: Build and deploy to TestPyPi and PyPi when a push occurs on master
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/build-package
+      - uses: ./.github/actions/testpypi
+        with:
+          token: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      - uses: ./.github/actions/pypi
+        with:
+          token: ${{ secrets.PYPI_API_TOKEN }}
