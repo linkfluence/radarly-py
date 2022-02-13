@@ -1,0 +1,16 @@
+name: Deploy to pypi
+description: Deploy the package to pypi using twine github action
+
+inputs:
+  token:
+    description: 'PyPi token'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Publish radarly-py to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ inputs.token }}
+        repository_url: https://pypi.org/legacy/

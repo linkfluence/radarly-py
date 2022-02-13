@@ -1,0 +1,19 @@
+name: Deploy to pypi
+description: Deploy the package to pypi using twine github action
+
+inputs:
+  token:
+    description: 'TestPyPi token'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Publish radarly-py to TestPyPi
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ inputs.token }}
+        repository_url: https://test.pypi.org/legacy/
+        # This setting allows twine to not raise error when a file already exists on the repository
+        # It allow idempotency for this step, it is disabled on the pypi step in order to keep the package consistent.
+        skip_existing: true
