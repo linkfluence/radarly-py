@@ -1,0 +1,10 @@
+name: Compare versions
+description: Compare current version with latest version hosted on pypi
+
+runs:
+  using: "composite"
+  steps:
+    - name: Compare version from setup.py and pypi
+      shell: bash
+      run: |
+        bash check-version.sh

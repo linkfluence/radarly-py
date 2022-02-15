@@ -1,0 +1,14 @@
+name: Build radarly-py package
+description: Build the package using python3
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      shell: bash
+      run: |
+        pip install build
+        python3 -m build

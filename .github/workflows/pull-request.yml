@@ -1,0 +1,19 @@
+# Ensure that package can be build and deployed to TestPyPi when a PR is opened
+name: Build and deploy to TestPyPi on pull request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/versions
+      - uses: ./.github/actions/build-package
+      - uses: ./.github/actions/testpypi
+        with:
+          token: ${{ secrets.TEST_PYPI_API_TOKEN }}
