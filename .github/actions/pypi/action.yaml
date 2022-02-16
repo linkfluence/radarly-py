@@ -13,4 +13,3 @@ runs:
       with:
         user: __token__
         password: ${{ inputs.token }}
-        repository_url: https://pypi.org/legacy/
