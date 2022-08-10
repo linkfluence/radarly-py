@@ -95,6 +95,7 @@ class PLATFORM(CheckerMixin):
     WECHAT = 'wechat'
     YOUKU = 'youku'
     YOUTUBE = 'youtube'
+    TIKTOK = 'tiktok'
 
 
 class TONE(CheckerMixin):
