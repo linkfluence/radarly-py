@@ -97,6 +97,7 @@ class PLATFORM(CheckerMixin):
     YOUTUBE = 'youtube'
     TIKTOK = 'tiktok'
     LITTLEREDBOOK = 'littleredbook'
+    PINTEREST = 'pinterest'
 
 
 class TONE(CheckerMixin):
