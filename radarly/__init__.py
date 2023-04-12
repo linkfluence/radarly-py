@@ -3,7 +3,7 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Author: Linkfluence
-:Version: 1.0.15
+:Version: 1.0.16
 :Licence: Apache-2.0
 
 .. _official documentation: https://api.linkfluence.com
