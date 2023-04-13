@@ -98,6 +98,7 @@ class PLATFORM(CheckerMixin):
     TIKTOK = 'tiktok'
     LITTLEREDBOOK = 'littleredbook'
     PINTEREST = 'pinterest'
+    DOUYIN = 'douyin'
 
 
 class TONE(CheckerMixin):
